@@ -18,11 +18,9 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
 - Expectations
 - Work Styles : 
   Nat : home codeur
-  Kyoko & Marie : 9am - 8pm codeurs
-  We will split research in teams of ones. We acknoledge that we are more efficient are a fluid team with pairing opportunities on harder to tackle challenges.
+  Kyoko & Marie : 9am - 8pm codeurs. We will split research in teams of ones. We acknoledge that we are more efficient are a fluid team with pairing opportunities on harder to tackle challenges.
 - Personalities snippet
-- Declarations
-  Remember to ask for help before the problem becomes painful. Don't stay stuck. Take breaks. Keep it entertaining. Learn the tech.
+- Declarations : Remember to ask for help before the problem becomes painful. Don't stay stuck. Take breaks. Keep it entertaining. Learn the tech.
 
 # Team Focus
 - Project Owner : Marie
