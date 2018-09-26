@@ -43,6 +43,7 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
       
 - Stretch
 - Wireframe
+<img src='https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/public/images/Main.png?raw=true'>
 - Libraries
 - Timeline
 
