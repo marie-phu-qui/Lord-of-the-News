@@ -42,8 +42,7 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
         - Other Text AI : <a href='http://fido.ai/'>FIDO.AI</a> is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.\
       
 - Stretch
-- Wireframe
-<img src='https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/public/images/Main.png?raw=true'>
+- Wireframes <a href https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes </a>
 - Libraries
 - Timeline
 
