@@ -32,12 +32,12 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
   - The API does change the text to a Lord of the Ring narrative that is still fitting in english conformity. 
 - Planning
   - Wednesday
-    Research : 
-      Natural Language Processing tool : <a href='https://github.com/spencermountain/compromise'>Compromise</a> 
-      Open source machine learning framework : <a href='https://github.com/tensorflow/tensorflow'>Tensorflow</a>
-      Machine learning Software : Weka, develloped by the University of Waikato
-      Creative AI to write horror stories : <a href='http://shelley.ai/'>Shelley</a>, by the MIT media team
-      other Text AI : <a href='http://fido.ai/'>FIDO.AI</a>, is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.
+    Research : \
+       Natural Language Processing tool  : <a href='https://github.com/spencermountain/compromise'>Compromise</a> \
+       Open source machine learning framework  : <a href='https://github.com/tensorflow/tensorflow'>Tensorflow</a>\
+       Machine learning Software  : Weka, develloped by the University of Waikato\
+       Creative AI to write horror stories  : <a href='http://shelley.ai/'>Shelley</a>, by the MIT media team \
+       Other Text AI : <a href='http://fido.ai/'>FIDO.AI</a> is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.\
       
 - Stretch
 - Wireframe
