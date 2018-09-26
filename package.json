@@ -1,0 +1,15 @@
+{
+  "name": "Lord-of-the-News",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marie-phu-qui/Lord-of-the-News.git",
+  "author": "marie.nguyen.phu.aui@gmail.com <marie-phu-qui>",
+  "license": "Apache 2.0",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.3",
+    "knex": "^0.15.2",
+    "nodemon": "^1.18.4",
+    "sqlite3": "^4.0.2"
+  }
+}
