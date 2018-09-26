@@ -8,17 +8,21 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
 
 ## We want more - can we do more ? :
 - We enjoy Lord of the ring so much and our AI is such a talented writter - the whole web should be such a pleasure to read.
-Say no more - we intend to be building a Chrome extension to transpile every bit of english sentence to this enjoyable adventure.
+  - Say no more - we intend to be building a Chrome extension to transpile every bit of english sentence to this enjoyable adventure.
 
 - Elvish is great - Tolkien is also the whole building of another language, talent, greatness... I want to see elvish on my screen and I want it as Tolkien would have done it. Lord of the News can you do it ?
-We sure can try to bring it to you. We will be stretching our AI to detect foreign language (not english) on your page to be of elvishish beauty. 
+  - We sure can try to bring it to you. We will be stretching our AI to detect foreign language (not english) on your page to be of elvishish beauty. 
 
 ## Planning
 # Team
 - Expectations
-- Work Styles
-- Personalities
+- Work Styles : 
+  Nat : home codeur
+  Kyoko & Marie : 9am - 8pm codeurs
+  We will split research in teams of ones. We acknoledge that we are more efficient are a fluid team with pairing opportunities on harder to tackle challenges.
+- Personalities snippet
 - Declarations
+  Remember to ask for help before the problem becomes painful. Don't stay stuck. Take breaks. Keep it entertaining. Learn the tech.
 
 # Team Focus
 - Project Owner : Marie
