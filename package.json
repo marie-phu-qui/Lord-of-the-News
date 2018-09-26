@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/marie-phu-qui/Lord-of-the-News.git",
   "author": "marie.nguyen.phu.aui@gmail.com <marie-phu-qui>",
-  "license": "Apache 2.0",
+  "license": "ISC",
   "private": false,
   "scripts": {
     "start": "node server",
@@ -18,7 +18,7 @@
     "knex": "^0.15.2",
     "nodemon": "^1.18.4",
     "sqlite3": "^4.0.2",
-    "superagent": "^4.0.0-beta.5",
+    "superagent": "^^3.8.2",
     "webpack": "^4.20.2"
   },
   "devDependencies": {
