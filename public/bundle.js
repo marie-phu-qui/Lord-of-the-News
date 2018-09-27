@@ -394,7 +394,7 @@ var ArticleList = function (_React$Component) {
           return _react2.default.createElement(_Article2.default, {
             key: i++,
             title: _this2.state.language(article.title),
-            content: _this2.state.language(article.content),
+            content: article.content ? _this2.state.language(article.content) : article.content,
             url: article.url });
         })
       );
