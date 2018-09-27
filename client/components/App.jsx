@@ -3,6 +3,7 @@ import request from 'superagent';
 
 import Header from "./Header";
 import ArticleList from "./ArticleList";
+import Footer from './Footer';
 
 // import { getNews } from '../utils/api'
 
@@ -34,8 +35,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <button onClick={this.transGollum}>GOLLUM</button>
+        {/* <button onClick={this.transGollum}>GOLLUM</button> */}
         <ArticleList />
+        <Footer />
       </React.Fragment>
     )
   }
