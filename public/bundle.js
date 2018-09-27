@@ -40664,9 +40664,26 @@ var dictionary = (_dictionary = {
 //   // }
 var matchDict = function matchDict(compromiseNazgul) {
   nlp(compromiseNazgul).list.map(function (terms) {
-    console.log(terms.terms.map(function (text) {
-      console.log(text._text);
-    }));
+    terms.terms.map(function (text) {
+      // console.log(text._text)
+      switch (text._text) {
+        case '#Noun':
+          console.log('hello noun');
+          return 'Ash nazg';
+          break;
+        case '#Person':
+          console.log('hello person');
+          return 'Sauron';
+          break;
+        case '#Location':
+          console.log('hello location');
+          return 'Minas Morgul';
+          break;
+        default:
+          console.log('hello IIIIIK');
+          return "IIIIIIIIIIIIIIIIIIIIIIIK";
+      }
+    });
   });
 };
 
@@ -40678,7 +40695,7 @@ var compromiseNazgul = function compromiseNazgul(text) {
 };
 
 var nazgulify = function nazgulify(text) {
-  console.log(text);
+  console.log();
   return matchDict(compromiseNazgul(text));
 };
 
