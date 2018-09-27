@@ -3,8 +3,10 @@ var pos = require('pos');
 var nlp = require('compromise');
 var ent = require('html-entities').AllHtmlEntities;
 
+// const googleNews = require('.../routes/googleNews')
+
 var dictionary = {
-	"ring": "my precious",
+	"the ring": "my precious",
 	"me": "we",
 	"I": "we",
 	"kids": "kidses",
@@ -43,7 +45,7 @@ function isLetter(character) {
 	return true;
 }
 
-module.exports.dictionary = dictionary;
+// module.exports.dictionary = dictionary;
 
 function translate(text) {
 	var translatedText = "";
@@ -77,4 +79,6 @@ function translate(text) {
 	return translatedText;
 };
 
-console.log(translate("he has my ring"))
+module.exports = {
+    translate 
+} 
