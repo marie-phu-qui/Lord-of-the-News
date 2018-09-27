@@ -1,13 +1,14 @@
 import React from "react";
+import { translate } from '../../server/lib/gollum'
 
 const Article = props => {
   return (
     <div>
       <a href={props.url}>
-        <h4>{props.title}</h4>
+        <h4>{translate(props.title)}</h4>
       </a>
       <p>
-        {props.content}
+        {translate(props.content)}
       </p>
     </div>
   );
