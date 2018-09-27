@@ -121,11 +121,27 @@ let dictionary = {
 //   return blackSpeech;
 // };
 
+// doc.verbs().conjugate()
+// [{ PastTense: 'sold',
+//    Infinitive: 'sell',
+//    Gerund: 'selling', ...
+// }]
+
 const nazgulify = (text) => {
-  let doc = nlp(text)
-  console.log(doc.sentences().toNegative())
-  doc.sentences().toNegative()
-  return doc.out('text')
+  let originalText = nlp(text)
+  originalText.contractions().expand()
+  originalText.verbs().toNegative()
+  // originalText.out('text')
+  console.log(nlp(originalText.out('text')).list.map(terms => {
+    console.log(terms.terms.map(text => {
+      console.log(text._text)
+    }))
+  }))
+  // let nazgulDic = originalText.out('text').replace(dictionary[key], dictionary[value])
+  //   let nazgulWord = dictionary[word];
+  console.log(nazgulDic)
+  return nazgulDic
+
 }
 
 module.exports = {
