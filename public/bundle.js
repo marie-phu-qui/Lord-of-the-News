@@ -139,6 +139,33 @@ function fetchNews() {
   };
 }
 
+// export const requestFUNC = () => {
+//   return {
+//     type: "REQUEST_FUNC"
+//   }
+// }
+
+// export const receiveLanguage = (language) => {
+//   return {
+//     type: "RECEIVE_LANGUAGE",
+//     language: language
+//   }
+// }
+
+// export function fetchNews() {
+//   return (dispatch) => {
+//     dispatch(requestFUNC())
+//     return request
+//       .get('/api/v1/news')
+//       .then(res => {
+//         dispatch(receiveLanguage(res.text))
+//       })
+//       .catch(err => {
+//         dispatch(showError(err.message))
+//       })
+//   }
+// }
+
 /***/ }),
 
 /***/ "./client/components/App.jsx":
@@ -173,8 +200,6 @@ var _ArticleList = __webpack_require__(/*! ./ArticleList */ "./client/components
 
 var _ArticleList2 = _interopRequireDefault(_ArticleList);
 
-var _api = __webpack_require__(/*! ../utils/api */ "./client/utils/api.js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -182,6 +207,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import { getNews } from '../utils/api'
+
 
 var googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29';
 
@@ -196,7 +224,6 @@ var App = function (_React$Component) {
     _this.state = {
       news: ''
     };
-
     _this.getNews = _this.getNews.bind(_this);
     return _this;
   }
@@ -224,6 +251,11 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.transGollum },
+          'GOLLUM'
+        ),
         _react2.default.createElement(_ArticleList2.default, null)
       );
     }
@@ -254,9 +286,9 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _gollum = __webpack_require__(/*! ../../server/lib/gollum */ "./server/lib/gollum.js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import { translate } from '../../server/lib/gollum'
 
 var Article = function Article(props) {
   return _react2.default.createElement(
@@ -268,13 +300,13 @@ var Article = function Article(props) {
       _react2.default.createElement(
         "h4",
         null,
-        (0, _gollum.translate)(props.title)
+        props.title
       )
     ),
     _react2.default.createElement(
       "p",
       null,
-      (0, _gollum.translate)(props.content)
+      props.content
     )
   );
 };
@@ -297,11 +329,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _gollum = __webpack_require__(/*! ../../server/lib/gollum */ "./server/lib/gollum.js");
 
 var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
@@ -311,23 +347,67 @@ var _Article2 = _interopRequireDefault(_Article);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ArticleList = function ArticleList(props) {
-  return _react2.default.createElement(
-    "div",
-    { id: "list_articles", className: "container" },
-    props.news && JSON.parse(props.news).map(function (article, i) {
-      return _react2.default.createElement(_Article2.default, {
-        key: i++,
-        title: article.title,
-        content: article.content,
-        url: article.url });
-    })
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import request from 'superagent';
+
+
+var ArticleList = function (_React$Component) {
+  _inherits(ArticleList, _React$Component);
+
+  function ArticleList(props) {
+    _classCallCheck(this, ArticleList);
+
+    var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+
+    _this.state = {
+      language: _gollum.translate
+      // this.translate = this.translate.bind(this)
+    };return _this;
+  }
+
+  // componentDidMount() {
+  //   this.translate()
+  // }
+
+  // translate() {
+  //   this.setState({
+  //     language: translate()
+  //   })
+  // }
+
+  _createClass(ArticleList, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      console.log(this.state);
+      return _react2.default.createElement(
+        "div",
+        { id: "list_articles", className: "container" },
+        this.props.news &&
+        //this.state.language(
+        JSON.parse(this.props.news).map(function (article, i) {
+          return _react2.default.createElement(_Article2.default, {
+            key: i++,
+            title: _this2.state.language(article.title),
+            content: article.content,
+            url: article.url });
+        })
+      );
+    }
+  }]);
+
+  return ArticleList;
+}(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    news: state.news
+    news: state.news,
+    language: state.language
   };
 };
 
@@ -475,44 +555,6 @@ function news() {
 }
 
 exports.default = news;
-
-/***/ }),
-
-/***/ "./client/utils/api.js":
-/*!*****************************!*\
-  !*** ./client/utils/api.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getNews = getNews;
-
-var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
-
-var _superagent2 = _interopRequireDefault(_superagent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var googleAPI_KEY = 'apiKey=4db317e841ff4a9ab8831f158ed48c29';
-var country = 'country=nz&';
-
-function getNews() {
-  console.log('hello');
-  _superagent2.default.get('/news');
-  // return request.get('https://newsapi.org/v2/top-headlines?' + country + googleAPI_KEY)
-  //   .then(ApiRes => {
-  //     res.json(ApiRes.body.articles)
-  //   })
-  // .catch(err => {
-  //   console.log(err)
-  // })
-}
 
 /***/ }),
 
