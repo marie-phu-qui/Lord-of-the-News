@@ -261,18 +261,18 @@ var Article = function Article(props) {
     "div",
     null,
     _react2.default.createElement(
-      "h4",
-      null,
-      props.title
+      "a",
+      { href: props.url },
+      _react2.default.createElement(
+        "h4",
+        null,
+        props.title
+      )
     ),
     _react2.default.createElement(
-      "a",
-      { href: "props.url" },
-      _react2.default.createElement(
-        "p",
-        null,
-        props.content
-      )
+      "p",
+      null,
+      props.content
     )
   );
 };
@@ -317,7 +317,7 @@ var ArticleList = function ArticleList(props) {
       return _react2.default.createElement(_Article2.default, {
         key: i++,
         title: article.title,
-        content: article.description,
+        content: article.content,
         url: article.url });
     })
   );

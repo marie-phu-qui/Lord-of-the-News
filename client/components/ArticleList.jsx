@@ -14,7 +14,7 @@ const ArticleList = (props) => {
             <Article
               key={i++}
               title={article.title}
-              content={article.description}
+              content={article.content}
               url={article.url} />
           )
         })
