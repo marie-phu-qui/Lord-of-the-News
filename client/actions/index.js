@@ -35,3 +35,30 @@ export function fetchNews() {
       })
   }
 }
+
+// export const requestFUNC = () => {
+//   return {
+//     type: "REQUEST_FUNC"
+//   }
+// }
+
+// export const receiveLanguage = (language) => {
+//   return {
+//     type: "RECEIVE_LANGUAGE",
+//     language: language
+//   }
+// }
+
+// export function fetchNews() {
+//   return (dispatch) => {
+//     dispatch(requestFUNC())
+//     return request
+//       .get('/api/v1/news')
+//       .then(res => {
+//         dispatch(receiveLanguage(res.text))
+//       })
+//       .catch(err => {
+//         dispatch(showError(err.message))
+//       })
+//   }
+// }
