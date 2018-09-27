@@ -106,11 +106,15 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _api = __webpack_require__(/*! ../utils/api */ "./client/utils/api.js");
-
 var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _ArticleList = __webpack_require__(/*! ./ArticleList */ "./client/components/ArticleList.jsx");
+
+var _ArticleList2 = _interopRequireDefault(_ArticleList);
+
+var _api = __webpack_require__(/*! ../utils/api */ "./client/utils/api.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -166,7 +170,8 @@ var App = function (_React$Component) {
           'p',
           null,
           'hello'
-        )
+        ),
+        _react2.default.createElement(_ArticleList2.default, null)
       );
     }
   }]);
@@ -175,6 +180,103 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+/***/ }),
+
+/***/ "./client/components/Article.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Article.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Article = function Article(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h4",
+      null,
+      props.title
+    ),
+    _react2.default.createElement(
+      "a",
+      { href: "props.url" },
+      _react2.default.createElement(
+        "p",
+        null,
+        props.content
+      )
+    )
+  );
+};
+
+exports.default = Article;
+
+/***/ }),
+
+/***/ "./client/components/ArticleList.jsx":
+/*!*******************************************!*\
+  !*** ./client/components/ArticleList.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _Article = __webpack_require__(/*! ./Article */ "./client/components/Article.jsx");
+
+var _Article2 = _interopRequireDefault(_Article);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ArticleList = function ArticleList(props) {
+  console.log(props.news);
+  return _react2.default.createElement(
+    "div",
+    { id: "list_articles", className: "container" },
+    props.news && props.news.map(function (article, i) {
+      return _react2.default.createElement(_Article2.default, {
+        key: i++,
+        title: article.title,
+        content: article.description,
+        url: article.url });
+    })
+  );
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    news: state.news
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(ArticleList);
 
 /***/ }),
 
@@ -241,9 +343,46 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
-var reducers = (0, _redux.combineReducers)({});
+var _news = __webpack_require__(/*! ./news */ "./client/reducers/news.js");
+
+var _news2 = _interopRequireDefault(_news);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var reducers = (0, _redux.combineReducers)({
+  news: _news2.default
+});
 
 exports.default = reducers;
+
+/***/ }),
+
+/***/ "./client/reducers/news.js":
+/*!*********************************!*\
+  !*** ./client/reducers/news.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function news() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "RECEIVE_NEWS":
+      return action.news;
+    default:
+      return state;
+  }
+}
+
+exports.default = news;
 
 /***/ }),
 

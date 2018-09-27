@@ -1,8 +1,11 @@
 import React from 'react'
+import request from 'superagent';
+
+import ArticleList from "./ArticleList";
+
 
 import { getNews } from '../utils/api'
 
-import request from 'superagent';
 
 const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
@@ -36,6 +39,7 @@ class App extends React.Component {
         <p>
           hello
         </p>
+        <ArticleList />
       </div>
     )
   }
