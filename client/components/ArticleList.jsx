@@ -39,7 +39,7 @@ class ArticleList extends React.Component {
               <Article
                 key={i++}
                 title={this.state.language(article.title)}
-                content={article.content}
+                content={this.state.language(article.content)}
                 url={article.url} />
             )
           })
