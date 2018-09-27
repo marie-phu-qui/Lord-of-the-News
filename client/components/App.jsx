@@ -1,8 +1,8 @@
 import React from 'react'
 import request from 'superagent';
 
+import Header from "./Header";
 import ArticleList from "./ArticleList";
-
 
 import { getNews } from '../utils/api'
 
@@ -19,7 +19,6 @@ class App extends React.Component {
     this.getNews = this.getNews.bind(this)
   }
   componentDidMount() {
-    console.log('hello1')
     this.getNews()
   }
 
@@ -33,14 +32,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.news.articles)
     return (
-      <div>
-        <p>
-          hello
-        </p>
+      <React.Fragment>
+        <Header />
         <ArticleList />
-      </div>
+      </React.Fragment>
     )
   }
 }

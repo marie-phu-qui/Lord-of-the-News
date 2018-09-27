@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { fetchNews } from '../actions'
+
 import Article from "./Article";
 
-const ArticleList = props => {
-  console.log(props.news);
+const ArticleList = (props) => {
   return (
     <div id="list_articles" className="container">
       {props.news &&
-        props.news.map((article, i) => {
+        JSON.parse(props.news).map((article, i) => {
           return (
             <Article
               key={i++}
@@ -28,4 +29,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ArticleList);
+const mapDispatchToProps = (dispatch) => {
+  dispatch(fetchNews())
+  return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

@@ -26,9 +26,9 @@ export function fetchNews() {
   return (dispatch) => {
     dispatch(requestDATA())
     return request
-      .get('/news')
+      .get('/api/v1/news')
       .then(res => {
-        dispatch(receiveNews(res))
+        dispatch(receiveNews(res.text))
       })
       .catch(err => {
         dispatch(showError(err.message))
