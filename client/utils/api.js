@@ -5,11 +5,12 @@ const country = 'country=nz&'
 
 export function getNews() {
   console.log('hello')
-  return request.get('https://newsapi.org/v2/top-headlines?' + country + googleAPI_KEY)
-    .then(ApiRes => {
-      res.json(ApiRes.body.articles)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  request.get('/news')
+  // return request.get('https://newsapi.org/v2/top-headlines?' + country + googleAPI_KEY)
+  //   .then(ApiRes => {
+  //     res.json(ApiRes.body.articles)
+  //   })
+  // .catch(err => {
+  //   console.log(err)
+  // })
 }
