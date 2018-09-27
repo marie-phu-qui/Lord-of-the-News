@@ -4,7 +4,7 @@ import request from 'superagent';
 import Header from "./Header";
 import ArticleList from "./ArticleList";
 
-import { getNews } from '../utils/api'
+// import { getNews } from '../utils/api'
 
 
 const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
@@ -13,9 +13,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      news: ''
+      news: '',
     }
-
     this.getNews = this.getNews.bind(this)
   }
   componentDidMount() {
@@ -35,6 +34,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <button onClick={this.transGollum}>GOLLUM</button>
         <ArticleList />
       </React.Fragment>
     )
