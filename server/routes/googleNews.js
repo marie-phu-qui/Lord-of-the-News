@@ -19,3 +19,5 @@ router.get('/', (req, res) => {
 
 
 module.exports = router
+
+// https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29
