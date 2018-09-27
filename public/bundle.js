@@ -40666,23 +40666,6 @@ var matchDict = function matchDict(compromiseNazgul) {
   nlp(compromiseNazgul).list.map(function (terms) {
     terms.terms.map(function (text) {
       // console.log(text._text)
-      switch (text._text) {
-        case '#Noun':
-          console.log('hello noun');
-          return 'Ash nazg';
-          break;
-        case '#Person':
-          console.log('hello person');
-          return 'Sauron';
-          break;
-        case '#Location':
-          console.log('hello location');
-          return 'Minas Morgul';
-          break;
-        default:
-          console.log('hello IIIIIK');
-          return "IIIIIIIIIIIIIIIIIIIIIIIK";
-      }
     });
   });
 };
@@ -40691,6 +40674,23 @@ var compromiseNazgul = function compromiseNazgul(text) {
   var originalText = nlp(text);
   originalText.contractions().expand();
   originalText.verbs().toNegative();
+  originalText.verbs().list.map(function (verb) {
+    var nazgulVerb = 'IIIIIIIIIIIIIIIIIK';
+    return verb = nazgulVerb;
+  });
+  originalText.nouns().list.map(function (noun) {
+    var nazgulNoun = 'Ash nazg';
+    return noun = nazgulNoun;
+  });
+  originalText.people().list.map(function (people) {
+    var nazgulPerson = 'Sauron';
+    return people = nazgulPerson;
+  });
+  originalText.places().list.map(function (places) {
+    var nazgulPlace = 'Minas Morgul';
+    return places = nazgulPlace;
+  });
+  console.log(originalText.places().out('text'));
   return originalText.out('text');
 };
 
