@@ -1,0 +1,114 @@
+// var fs  = require('fs');
+// var pos = require('pos');
+// var nlp = require('compromise');
+// var ent = require('html-entities').AllHtmlEntities;
+
+// const googleNews = require('.../routes/googleNews')
+
+// if a place : call it Minas Morgul 
+// if someone : Sauron 
+// if something : Ash nazg
+// anything else that is not defined : scream "IIIIIIIIIIIIIIIIIIIIIIIK"
+
+var dictionary = {
+  "and": "agh",
+  "one": "ash",
+  "dark": "burz",
+  "darkness": "burzum",
+  "rule": "durb",
+  "fire": "ghâsh",
+  "find": "gimb",
+  "filth": "glob",
+  "wraith": "gûl",
+  "folk": "hai",
+  "in": "ishi",
+  "bind": "krimp",
+  "tower": "lug",
+  "ring": "nazg",
+  "troll": "olog",
+  "pit": "ronk",
+  "pool": "ronk",
+  "and the": "sha",
+  "old": "sharku",
+  "old": "sharku",
+  "slave": "snaga",
+  "bring": "thrak",
+  "to find": "gimbatul",
+  "to rule": "durbatulûk",
+  "to bring": "thrakatulûk",
+  "to": "u",
+  "all": "ûk",
+  "them all": "tuluk",
+  "them": "atul",
+  "ness": "um",
+  "orc": "uruk",
+  "son of": "una",
+};
+
+function translateWord(word) {
+  var nazgulWord = dictionary[word];
+  if (nazgulWord === undefined) return word;
+  else return applyCase(word, nazgulWord);
+}
+
+
+// Take the case from wordA and apply it to wordB
+function applyCase(wordA, wordB) {
+  // Exception to avoid words like "I" being converted to "ME"
+  if (wordA.length === 1 && wordB.length !== 1) return wordB;
+  // Uppercase
+  if (wordA === wordA.toUpperCase()) return wordB.toUpperCase();
+  // Lowercase
+  if (wordA === wordA.toLowerCase()) return wordB.toLowerCase();
+  // Capitialized
+  var firstChar = wordA.slice(0, 1);
+  var otherChars = wordA.slice(1);
+  if (firstChar === firstChar.toUpperCase() && otherChars === otherChars.toLowerCase()) {
+    return wordB.slice(0, 1).toUpperCase() + wordB.slice(1).toLowerCase();
+  }
+  // Other cases
+  return wordB;
+};
+
+function isLetter(character) {
+  if (character.search(/[a-zA-Z'-]/) === -1) return false;
+  return true;
+}
+
+// module.exports.dictionary = dictionary;
+
+function nazgulify(text) {
+  var blackSpeech = "";
+
+  // Loop through the text, one character at a time.
+  var word = "";
+  for (var i = 0; i < text.length; i += 1) {
+    var character = text[i];
+    // If the char is a letter, then we are in the middle of a word, so we
+    // should accumulate the letter into the word variable
+    if (isLetter(character)) {
+      word += character;
+    }
+    // If the char is not a letter, then we hit the end of a word, so we
+    // should translate the current word and add it to the translation
+    else {
+      if (word != "") {
+        // If we've just finished a word, translate it
+        var nazgulWord = translateWord(word);
+        blackSpeech += nazgulWord;
+        word = "";
+      }
+      blackSpeech += character; // Add the non-letter character
+    }
+  }
+
+  // If we ended the loop before translating a word, then translate the final
+  // word and add it to the translation.
+  if (word !== "") blackSpeech += translateWord(word);
+
+  return blackSpeech;
+};
+
+module.exports = {
+  nazgulify
+} 

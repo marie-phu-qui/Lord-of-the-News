@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { translate } from '../../server/lib/gollum'
+import { nazgulify } from '../../server/lib/nazgul'
+
 // import request from 'superagent';
 
 
@@ -12,7 +14,7 @@ class ArticleList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      language: translate,
+      language: nazgulify,
     }
     // this.translate = this.translate.bind(this)
   }
