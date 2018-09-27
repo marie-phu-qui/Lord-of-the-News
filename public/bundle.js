@@ -86,6 +86,61 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/actions/index.js":
+/*!*********************************!*\
+  !*** ./client/actions/index.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.receiveNews = exports.showError = exports.requestDATA = undefined;
+exports.fetchNews = fetchNews;
+
+var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var requestDATA = exports.requestDATA = function requestDATA() {
+  return {
+    type: "REQUEST_DATA"
+  };
+};
+
+var showError = exports.showError = function showError(errorMessage) {
+  return {
+    type: "SHOW_ERROR",
+    errorMessage: errorMessage
+  };
+};
+
+var receiveNews = exports.receiveNews = function receiveNews(news) {
+  return {
+    type: "RECEIVE_NEWS",
+    news: news
+  };
+};
+
+function fetchNews() {
+  return function (dispatch) {
+    dispatch(requestDATA());
+    return _superagent2.default.get('/api/v1/news').then(function (res) {
+      dispatch(receiveNews(res.text));
+    }).catch(function (err) {
+      dispatch(showError(err.message));
+    });
+  };
+}
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -106,11 +161,19 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _api = __webpack_require__(/*! ../utils/api */ "./client/utils/api.js");
-
 var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
 
 var _superagent2 = _interopRequireDefault(_superagent);
+
+var _Header = __webpack_require__(/*! ./Header */ "./client/components/Header.jsx");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _ArticleList = __webpack_require__(/*! ./ArticleList */ "./client/components/ArticleList.jsx");
+
+var _ArticleList2 = _interopRequireDefault(_ArticleList);
+
+var _api = __webpack_require__(/*! ../utils/api */ "./client/utils/api.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -141,7 +204,6 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('hello1');
       this.getNews();
     }
   }, {
@@ -158,15 +220,11 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.news.articles);
       return _react2.default.createElement(
-        'div',
+        _react2.default.Fragment,
         null,
-        _react2.default.createElement(
-          'p',
-          null,
-          'hello'
-        )
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_ArticleList2.default, null)
       );
     }
   }]);
@@ -175,6 +233,140 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+/***/ }),
+
+/***/ "./client/components/Article.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Article.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Article = function Article(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "a",
+      { href: props.url },
+      _react2.default.createElement(
+        "h4",
+        null,
+        props.title
+      )
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      props.content
+    )
+  );
+};
+
+exports.default = Article;
+
+/***/ }),
+
+/***/ "./client/components/ArticleList.jsx":
+/*!*******************************************!*\
+  !*** ./client/components/ArticleList.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
+var _Article = __webpack_require__(/*! ./Article */ "./client/components/Article.jsx");
+
+var _Article2 = _interopRequireDefault(_Article);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ArticleList = function ArticleList(props) {
+  return _react2.default.createElement(
+    "div",
+    { id: "list_articles", className: "container" },
+    props.news && JSON.parse(props.news).map(function (article, i) {
+      return _react2.default.createElement(_Article2.default, {
+        key: i++,
+        title: article.title,
+        content: article.content,
+        url: article.url });
+    })
+  );
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    news: state.news
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  dispatch((0, _actions.fetchNews)());
+  return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleList);
+
+/***/ }),
+
+/***/ "./client/components/Header.jsx":
+/*!**************************************!*\
+  !*** ./client/components/Header.jsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    "h1",
+    null,
+    "Lord of the News"
+  );
+};
+
+exports.default = Header;
 
 /***/ }),
 
@@ -241,9 +433,46 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
-var reducers = (0, _redux.combineReducers)({});
+var _news = __webpack_require__(/*! ./news */ "./client/reducers/news.js");
+
+var _news2 = _interopRequireDefault(_news);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var reducers = (0, _redux.combineReducers)({
+  news: _news2.default
+});
 
 exports.default = reducers;
+
+/***/ }),
+
+/***/ "./client/reducers/news.js":
+/*!*********************************!*\
+  !*** ./client/reducers/news.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function news() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "RECEIVE_NEWS":
+      return action.news;
+    default:
+      return state;
+  }
+}
+
+exports.default = news;
 
 /***/ }),
 
@@ -273,11 +502,14 @@ var country = 'country=nz&';
 
 function getNews() {
   console.log('hello');
-  return _superagent2.default.get('https://newsapi.org/v2/top-headlines?' + country + googleAPI_KEY).then(function (ApiRes) {
-    res.json(ApiRes.body.articles);
-  }).catch(function (err) {
-    console.log(err);
-  });
+  _superagent2.default.get('/news');
+  // return request.get('https://newsapi.org/v2/top-headlines?' + country + googleAPI_KEY)
+  //   .then(ApiRes => {
+  //     res.json(ApiRes.body.articles)
+  //   })
+  // .catch(err => {
+  //   console.log(err)
+  // })
 }
 
 /***/ }),
