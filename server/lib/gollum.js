@@ -1,24 +1,28 @@
-var fs  = require('fs');
-var pos = require('pos');
-var nlp = require('compromise');
-var ent = require('html-entities').AllHtmlEntities;
+// var fs  = require('fs');
+// var pos = require('pos');
+// var nlp = require('compromise');
+// var ent = require('html-entities').AllHtmlEntities;
 
 // const googleNews = require('.../routes/googleNews')
 
 var dictionary = {
-	"the ring": "my precious",
+	"ring": "precious",
 	"me": "we",
-	"I": "we",
+	"i": "we",
 	"kids": "kidses",
 	"he": "it",
 	"she": "it",
 	"they": "its",
+	"Jacinda": "Gandalf",
+	"Donald": "Grrr",
+	"Trump": "Sauron",
+	"Firefighters": "Splash us with water, Smeagol"
 };
 
 function translateWord(word) {
-    var gollumWord = dictionary[word.toLowerCase()];
+	var gollumWord = dictionary[word];
 	if (gollumWord === undefined) return word;
-    else return applyCase(word, gollumWord);
+	else return applyCase(word, gollumWord);
 }
 
 
@@ -80,5 +84,5 @@ function translate(text) {
 };
 
 module.exports = {
-    translate 
+	translate
 } 
