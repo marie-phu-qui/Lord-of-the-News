@@ -26959,7 +26959,34 @@ var dictionary = {
 	"Jacinda": "Gandalf",
 	"Donald": "Grrr",
 	"Trump": "Sauron",
-	"Firefighters": "Splash us with water, Smeagol"
+	"Firefighters": "Splash us with water, Smeagol",
+	"food": "alive fish",
+	",": "Gollum, Gollum, GOLLUM",
+	"...": "Hmmmm... my precious...",
+	"accuser": "thieff...ring thieff...oh my precious",
+	"Tourism": "Middle Earth",
+	"tourism": "Middle Earth",
+	"Police": "Orc",
+	"police": "orc horde",
+	"Kaikōura": "Rivendell",
+	"Kaikoura": "Rivendell",
+	"Government": "Fellowship of the Ring",
+	"Government's": "Fellowship of the Ring's",
+	"Govt": "The Fellowship of the Ring",
+	"robbery": "thief. They're thieves! They're thieves! They're filthy little thieves! Where is it? Where is it? They stole it from us",
+	"save": "save, Gollum! Gollum saved us",
+	"Teens": "Hobbitses",
+	"teens": "hobbitses",
+	"local": "nasty hobbitses",
+	"Canterbury": "Gondor",
+	"Auckland": "the Shire",
+	"Ngauruhoe": "Mount Doom",
+	"Tongariro": "Mount Doom",
+	"cycling": "Eagle riding",
+	"Rotorua": "Helm's Deep",
+	"Rugby": "Catering Event for Hobbits",
+	"All Blacks": "Dragons"
+
 };
 
 function translateWord(word) {
