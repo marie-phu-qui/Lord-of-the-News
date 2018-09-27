@@ -40649,12 +40649,6 @@ var dictionary = (_dictionary = {
   "old": "sharku"
 }, _defineProperty(_dictionary, "old", "sharku"), _defineProperty(_dictionary, "slave", "snaga"), _defineProperty(_dictionary, "bring", "thrak"), _defineProperty(_dictionary, "to find", "gimbatul"), _defineProperty(_dictionary, "to rule", "durbatulûk"), _defineProperty(_dictionary, "to bring", "thrakatulûk"), _defineProperty(_dictionary, "to", "u"), _defineProperty(_dictionary, "all", "ûk"), _defineProperty(_dictionary, "them all", "tuluk"), _defineProperty(_dictionary, "them", "atul"), _defineProperty(_dictionary, "ness", "um"), _defineProperty(_dictionary, "orc", "uruk"), _defineProperty(_dictionary, "son of", "una"), _dictionary);
 
-// // if a place / if location : call it Minas Morgul 
-// // if someone/ if name : Sauron 
-// // if something/ if noun : Ash nazg
-// // anything else that is not defined : scream "IIIIIIIIIIIIIIIIIIIIIIIK"
-// const compromiseNazgul = (word) => {
-//   let nazgullike = nlp(word)
 //   // switch (nlp(word)) {
 //   //   case '#Noun':
 //   //     return 'Ash nazg'
@@ -40662,95 +40656,30 @@ var dictionary = (_dictionary = {
 //   //   case '#Person':
 //   //     return 'Sauron'
 //   //     break;
+//   //   case '#Location':
+//   //     return 'Minas Morgul'
+//   //     break;
 //   //   default:
 //   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
 //   // }
-//   return nazgullike.out('text')
-// }
-
-// function matchNazgulWord(word) {
-//   let nazgulWord = dictionary[word];
-//   nazgulWord !== undefined ? nazgulWord : compromiseNazgul(word)
-// }
-
-
-// // Take the case from wordA and apply it to wordB
-// // function applyCase(wordA, wordB) {
-// //   // Exception to avoid words like "I" being converted to "ME"
-// //   if (wordA.length === 1 && wordB.length !== 1) return wordB;
-// //   // Uppercase
-// //   if (wordA === wordA.toUpperCase()) return wordB.toUpperCase();
-// //   // Lowercase
-// //   if (wordA === wordA.toLowerCase()) return wordB.toLowerCase();
-// //   // Capitialized
-// //   let firstChar = wordA.slice(0, 1);
-// //   let otherChars = wordA.slice(1);
-// //   if (firstChar === firstChar.toUpperCase() && otherChars === otherChars.toLowerCase()) {
-// //     return wordB.slice(0, 1).toUpperCase() + wordB.slice(1).toLowerCase();
-// //   }
-// //   // Other cases
-// //   return wordB;
-// // };
-
-// function isLetter(character) {
-//   if (character.search(/[a-zA-Z'-]/) === -1) return false;
-//   return true;
-// }
-
-// // module.exports.dictionary = dictionary;
-
-// function nazgulify(text) {
-//   console.log(text)
-//   let blackSpeech = "";
-//   // Loop through the text, one character at a time.
-//   let word = "";
-//   for (let i = 0; i < text.length; i += 1) {
-//     let character = text[i];
-//     // If the char is a letter, then we are in the middle of a word, so we
-//     // should accumulate the letter into the word letiable
-//     if (isLetter(character)) {
-//       word += character;
-//     }
-//     // If the char is not a letter, then we hit the end of a word, so we
-//     // should translate the current word and add it to the translation
-//     else {
-//       if (word != "") {
-//         // If we've just finished a word, translate it
-//         let nazgulWord = matchNazgulWord(word);
-//         blackSpeech += nazgulWord;
-//         word = "";
-//       }
-//       blackSpeech += character; // Add the non-letter character
-//     }
-//   }
-
-//   // If we ended the loop before translating a word, then translate the final
-//   // word and add it to the translation.
-//   if (word !== "") blackSpeech += matchNazgulWord(word);
-
-//   return blackSpeech;
-// };
-
-// doc.verbs().conjugate()
-// [{ PastTense: 'sold',
-//    Infinitive: 'sell',
-//    Gerund: 'selling', ...
-// }]
-
-var nazgulify = function nazgulify(text) {
-  var originalText = nlp(text);
-  originalText.contractions().expand();
-  originalText.verbs().toNegative();
-  // originalText.out('text')
-  console.log(nlp(originalText.out('text')).list.map(function (terms) {
+var matchDict = function matchDict(compromiseNazgul) {
+  nlp(compromiseNazgul).list.map(function (terms) {
     console.log(terms.terms.map(function (text) {
       console.log(text._text);
     }));
-  }));
-  // let nazgulDic = originalText.out('text').replace(dictionary[key], dictionary[value])
-  //   let nazgulWord = dictionary[word];
-  console.log(nazgulDic);
-  return nazgulDic;
+  });
+};
+
+var compromiseNazgul = function compromiseNazgul(text) {
+  var originalText = nlp(text);
+  originalText.contractions().expand();
+  originalText.verbs().toNegative();
+  return originalText.out('text');
+};
+
+var nazgulify = function nazgulify(text) {
+  console.log(text);
+  return matchDict(compromiseNazgul(text));
 };
 
 module.exports = {

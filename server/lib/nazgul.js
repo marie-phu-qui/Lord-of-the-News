@@ -52,23 +52,25 @@ let dictionary = {
 //   //   default:
 //   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
 //   // }
-
-
-const nazgulify = (text) => {
-  let originalText = nlp(text)
-  originalText.contractions().expand()
-  originalText.verbs().toNegative()
-  // originalText.out('text')
-  console.log(nlp(originalText.out('text')).list.map(terms => {
+const matchDict = (compromiseNazgul) => {
+  nlp(compromiseNazgul).list.map(terms => {
     console.log(terms.terms.map(text => {
       console.log(text._text)
     }))
-  }))
-  // let nazgulDic = originalText.out('text').replace(dictionary[key], dictionary[value])
-  //   let nazgulWord = dictionary[word];
-  console.log(nazgulDic)
-  return nazgulDic
+  })
+}
 
+const compromiseNazgul = (text) => {
+  let originalText = nlp(text)
+  originalText.contractions().expand()
+  originalText.verbs().toNegative()
+  return originalText.out('text')
+}
+
+
+const nazgulify = (text) => {
+  console.log(text)
+  return matchDict(compromiseNazgul(text))
 }
 
 module.exports = {
