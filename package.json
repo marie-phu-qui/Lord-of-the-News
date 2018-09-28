@@ -7,7 +7,7 @@
   "license": "ISC",
   "private": false,
   "scripts": {
-    "start": "node server/lib/gollum.js",
+    "start": "node server",
     "postinstall": "webpack",
     "webpack": "webpack --watch",
     "dev": "nodemon server & webpack --watch",
