@@ -424,7 +424,7 @@ var ArticleList = function (_React$Component) {
             key: i++,
             title: _this2.state.language ? _this2.state.language(article.title) : article.title,
 
-            content: article.content,
+            content: _this2.state.language && article.content ? _this2.state.language(article.content) : article.content,
             url: article.url });
         })
       );
@@ -40541,8 +40541,12 @@ var dictionary = {
 	",": "Gollum, Gollum, GOLLUM",
 	"...": "Hmmmm... my precious...",
 	"accuser": "thieff...ring thieff...oh my precious",
-	"Tourism": "Middle Earth",
-	"tourism": "Middle Earth",
+	"Tourism": "Pie eating",
+	"tourism": "stupid",
+	"NZ": "Middle Earth",
+	"kiwis": "creatures",
+	"Kiwis": "hobbitses",
+	"New Zealand": "Middle Earth",
 	"Police": "Orc",
 	"police": "orc horde",
 	"Kaikōura": "Rivendell",
