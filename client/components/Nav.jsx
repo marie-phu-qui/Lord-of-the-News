@@ -10,14 +10,13 @@ const Nav = () => {
     <ul class="navbar-nav">
       
       <li class="nav-item">
-        <a class="nav-link"  href="#">Mean</a>
-      
+        <a class="nav-link"  href="#">English</a> 
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Kind</a>
+        <a class="nav-link" href="#">Gollumify</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Lordifty</a>
+        <a class="nav-link" href="#">Nazgul</a>
       </li>
     </ul>
   </div>
