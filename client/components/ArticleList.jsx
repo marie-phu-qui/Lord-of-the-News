@@ -63,6 +63,7 @@ class ArticleList extends React.Component {
                 }
                 url={article.url} />
             )
+            
           })
         }
       </div >
@@ -83,3 +84,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
+
+

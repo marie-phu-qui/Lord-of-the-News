@@ -514,16 +514,33 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Meet = __webpack_require__(/*! ./Meet */ "./client/components/Meet.jsx");
+
+var _Meet2 = _interopRequireDefault(_Meet);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function openNav() {
-  console.log('hellos');
-
   document.getElementById("myNav").style.width = "100%";
 }
 
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
+}
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+function topFunction() {
+  document.documentElement.scrollTop = 0;
 }
 
 var Header = function Header() {
@@ -573,13 +590,55 @@ var Header = function Header() {
         { onClick: function onClick() {
             return openNav();
           } },
-        " More "
+        " More  "
+      ),
+      _react2.default.createElement(
+        "div",
+        { id: "myBtn" },
+        _react2.default.createElement(
+          "button",
+          { onClick: function onClick() {
+              return topFunction();
+            } },
+          " Top "
+        )
       )
     )
   );
 };
-
 exports.default = Header;
+
+/***/ }),
+
+/***/ "./client/components/Meet.jsx":
+/*!************************************!*\
+  !*** ./client/components/Meet.jsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Meet = function Meet() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "Hellooooo"
+  );
+};
+
+exports.default = Meet;
 
 /***/ }),
 
@@ -619,7 +678,7 @@ var Nav = function Nav() {
           _react2.default.createElement(
             "a",
             { "class": "nav-link", href: "#" },
-            "Mean"
+            "English"
           )
         ),
         _react2.default.createElement(
@@ -628,7 +687,7 @@ var Nav = function Nav() {
           _react2.default.createElement(
             "a",
             { "class": "nav-link", href: "#" },
-            "Kind"
+            "Gollumify"
           )
         ),
         _react2.default.createElement(
@@ -637,7 +696,7 @@ var Nav = function Nav() {
           _react2.default.createElement(
             "a",
             { "class": "nav-link", href: "#" },
-            "Lordifty"
+            "Nazgul"
           )
         )
       )

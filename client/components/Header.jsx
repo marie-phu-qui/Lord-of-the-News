@@ -1,14 +1,26 @@
 import React from "react";
+import Meet from './Meet';
 
 
 function openNav() {
-  console.log('hellos');
-  
   document.getElementById("myNav").style.width = "100%";
 }
 
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+function topFunction() {
+    document.documentElement.scrollTop = 0; 
 }
 
 const Header = () => {
@@ -25,14 +37,17 @@ const Header = () => {
   </div>
 </div>
 <div id='navpopup'>
-<button onClick={()=> openNav()}> More </button>
+<button onClick={()=> openNav()}> More  </button>
+<div id='myBtn'>
+ <button onClick={()=>topFunction()}> Top </button>
+</div>
 </div>
 
     </div>
   )
 }
-
 export default Header
+
 
 
 
