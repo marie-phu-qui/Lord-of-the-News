@@ -15,7 +15,7 @@ class ArticleList extends React.Component {
     super(props)
     this.state = {
       news: "",
-      language: "",
+      language: nazgulify,
     }
     this.gollumify = this.gollumify.bind(this)
     this.english = this.english.bind(this)
