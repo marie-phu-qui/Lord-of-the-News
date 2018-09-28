@@ -1,6 +1,7 @@
 import React from 'react'
 import request from 'superagent';
 
+import Nav from "./Nav";
 import Header from "./Header";
 import ArticleList from "./ArticleList";
 import Footer from './Footer';
@@ -35,6 +36,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
+        <Nav />
         <ArticleList />
         <Footer />
       </React.Fragment>
