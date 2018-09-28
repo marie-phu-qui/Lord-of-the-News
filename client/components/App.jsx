@@ -37,7 +37,6 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Nav />
-        {/* <button onClick={this.transGollum}>GOLLUM</button> */}
         <ArticleList />
         <Footer />
       </React.Fragment>

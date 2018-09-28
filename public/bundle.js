@@ -357,8 +357,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import request from 'superagent';
 
+// import request from 'superagent';
 
 var ArticleList = function (_React$Component) {
   _inherits(ArticleList, _React$Component);
@@ -369,22 +369,27 @@ var ArticleList = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
 
     _this.state = {
-      language: _gollum.translate
-      // this.translate = this.translate.bind(this)
-    };return _this;
+      news: "",
+      language: ""
+    };
+    _this.gollumify = _this.gollumify.bind(_this);
+    _this.english = _this.english.bind(_this);
+    return _this;
   }
 
-  // componentDidMount() {
-  //   this.translate()
-  // }
-
-  // translate() {
-  //   this.setState({
-  //     language: translate()
-  //   })
-  // }
-
   _createClass(ArticleList, [{
+    key: "gollumify",
+    value: function gollumify() {
+      this.setState({
+        language: _gollum.translate
+      });
+    }
+  }, {
+    key: "english",
+    value: function english() {
+      this.setState({ language: "" });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -393,12 +398,20 @@ var ArticleList = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { id: "list_articles", className: "container" },
-        this.props.news &&
-        //this.state.language(
-        JSON.parse(this.props.news).map(function (article, i) {
+        _react2.default.createElement(
+          "button",
+          { className: "news-button", onClick: this.english },
+          "English"
+        ),
+        _react2.default.createElement(
+          "button",
+          { className: "gollum-button", onClick: this.gollumify },
+          "Gollumify"
+        ),
+        this.props.news && JSON.parse(this.props.news).map(function (article, i) {
           return _react2.default.createElement(_Article2.default, {
             key: i++,
-            title: _this2.state.language(article.title),
+            title: _this2.state.language == _gollum.translate ? _this2.state.language(article.title) : article.title,
             content: article.content,
             url: article.url });
         })
