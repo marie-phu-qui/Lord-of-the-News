@@ -665,37 +665,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Nav = function Nav() {
   return _react2.default.createElement(
     "nav",
-    { "class": "navbar navbar-expand-lg " },
+    { className: "navbar navbar-expand-lg " },
     _react2.default.createElement(
       "div",
-      { "class": "collapse navbar-collapse", id: "navbarNav" },
+      { className: "collapse navbar-collapse", id: "navbarNav" },
       _react2.default.createElement(
         "ul",
-        { "class": "navbar-nav" },
+        { className: "navbar-nav" },
         _react2.default.createElement(
           "li",
-          { "class": "nav-item" },
+          { className: "nav-item" },
           _react2.default.createElement(
             "a",
-            { "class": "nav-link", href: "#" },
+            { className: "nav-link", href: "#" },
             "English"
           )
         ),
         _react2.default.createElement(
           "li",
-          { "class": "nav-item" },
+          { className: "nav-item" },
           _react2.default.createElement(
             "a",
-            { "class": "nav-link", href: "#" },
+            { className: "nav-link", href: "#" },
             "Gollumify"
           )
         ),
         _react2.default.createElement(
           "li",
-          { "class": "nav-item" },
+          { className: "nav-item" },
           _react2.default.createElement(
             "a",
-            { "class": "nav-link", href: "#" },
+            { className: "nav-link", href: "#" },
             "Nazgul"
           )
         )
