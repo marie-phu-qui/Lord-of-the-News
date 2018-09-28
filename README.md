@@ -46,7 +46,11 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
       - The App is laucnhed to Heroku under [Lord of the News](http://lord-of-the-news.herokuapp.com/) \
       - We have a clearer view of our different pages thanks to our Wireframes \
       - A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools \
-       
+- Friday : \ MVP Lord of the News 1.0 Alpha is up \
+       - Nazgul speech is fully functionnal using the compromise npm - We can now enjoy a change of dark adjectives, dark people, dark places and nouns \
+       - The CSS is starting to look good - enjoy some new feature perspectives with our Project and Team presentation \
+       - We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we are \
+       - Fun master Nat, brings drinks for ous Alpha MVP - Team building is just as important as machine learning \
       
 - Stretch
 - Wireframes <a href https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes </a>
