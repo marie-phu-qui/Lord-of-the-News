@@ -354,11 +354,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-<<<<<<< HEAD
 
 // import request from 'superagent';
-=======
->>>>>>> 6d5f991a0204929e6ffc6c57e514dd7125742146
 
 // import request from 'superagent';
 
@@ -376,6 +373,7 @@ var ArticleList = function (_React$Component) {
     };
     _this.gollumify = _this.gollumify.bind(_this);
     _this.english = _this.english.bind(_this);
+    _this.nazgulify = _this.nazgulify.bind(_this);
     return _this;
   }
 
@@ -384,6 +382,13 @@ var ArticleList = function (_React$Component) {
     value: function gollumify() {
       this.setState({
         language: _gollum.translate
+      });
+    }
+  }, {
+    key: "nazgulify",
+    value: function nazgulify() {
+      this.setState({
+        language: _nazgul.nazgulify
       });
     }
   }, {
@@ -396,7 +401,6 @@ var ArticleList = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.state);
       return _react2.default.createElement(
         "div",
         { id: "list_articles", className: "container" },
@@ -410,16 +414,17 @@ var ArticleList = function (_React$Component) {
           { className: "gollum-button", onClick: this.gollumify },
           "Gollumify"
         ),
+        _react2.default.createElement(
+          "button",
+          { className: "nazgul-button", onClick: this.nazgulify },
+          "Nazgul"
+        ),
         this.props.news && JSON.parse(this.props.news).map(function (article, i) {
           return _react2.default.createElement(_Article2.default, {
             key: i++,
-<<<<<<< HEAD
-            title: _this2.state.language(article.title),
-            content: article.content ? _this2.state.language(article.content) : article.content,
-=======
-            title: _this2.state.language == _gollum.translate ? _this2.state.language(article.title) : article.title,
+            title: _this2.state.language ? _this2.state.language(article.title) : article.title,
+
             content: article.content,
->>>>>>> 6d5f991a0204929e6ffc6c57e514dd7125742146
             url: article.url });
         })
       );
