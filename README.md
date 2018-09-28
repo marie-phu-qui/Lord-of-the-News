@@ -1,3 +1,5 @@
+<img src='https://images.unsplash.com/photo-1528148415198-ca01b36752d4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c75a803a39020489503d7a82643af56&auto=format&fit=crop&w=1650&q=80' >
+
 # Lord-of-the-News
 
 Enjoy the regular news narrated by J.R. Tolkien. Because world state is more entertaining when there are hobbits around.
@@ -38,9 +40,16 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
         - Machine learning Software  : Weka, develloped by the University of Waikato\
         - Creative AI to write horror stories  : <a href='http://shelley.ai/'>Shelley</a>, by the MIT media team \
         - Other Text AI : <a href='http://fido.ai/'>FIDO.AI</a> is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.\
+  - Thursday : \ MVP Lord of the News 1.0 Beta is up \
+      - Gollum functional language changing function is up. Hard coded without language processing tools. Text changes on screen and applies to our API of news feed \
+      - Language is added as a state in our App - We are going to add many type of translations \
+      - The App is laucnhed to Heroku under [Lord of the News](http://lord-of-the-news.herokuapp.com/) \
+      - We have a clearer view of our different pages thanks to our Wireframes \
+      - A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools \
+       
       
 - Stretch
-- Wireframe
+- Wireframes <a href https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes </a>
 - Libraries
 - Timeline
 

@@ -192,6 +192,10 @@ var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superage
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _Nav = __webpack_require__(/*! ./Nav */ "./client/components/Nav.jsx");
+
+var _Nav2 = _interopRequireDefault(_Nav);
+
 var _Header = __webpack_require__(/*! ./Header */ "./client/components/Header.jsx");
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -255,6 +259,7 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Nav2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -511,15 +516,136 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function openNav() {
+  console.log('hellos');
+
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
 var Header = function Header() {
   return _react2.default.createElement(
-    "h1",
-    null,
-    "Lord of the News"
+    "div",
+    { id: "Header" },
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Lord of the News"
+    ),
+    _react2.default.createElement(
+      "div",
+      { id: "myNav", "class": "overlay" },
+      _react2.default.createElement(
+        "a",
+        { href: "javascript:void(0)", "class": "closebtn", onClick: function onClick() {
+            return closeNav();
+          } },
+        "\xD7"
+      ),
+      _react2.default.createElement(
+        "div",
+        { "class": "overlay-content" },
+        _react2.default.createElement(
+          "a",
+          { href: "#" },
+          "About"
+        ),
+        _react2.default.createElement(
+          "a",
+          { href: "#" },
+          "Meet the Team"
+        ),
+        _react2.default.createElement(
+          "a",
+          { href: "#" },
+          "Contact"
+        )
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { id: "navpopup" },
+      _react2.default.createElement(
+        "button",
+        { onClick: function onClick() {
+            return openNav();
+          } },
+        " More "
+      )
+    )
   );
 };
 
 exports.default = Header;
+
+/***/ }),
+
+/***/ "./client/components/Nav.jsx":
+/*!***********************************!*\
+  !*** ./client/components/Nav.jsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Nav = function Nav() {
+  return _react2.default.createElement(
+    "nav",
+    { "class": "navbar navbar-expand-lg " },
+    _react2.default.createElement(
+      "div",
+      { "class": "collapse navbar-collapse", id: "navbarNav" },
+      _react2.default.createElement(
+        "ul",
+        { "class": "navbar-nav" },
+        _react2.default.createElement(
+          "li",
+          { "class": "nav-item" },
+          _react2.default.createElement(
+            "a",
+            { "class": "nav-link", href: "#" },
+            "Mean"
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          { "class": "nav-item" },
+          _react2.default.createElement(
+            "a",
+            { "class": "nav-link", href: "#" },
+            "Kind"
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          { "class": "nav-item" },
+          _react2.default.createElement(
+            "a",
+            { "class": "nav-link", href: "#" },
+            "Lordifty"
+          )
+        )
+      )
+    )
+  );
+};
+
+exports.default = Nav;
 
 /***/ }),
 

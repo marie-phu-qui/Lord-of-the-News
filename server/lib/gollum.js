@@ -76,7 +76,7 @@ function applyCase(wordA, wordB) {
 	return wordB;
 };
 
-function isLetter(character) {
+function isLetter(character) { 
 	if (character.search(/[a-zA-Z'-]/) === -1) return false;
 	return true;
 }
