@@ -554,17 +554,17 @@ var Header = function Header() {
     ),
     _react2.default.createElement(
       "div",
-      { id: "myNav", "class": "overlay" },
+      { id: "myNav", className: "overlay" },
       _react2.default.createElement(
         "a",
-        { href: "javascript:void(0)", "class": "closebtn", onClick: function onClick() {
+        { href: "javascript:void(0)", className: "closebtn", onClick: function onClick() {
             return closeNav();
           } },
         "\xD7"
       ),
       _react2.default.createElement(
         "div",
-        { "class": "overlay-content" },
+        { className: "overlay-content" },
         _react2.default.createElement(
           "a",
           { href: "#" },
