@@ -40663,7 +40663,7 @@ var dictionary = {
 	"Donald": "Grrr President",
 	"Trump": "we hate it...we hate this man",
 	"trump": "we hate it...we hate this man",
-	"Trump's": "we hate it...we it this man, he is orange,",
+	"Trump's": "we hate it...we hate this man, he is orange,",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",
