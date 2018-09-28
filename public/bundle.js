@@ -374,7 +374,7 @@ var ArticleList = function (_React$Component) {
 
     _this.state = {
       news: "",
-      language: ""
+      language: _nazgul.nazgulify
     };
     _this.gollumify = _this.gollumify.bind(_this);
     _this.english = _this.english.bind(_this);
@@ -40660,8 +40660,10 @@ var dictionary = {
 	"she": "it",
 	"they": "its",
 	"Jacinda": "Gandalf",
-	"Donald": "Grrr",
-	"Trump": "Sauron",
+	"Donald": "Grrr President",
+	"Trump": "we hate it...we hate this man",
+	"trump": "we hate it...we hate this man",
+	"Trump's": "we hate it...we hate this man, he is orange,",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",
@@ -40819,36 +40821,44 @@ var dictionary = (_dictionary = {
 //   //   default:
 //   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
 //   // }
-var matchDict = function matchDict(compromiseNazgul) {
-  nlp(compromiseNazgul).list.map(function (terms) {
-    terms.terms.map(function (text) {
-      // console.log(text._text)
-    });
-  });
-};
+
+
+// const matchDict = (compromiseNazgul) => {
+//   nlp(compromiseNazgul).list.map(terms => {
+//     (terms.terms.map(text => {
+//       // console.log(text._text)
+//     }))
+//   })
+// }
 
 var processNazPlaces = function processNazPlaces(text) {
   var originalText = nlp(text);
-  originalText.places().list.map(function (places) {
-    var nazgulPlace = 'Minas Morgul';
-    return places = nazgulPlace;
-  });
+  var places = originalText.replace('#Place', 'Minas Morgul').out('text');
+  return places;
+};
+
+var processNazAdj = function processNazAdj(text) {
+  var originalText = nlp(text);
+  var adj = originalText.replace('#Adjective', 'dark').out('text');
+  return adj;
 };
 
 var processNazPeople = function processNazPeople(text) {
   var originalText = nlp(text);
-  originalText.people().list.map(function (people) {
-    var nazgulPerson = 'Sauron';
-    return people = nazgulPerson;
-  });
+  var people = originalText.replace('#Person', 'Sauron' || 'Dark Lord').out('text');
+
+  return people;
 };
 
 var processNazNouns = function processNazNouns(text) {
   var originalText = nlp(text);
-  originalText.nouns().list.map(function (noun) {
-    var nazgulNoun = 'Ash nazg';
-    return noun = nazgulNoun;
-  });
+  var upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
+  return upperCase;
+
+  //   originalText.nouns().list.map(noun => {
+  //     let nazgulNoun = 'Ash nazg'
+  //     return noun = nazgulNoun
+  //   })
 };
 
 var processNazVerbs = function processNazVerbs(text) {
@@ -40863,34 +40873,20 @@ var processNazVerbs = function processNazVerbs(text) {
 
 var compromiseNazgul = function compromiseNazgul(text) {
   var originalText = nlp(text);
-  // originalText.contractions().expand()
-  // originalText.verbs().toNegative()
-
-  console.log(originalText);
-  // console.log(originalText.map(word => {
-  //   let nazgulPhrase = ''
-  //   console.log(dictionary[word])
-  //   let nazgulDic = dictionary[word];
-  //   const nazgullSream = 'IIIK'
-  //   if (nazgulDic === undefined)
-  //     return nazgulPhrase += nazgullSream;
-  //   else return nazgulPhrase += nazgulDic
-  // })
-  // )
-
 
   // return (originalText.out('text'))
-  var nazNouns = processNazNouns(text);
-  var nazPep = processNazPeople(nazNouns);
-  var nazPlaces = processNazPlaces(nazPep);
-  var nazVerbs = processNazVerbs(text);
-  // console.log((nazVerbs))
-  return nlp(text).out('text');
+  var nazPlaces = processNazPlaces(text);
+  var nazNouns = processNazNouns(nazPlaces);
+  var nazAdj = processNazAdj(nazNouns);
+  var nazPep = processNazPeople(nazAdj);
+
+  // let nazVerbs = processNazVerbs(text)
+  return nazPep;
 };
 
 var nazgulify = function nazgulify(text) {
-  // console.log()
-  return matchDict(compromiseNazgul(text));
+  // console.log(matchDict(compromiseNazgul(text)))
+  return compromiseNazgul(text);
 };
 
 module.exports = {

@@ -52,37 +52,47 @@ let dictionary = {
 //   //   default:
 //   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
 //   // }
-const matchDict = (compromiseNazgul) => {
-  nlp(compromiseNazgul).list.map(terms => {
-    (terms.terms.map(text => {
-      // console.log(text._text)
-    }))
-  })
-}
+
+
+// const matchDict = (compromiseNazgul) => {
+//   nlp(compromiseNazgul).list.map(terms => {
+//     (terms.terms.map(text => {
+//       // console.log(text._text)
+//     }))
+//   })
+// }
 
 const processNazPlaces = (text) => {
   let originalText = nlp(text)
-  originalText.places().list.map(places => {
-    let nazgulPlace = 'Minas Morgul'
-    return places = nazgulPlace
-  })
+  let places = originalText.replace('#Place', 'Minas Morgul').out('text')
+  return places
+}
+
+const processNazAdj = (text) => {
+  let originalText = nlp(text)
+  let adj = originalText.replace('#Adjective', 'dark').out('text')
+  return adj
 }
 
 const processNazPeople = (text) => {
   let originalText = nlp(text)
-  originalText.people().list.map(people => {
-    let nazgulPerson = 'Sauron'
-    return people = nazgulPerson
-  })
+  let people = originalText.replace('#Person', 'Sauron' || 'Dark Lord').out('text')
+
+  return people
 }
 
 const processNazNouns = (text) => {
   let originalText = nlp(text)
-  originalText.nouns().list.map(noun => {
-    let nazgulNoun = 'Ash nazg'
-    return noun = nazgulNoun
-  })
+  let upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
+  return upperCase
+
+  //   originalText.nouns().list.map(noun => {
+  //     let nazgulNoun = 'Ash nazg'
+  //     return noun = nazgulNoun
+  //   })
 }
+
+
 
 const processNazVerbs = (text) => {
   let originalText = nlp(text)
@@ -96,35 +106,21 @@ const processNazVerbs = (text) => {
 
 const compromiseNazgul = (text) => {
   let originalText = nlp(text)
-  // originalText.contractions().expand()
-  // originalText.verbs().toNegative()
-
-  console.log(originalText)
-  // console.log(originalText.map(word => {
-  //   let nazgulPhrase = ''
-  //   console.log(dictionary[word])
-  //   let nazgulDic = dictionary[word];
-  //   const nazgullSream = 'IIIK'
-  //   if (nazgulDic === undefined)
-  //     return nazgulPhrase += nazgullSream;
-  //   else return nazgulPhrase += nazgulDic
-  // })
-  // )
-
 
   // return (originalText.out('text'))
-  let nazNouns = processNazNouns(text)
-  let nazPep = processNazPeople(nazNouns)
-  let nazPlaces = processNazPlaces(nazPep)
-  let nazVerbs = processNazVerbs(text)
-  // console.log((nazVerbs))
-  return nlp(text).out('text')
+  let nazPlaces = processNazPlaces(text)
+  let nazNouns = processNazNouns(nazPlaces)
+  let nazAdj = processNazAdj(nazNouns)
+  let nazPep = processNazPeople(nazAdj)
+
+  // let nazVerbs = processNazVerbs(text)
+  return nazPep
 }
 
 
 const nazgulify = (text) => {
-  // console.log()
-  return matchDict(compromiseNazgul(text))
+  // console.log(matchDict(compromiseNazgul(text)))
+  return (compromiseNazgul(text))
 }
 
 module.exports = {
