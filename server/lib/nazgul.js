@@ -60,33 +60,70 @@ const matchDict = (compromiseNazgul) => {
   })
 }
 
-const compromiseNazgul = (text) => {
+const processNazPlaces = (text) => {
   let originalText = nlp(text)
-  originalText.contractions().expand()
-  originalText.verbs().toNegative()
-  originalText.verbs().list.map(verb => {
-    let nazgulVerb = 'IIIIIIIIIIIIIIIIIK'
-    return verb = nazgulVerb
-  })
-  originalText.nouns().list.map(noun => {
-    let nazgulNoun = 'Ash nazg'
-    return noun = nazgulNoun
-  })
-  originalText.people().list.map(people => {
-    let nazgulPerson = 'Sauron'
-    return people = nazgulPerson
-  })
   originalText.places().list.map(places => {
     let nazgulPlace = 'Minas Morgul'
     return places = nazgulPlace
   })
-  console.log(originalText.places().out('text'))
-  return (originalText.out('text'))
+}
+
+const processNazPeople = (text) => {
+  let originalText = nlp(text)
+  originalText.people().list.map(people => {
+    let nazgulPerson = 'Sauron'
+    return people = nazgulPerson
+  })
+}
+
+const processNazNouns = (text) => {
+  let originalText = nlp(text)
+  originalText.nouns().list.map(noun => {
+    let nazgulNoun = 'Ash nazg'
+    return noun = nazgulNoun
+  })
+}
+
+const processNazVerbs = (text) => {
+  let originalText = nlp(text)
+  originalText.verbs().list.map(verb => {
+    let nazgulVerb = 'IIIIIIIIIIIIIIIIIK'
+    verb = nazgulVerb
+    // console.log(originalText.verbs().list)
+  })
+  return originalText.out('text')
+}
+
+const compromiseNazgul = (text) => {
+  let originalText = nlp(text)
+  // originalText.contractions().expand()
+  // originalText.verbs().toNegative()
+
+  console.log(originalText)
+  // console.log(originalText.map(word => {
+  //   let nazgulPhrase = ''
+  //   console.log(dictionary[word])
+  //   let nazgulDic = dictionary[word];
+  //   const nazgullSream = 'IIIK'
+  //   if (nazgulDic === undefined)
+  //     return nazgulPhrase += nazgullSream;
+  //   else return nazgulPhrase += nazgulDic
+  // })
+  // )
+
+
+  // return (originalText.out('text'))
+  let nazNouns = processNazNouns(text)
+  let nazPep = processNazPeople(nazNouns)
+  let nazPlaces = processNazPlaces(nazPep)
+  let nazVerbs = processNazVerbs(text)
+  // console.log((nazVerbs))
+  return nlp(text).out('text')
 }
 
 
 const nazgulify = (text) => {
-  console.log()
+  // console.log()
   return matchDict(compromiseNazgul(text))
 }
 

@@ -40670,32 +40670,69 @@ var matchDict = function matchDict(compromiseNazgul) {
   });
 };
 
-var compromiseNazgul = function compromiseNazgul(text) {
+var processNazPlaces = function processNazPlaces(text) {
   var originalText = nlp(text);
-  originalText.contractions().expand();
-  originalText.verbs().toNegative();
-  originalText.verbs().list.map(function (verb) {
-    var nazgulVerb = 'IIIIIIIIIIIIIIIIIK';
-    return verb = nazgulVerb;
-  });
-  originalText.nouns().list.map(function (noun) {
-    var nazgulNoun = 'Ash nazg';
-    return noun = nazgulNoun;
-  });
-  originalText.people().list.map(function (people) {
-    var nazgulPerson = 'Sauron';
-    return people = nazgulPerson;
-  });
   originalText.places().list.map(function (places) {
     var nazgulPlace = 'Minas Morgul';
     return places = nazgulPlace;
   });
-  console.log(originalText.places().out('text'));
+};
+
+var processNazPeople = function processNazPeople(text) {
+  var originalText = nlp(text);
+  originalText.people().list.map(function (people) {
+    var nazgulPerson = 'Sauron';
+    return people = nazgulPerson;
+  });
+};
+
+var processNazNouns = function processNazNouns(text) {
+  var originalText = nlp(text);
+  originalText.nouns().list.map(function (noun) {
+    var nazgulNoun = 'Ash nazg';
+    return noun = nazgulNoun;
+  });
+};
+
+var processNazVerbs = function processNazVerbs(text) {
+  var originalText = nlp(text);
+  originalText.verbs().list.map(function (verb) {
+    var nazgulVerb = 'IIIIIIIIIIIIIIIIIK';
+    verb = nazgulVerb;
+    // console.log(originalText.verbs().list)
+  });
   return originalText.out('text');
 };
 
+var compromiseNazgul = function compromiseNazgul(text) {
+  var originalText = nlp(text);
+  // originalText.contractions().expand()
+  // originalText.verbs().toNegative()
+
+  console.log(originalText);
+  // console.log(originalText.map(word => {
+  //   let nazgulPhrase = ''
+  //   console.log(dictionary[word])
+  //   let nazgulDic = dictionary[word];
+  //   const nazgullSream = 'IIIK'
+  //   if (nazgulDic === undefined)
+  //     return nazgulPhrase += nazgullSream;
+  //   else return nazgulPhrase += nazgulDic
+  // })
+  // )
+
+
+  // return (originalText.out('text'))
+  var nazNouns = processNazNouns(text);
+  var nazPep = processNazPeople(nazNouns);
+  var nazPlaces = processNazPlaces(nazPep);
+  var nazVerbs = processNazVerbs(text);
+  // console.log((nazVerbs))
+  return nlp(text).out('text');
+};
+
 var nazgulify = function nazgulify(text) {
-  console.log();
+  // console.log()
   return matchDict(compromiseNazgul(text));
 };
 
