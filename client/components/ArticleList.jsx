@@ -56,7 +56,11 @@ class ArticleList extends React.Component {
                     : (article.title)
                 }
 
-                content={article.content}
+                content={
+                  (this.state.language && article.content)
+                    ? this.state.language(article.content)
+                    : (article.content)
+                }
                 url={article.url} />
             )
           })
