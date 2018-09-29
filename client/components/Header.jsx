@@ -80,7 +80,7 @@ class Header extends React.Component {
             {(this.state.showTeam) ? <Meet /> : console.log('nope')}
             <a href="#" onClick={() => this.showContact()}>
               Contact</a>
-            {(this.state.showContact) ? <Meet /> : console.log('nope')}
+            {(this.state.showContact) ? <Contact /> : console.log('nope')}
           </div>
         </div>
         <div id='navpopup'>

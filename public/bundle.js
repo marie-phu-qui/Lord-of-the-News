@@ -721,7 +721,7 @@ var Header = function (_React$Component) {
                 } },
               'Contact'
             ),
-            this.state.showContact ? _react2.default.createElement(_Meet2.default, null) : console.log('nope')
+            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope')
           )
         ),
         _react2.default.createElement(
