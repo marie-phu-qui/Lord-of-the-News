@@ -30,11 +30,37 @@ const config = {
 }
 model.compile(config)
 
-// We need inputs from a tensor
-const inputs = tf.tensor2d([
-  [0.25, 0.92]
+// Training Data
+const xs = tf.tensor2d([
+  [0.25, 0.92],
+  [0.95, 0.24],
+  [0.45, 0.23],
+  [0.5, 0.91],
+  [0.25, 0.92],
 ])
 
+const ys = tf.tensor2d([
+  [0.25, 0.92, 0.92],
+  [0.95, 0.24, 0.92],
+  [0.45, 0.23, 0.92],
+  [0.5, 0.91, 0.92],
+  [0.25, 0.92, 0.92],
+])
 
-let outputs = model.predict(inputs)
-outputs.print()
+const history = model.fit(xs, ys)
+
+
+// THIS PROCESS A PREDICTION - NOT TRAINED - just random
+// We need inputs from a tensor
+// const xs = tf.tensor2d([
+//   [0.25, 0.92],
+//   [0.95, 0.24],
+//   [0.45, 0.23],
+//   [0.5, 0.91],
+//   [0.25, 0.92],
+// ])
+
+
+// let ys = model.predict(xs)
+
+// ys.print()
