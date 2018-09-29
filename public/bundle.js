@@ -192,7 +192,7 @@ var About = function About() {
   return _react2.default.createElement(
     "div",
     null,
-    "About"
+    "THIS IS MY ABOUT THING"
   );
 };
 
@@ -631,6 +631,11 @@ var Header = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
+    _this.state = {
+      showContact: false,
+      showTeam: false,
+      showAbout: false
+    };
     _this.showContact = _this.showContact.bind(_this);
     _this.showAbout = _this.showAbout.bind(_this);
     _this.showTeam = _this.showTeam.bind(_this);
@@ -641,19 +646,31 @@ var Header = function (_React$Component) {
     key: 'showTeam',
     value: function showTeam() {
       console.log('show meeeeeeeeeeeeee TEAM');
-      return _react2.default.createElement(_Meet2.default, null);
+      this.setState({
+        showContact: false,
+        showTeam: true,
+        showAbout: false
+      });
     }
   }, {
     key: 'showAbout',
     value: function showAbout() {
       console.log('show meeeeeeeeeeeeee ABOUT');
-      return _react2.default.createElement(_About2.default, null);
+      this.setState({
+        showContact: false,
+        showTeam: false,
+        showAbout: true
+      });
     }
   }, {
     key: 'showContact',
     value: function showContact() {
       console.log('show meeeeeeeeeeeeee CONTACT');
-      return _react2.default.createElement(_Contact2.default, null);
+      this.setState({
+        showContact: true,
+        showTeam: false,
+        showAbout: false
+      });
     }
   }, {
     key: 'render',
@@ -683,25 +700,28 @@ var Header = function (_React$Component) {
             { className: 'overlay-content' },
             _react2.default.createElement(
               'a',
-              { href: '/about', onClick: function onClick() {
+              { href: '#', onClick: function onClick() {
                   return _this2.showAbout();
                 } },
               'About'
             ),
+            this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '/team', onClick: function onClick() {
+              { href: '#', onClick: function onClick() {
                   return _this2.showTeam();
                 } },
-              ' Meet the Team'
+              'Meet the Team'
             ),
+            this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '/contact', onClick: function onClick() {
+              { href: '#', onClick: function onClick() {
                   return _this2.showContact();
                 } },
               'Contact'
-            )
+            ),
+            this.state.showContact ? _react2.default.createElement(_Meet2.default, null) : console.log('nope')
           )
         ),
         _react2.default.createElement(
