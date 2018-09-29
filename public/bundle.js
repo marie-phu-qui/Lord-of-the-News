@@ -168,6 +168,38 @@ function fetchNews() {
 
 /***/ }),
 
+/***/ "./client/components/About.jsx":
+/*!*************************************!*\
+  !*** ./client/components/About.jsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var About = function About() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "About"
+  );
+};
+
+exports.default = About;
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -455,6 +487,38 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
+/***/ "./client/components/Contact.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Contact.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Contact = function Contact() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "Contact"
+  );
+};
+
+exports.default = Contact;
+
+/***/ }),
+
 /***/ "./client/components/Footer.jsx":
 /*!**************************************!*\
   !*** ./client/components/Footer.jsx ***!
@@ -520,6 +584,14 @@ var _Meet = __webpack_require__(/*! ./Meet */ "./client/components/Meet.jsx");
 
 var _Meet2 = _interopRequireDefault(_Meet);
 
+var _About = __webpack_require__(/*! ./About */ "./client/components/About.jsx");
+
+var _About2 = _interopRequireDefault(_About);
+
+var _Contact = __webpack_require__(/*! ./Contact */ "./client/components/Contact.jsx");
+
+var _Contact2 = _interopRequireDefault(_Contact);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -559,102 +631,98 @@ var Header = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
-    _this.state = {}
-    // showAbout: false,
-    // showTeam: false,
-    // showContact: false,
-
-    // this.toggleMore = this.toggleMore.bind(this)
-    // this.toggleTeam = this.toggleTeam.bind(this)
-    ;_this.showTeam = _this.showTeam.bind(_this);
+    _this.showContact = _this.showContact.bind(_this);
+    _this.showAbout = _this.showAbout.bind(_this);
+    _this.showTeam = _this.showTeam.bind(_this);
     return _this;
   }
 
-  // toggleMore() {
-  //   this.setState({
-  //     showAbout: false,
-  //     showTeam: false,
-  //     showContact: false,
-  //   });
-  // }
-
-  // toggleTeam() {
-  //   this.setState({
-  //     showAbout: false,
-  //     showTeam: true,
-  //     showContact: false,
-  //   });
-  // }
-
   _createClass(Header, [{
-    key: "showTeam",
+    key: 'showTeam',
     value: function showTeam() {
+      console.log('show meeeeeeeeeeeeee TEAM');
       return _react2.default.createElement(_Meet2.default, null);
     }
   }, {
-    key: "render",
+    key: 'showAbout',
+    value: function showAbout() {
+      console.log('show meeeeeeeeeeeeee ABOUT');
+      return _react2.default.createElement(_About2.default, null);
+    }
+  }, {
+    key: 'showContact',
+    value: function showContact() {
+      console.log('show meeeeeeeeeeeeee CONTACT');
+      return _react2.default.createElement(_Contact2.default, null);
+    }
+  }, {
+    key: 'render',
     value: function render() {
       var _this2 = this;
 
       return _react2.default.createElement(
-        "div",
-        { id: "Header" },
+        'div',
+        { id: 'Header' },
         _react2.default.createElement(
-          "h1",
+          'h1',
           null,
-          "Lord of the News"
+          'Lord of the News'
         ),
         _react2.default.createElement(
-          "div",
-          { id: "myNav", className: "overlay" },
+          'div',
+          { id: 'myNav', className: 'overlay' },
           _react2.default.createElement(
-            "a",
-            { href: "javascript:void(0)", className: "closebtn", onClick: function onClick() {
+            'a',
+            { href: 'javascript:void(0)', className: 'closebtn', onClick: function onClick() {
                 return closeNav();
               } },
-            "\xD7"
+            '\xD7'
           ),
           _react2.default.createElement(
-            "div",
-            { className: "overlay-content" },
+            'div',
+            { className: 'overlay-content' },
             _react2.default.createElement(
-              "a",
-              { href: "#" },
-              "About"
+              'a',
+              { href: '/about', onClick: function onClick() {
+                  return _this2.showAbout();
+                } },
+              'About'
             ),
             _react2.default.createElement(
-              "a",
-              { onClick: function onClick() {
+              'a',
+              { href: '/team', onClick: function onClick() {
                   return _this2.showTeam();
                 } },
-              " Meet the Team"
+              ' Meet the Team'
             ),
             _react2.default.createElement(
-              "a",
-              { href: "#" },
-              "Contact"
+              'a',
+              { href: '/contact', onClick: function onClick() {
+                  return _this2.showContact();
+                } },
+              'Contact'
             )
           )
         ),
         _react2.default.createElement(
-          "div",
-          { id: "navpopup" },
+          'div',
+          { id: 'navpopup' },
           _react2.default.createElement(
-            "button",
+            'button',
             { onClick: function onClick() {
                 return openNav();
               } },
-            " More  "
+            ' More  '
           ),
           _react2.default.createElement(
-            "div",
-            { id: "myBtn" },
+            'div',
+            { id: 'myBtn' },
             _react2.default.createElement(
-              "button",
+              'button',
               { onClick: function onClick() {
                   return topFunction();
                 } },
-              " Top "
+              ' Top '
             )
           )
         )

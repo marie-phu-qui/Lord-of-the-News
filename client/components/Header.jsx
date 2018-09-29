@@ -1,5 +1,8 @@
 import React from "react";
+
 import Meet from './Meet';
+import About from './About';
+import Contact from './Contact';
 
 
 function openNav() {
@@ -26,35 +29,28 @@ function topFunction() {
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      // showAbout: false,
-      // showTeam: false,
-      // showContact: false,
-    }
-    // this.toggleMore = this.toggleMore.bind(this)
-    // this.toggleTeam = this.toggleTeam.bind(this)
+    this.showContact = this.showContact.bind(this)
+    this.showAbout = this.showAbout.bind(this)
     this.showTeam = this.showTeam.bind(this)
   }
 
-  // toggleMore() {
-  //   this.setState({
-  //     showAbout: false,
-  //     showTeam: false,
-  //     showContact: false,
-  //   });
-  // }
-
-  // toggleTeam() {
-  //   this.setState({
-  //     showAbout: false,
-  //     showTeam: true,
-  //     showContact: false,
-  //   });
-  // }
 
   showTeam() {
+    console.log('show meeeeeeeeeeeeee TEAM')
     return (
       <Meet />
+    )
+  }
+  showAbout() {
+    console.log('show meeeeeeeeeeeeee ABOUT')
+    return (
+      <About />
+    )
+  }
+  showContact() {
+    console.log('show meeeeeeeeeeeeee CONTACT')
+    return (
+      <Contact />
     )
   }
 
@@ -66,9 +62,9 @@ class Header extends React.Component {
         <div id="myNav" className="overlay">
           <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>
           <div className="overlay-content">
-            <a href="#">About</a>
-            <a onClick={() => this.showTeam()}> Meet the Team</a>
-            <a href="#">Contact</a>
+            <a href="/about" onClick={() => this.showAbout()}>About</a>
+            <a href="/team" onClick={() => this.showTeam()}> Meet the Team</a>
+            <a href="/contact" onClick={() => this.showContact()}>Contact</a>
           </div>
         </div>
         <div id='navpopup'>
