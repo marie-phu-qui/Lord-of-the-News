@@ -168,6 +168,38 @@ function fetchNews() {
 
 /***/ }),
 
+/***/ "./client/components/About.jsx":
+/*!*************************************!*\
+  !*** ./client/components/About.jsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var About = function About() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "THIS IS MY ABOUT THING"
+  );
+};
+
+exports.default = About;
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -455,6 +487,38 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
+/***/ "./client/components/Contact.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Contact.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Contact = function Contact() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    "Contact"
+  );
+};
+
+exports.default = Contact;
+
+/***/ }),
+
 /***/ "./client/components/Footer.jsx":
 /*!**************************************!*\
   !*** ./client/components/Footer.jsx ***!
@@ -510,6 +574,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
@@ -518,7 +584,21 @@ var _Meet = __webpack_require__(/*! ./Meet */ "./client/components/Meet.jsx");
 
 var _Meet2 = _interopRequireDefault(_Meet);
 
+var _About = __webpack_require__(/*! ./About */ "./client/components/About.jsx");
+
+var _About2 = _interopRequireDefault(_About);
+
+var _Contact = __webpack_require__(/*! ./Contact */ "./client/components/Contact.jsx");
+
+var _Contact2 = _interopRequireDefault(_Contact);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
@@ -543,69 +623,136 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-var Header = function Header() {
-  return _react2.default.createElement(
-    "div",
-    { id: "Header" },
-    _react2.default.createElement(
-      "h1",
-      null,
-      "Lord of the News"
-    ),
-    _react2.default.createElement(
-      "div",
-      { id: "myNav", className: "overlay" },
-      _react2.default.createElement(
-        "a",
-        { href: "javascript:void(0)", className: "closebtn", onClick: function onClick() {
-            return closeNav();
-          } },
-        "\xD7"
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "overlay-content" },
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = {
+      showContact: false,
+      showTeam: false,
+      showAbout: false
+    };
+    _this.showContact = _this.showContact.bind(_this);
+    _this.showAbout = _this.showAbout.bind(_this);
+    _this.showTeam = _this.showTeam.bind(_this);
+    return _this;
+  }
+
+  _createClass(Header, [{
+    key: 'showTeam',
+    value: function showTeam() {
+      console.log('show meeeeeeeeeeeeee TEAM');
+      this.setState({
+        showContact: false,
+        showTeam: true,
+        showAbout: false
+      });
+    }
+  }, {
+    key: 'showAbout',
+    value: function showAbout() {
+      console.log('show meeeeeeeeeeeeee ABOUT');
+      this.setState({
+        showContact: false,
+        showTeam: false,
+        showAbout: true
+      });
+    }
+  }, {
+    key: 'showContact',
+    value: function showContact() {
+      console.log('show meeeeeeeeeeeeee CONTACT');
+      this.setState({
+        showContact: true,
+        showTeam: false,
+        showAbout: false
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { id: 'Header' },
         _react2.default.createElement(
-          "a",
-          { href: "#" },
-          "About"
+          'h1',
+          null,
+          'Lord of the News'
         ),
         _react2.default.createElement(
-          "a",
-          { href: "#" },
-          "Meet the Team"
+          'div',
+          { id: 'myNav', className: 'overlay' },
+          _react2.default.createElement(
+            'a',
+            { href: 'javascript:void(0)', className: 'closebtn', onClick: function onClick() {
+                return closeNav();
+              } },
+            '\xD7'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'overlay-content' },
+            _react2.default.createElement(
+              'a',
+              { href: '#', onClick: function onClick() {
+                  return _this2.showAbout();
+                } },
+              'About'
+            ),
+            this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
+            _react2.default.createElement(
+              'a',
+              { href: '#', onClick: function onClick() {
+                  return _this2.showTeam();
+                } },
+              'Meet the Team'
+            ),
+            this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
+            _react2.default.createElement(
+              'a',
+              { href: '#', onClick: function onClick() {
+                  return _this2.showContact();
+                } },
+              'Contact'
+            ),
+            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope')
+          )
         ),
         _react2.default.createElement(
-          "a",
-          { href: "#" },
-          "Contact"
+          'div',
+          { id: 'navpopup' },
+          _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                return openNav();
+              } },
+            ' More  '
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: 'myBtn' },
+            _react2.default.createElement(
+              'button',
+              { onClick: function onClick() {
+                  return topFunction();
+                } },
+              ' Top '
+            )
+          )
         )
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      { id: "navpopup" },
-      _react2.default.createElement(
-        "button",
-        { onClick: function onClick() {
-            return openNav();
-          } },
-        " More  "
-      ),
-      _react2.default.createElement(
-        "div",
-        { id: "myBtn" },
-        _react2.default.createElement(
-          "button",
-          { onClick: function onClick() {
-              return topFunction();
-            } },
-          " Top "
-        )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return Header;
+}(_react2.default.Component);
+
 exports.default = Header;
 
 /***/ }),

@@ -54,7 +54,7 @@ async function train() {
   //the bigger the number in this loop size the lower the loss will be at the end (=more training)
   for (i = 0; i < 100; i++) {
     const response = await model.fit(xs, ys, configFit);
-    // console.log(response.history.loss[0])
+    console.log(response.history.loss[0])
   }
   // ONCE YOU ARE TRAINED PREDICT
   let outputs = model.predict(xs)
