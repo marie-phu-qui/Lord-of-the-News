@@ -1,5 +1,6 @@
 // BUILD OUR SEQUENTIAL MODEL
 const model = tf.sequential()
+console.log(model)
 
 // Config first layer = inputShape mandatory 
 const configHid = {
@@ -21,7 +22,7 @@ const output = tf.layers.dense(configOut)
 model.add(output)
 
 // Optimizer with gradient descent
-const sgdOpt = tf.train.sgd(0.2)
+const sgdOpt = tf.train.sgd(0.1)
 
 // Compile the code
 const config = {
@@ -30,30 +31,30 @@ const config = {
 }
 model.compile(config)
 
-// Training Data =input
+// Training Data =input - has to be a number
 const xs = tf.tensor2d([
   [0, 0],
   [0.5, 0.5],
   [1, 1],
 ])
-// Training Data =output
+// Training Data =output- has to be a number
 const ys = tf.tensor2d([
   [1],
-  [0.5],
-  [0],
+  [1],
+  [1],
 ])
 
 const configFit = {
   shuffle: true,
   verbose: true,
-  epochs: 8
+  epochs: 10
 }
 
 async function train() {
   //the bigger the number in this loop size the lower the loss will be at the end (=more training)
-  for (i = 0; i < 500; i++) {
+  for (i = 0; i < 100; i++) {
     const response = await model.fit(xs, ys, configFit);
-    console.log(response.history.loss[0])
+    // console.log(response.history.loss[0])
   }
   // ONCE YOU ARE TRAINED PREDICT
   let outputs = model.predict(xs)
