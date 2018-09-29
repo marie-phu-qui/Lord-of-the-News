@@ -36,7 +36,7 @@ const xs = tf.tensor2d([
   [0.95, 0.24],
   [0.45, 0.23],
   [0.5, 0.91],
-  [0.25, 0.92],
+  [0.25, 0.92]
 ])
 
 const ys = tf.tensor2d([
@@ -44,12 +44,19 @@ const ys = tf.tensor2d([
   [0.95, 0.24, 0.92],
   [0.45, 0.23, 0.92],
   [0.5, 0.91, 0.92],
-  [0.25, 0.92, 0.92],
+  [0.25, 0.92, 0.92]
 ])
 
-const history = model.fit(xs, ys)
+const configFit = {
+  verbose: true,
+  epochs: 8
+}
 
-
+async function train() {
+  const response = await model.fit(xs, ys, configFit);
+  console.log(response.history.loss[0])
+}
+train()
 // THIS PROCESS A PREDICTION - NOT TRAINED - just random
 // We need inputs from a tensor
 // const xs = tf.tensor2d([
