@@ -40954,7 +40954,9 @@ function translate(text) {
 
 var processGollumAdj = function processGollumAdj(text) {
 	var originalText = nlp(text);
-	var adj = originalText.replace('#Adjective', 'nasty').out('text');
+	var adjPossibilities = ['nasty', 'filthy', 'tricksy', 'false', 'sneaky', 'wicked'];
+	var chosenAdj = adjPossibilities[Math.floor(Math.random() * adjPossibilities.length)];
+	var adj = originalText.replace('#Adjective', chosenAdj).out('text');
 	return adj;
 };
 

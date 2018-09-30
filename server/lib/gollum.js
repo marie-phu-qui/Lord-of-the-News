@@ -120,7 +120,9 @@ function translate(text) {
 
 const processGollumAdj = (text) => {
 	let originalText = nlp(text)
-	let adj = originalText.replace('#Adjective', 'nasty').out('text')
+	let adjPossibilities = ['nasty', 'filthy', 'tricksy', 'false', 'sneaky', 'wicked']
+	let chosenAdj = adjPossibilities[Math.floor(Math.random() * adjPossibilities.length)]
+	let adj = originalText.replace('#Adjective', chosenAdj).out('text')
 	return adj
 }
 
