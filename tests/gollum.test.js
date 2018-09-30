@@ -1,10 +1,13 @@
-test('filterOdds should filter the odd numbers', function () {
-  // Arrange
-  let arr = [1, 2, 3, 4]
-  let expected = [1, 3]
+let { gollumify } = require('../server/lib/gollum')
+
+
+
+test('test nazgulify changing a parsed sentence to something else ?', function () {
+  let string = 'Once in a blue moon'
+  let expected = 'Once in a dark moon'
 
   // Act
-  let actual = translate.filterOdds(arr)
+  let actual = gollumify(string)
 
   // Assert
   expect(actual).toEqual(expected)
