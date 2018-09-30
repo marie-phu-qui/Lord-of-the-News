@@ -64,6 +64,38 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
 - Libraries
 - Timeline
 
+
+# API DOCS
+
+We receive our news from the Google News Api. Here is what we expect : 
+
+  | Method | Endpoint | Response | 
+  | --- | --- | --- | --- | 
+  | GET | api/v1/news | array of news objects | 
+
+
+Method : GET 
+Route : / API/V1/NEWS
+(body) - an array of objects
+
+```sh
+[
+    {
+        "source": {
+            "id": null,
+            "name": "Tvnz.co.nz"
+        },
+        "author": null,
+        "title": "Auckland Transport to be free from alcohol advertising from Monday",
+        "description": null,
+        "url": "https://www.tvnz.co.nz/one-news/new-zealand/auckland-transport-free-alcohol-advertising-monday",
+        "urlToImage": null,
+        "publishedAt": "2018-09-30T02:11:48Z",
+        "content": null
+    }
+]
+```
+
 # Focus on
 - Teamwork
   - Efficient communication : Use project on github, a powerful ReadMe, Slack channel
