@@ -18,17 +18,17 @@ class TranslateButtons extends React.Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand-lg ">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button> 
+            <nav className="navbar navbar-expand-lg ">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button> 
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(translate)}>Gollumify</button>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(translate)}>Gollumify</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
                         </li>
                     </ul>
                 </div>
