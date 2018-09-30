@@ -18,7 +18,7 @@ let server = require('../server/server')
 test('test if the server is up', (done) => {
   // Act
   request(server).get('')
-    .expect(400)
+    .expect('donuts')
     .end((err, res) => {
       // if (res) console.log(res)
       // else console.log(err)
@@ -31,12 +31,21 @@ test('test if the server is up', (done) => {
 // Passes but 'res' is undefined of something
 test('test the api is up', (done) => {
   // Act
-  request(server).get('api/v1/news')
-    .end((err, res) => {
-      console.log(res)
+  request(server).get('/api/v1/news')
+    .then((res, err) => {
       // else console.log(err)
-      expect(res).toBeTruthy
+      expect(res).toBeTruthy()
+      expect(res.body.length).toBeTruthy()
       // Assert
       done()
     })
+  // .end((err, res) => {
+  //   console.log(res)
+  //   // else console.log(err)
+  //   expect('bunch of butter toasts')
+  //   // Assert
+  //   done()
+  // })
 })
+
+// test the shape of the api res body

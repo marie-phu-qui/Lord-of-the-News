@@ -1,6 +1,3 @@
-let { translate } = require('../../lib/gollum')
-
-
 test('filterOdds should filter the odd numbers', function () {
   // Arrange
   let arr = [1, 2, 3, 4]
