@@ -1,7 +1,14 @@
+// Daniel Shiffman
+// http://codingtra.in
+// http://patreon.com/codingtrain
+
+// XOR with tf.js
+// https://youtu.be/N3ZnNa01BPM
+
 let nn;
 let model;
 
-let resolution = 50;
+let resolution = 20;
 let cols;
 let rows;
 
@@ -13,7 +20,6 @@ const train_xs = tf.tensor2d([
   [0, 1],
   [1, 1]
 ]);
-
 const train_ys = tf.tensor2d([
   [0],
   [1],
@@ -21,13 +27,12 @@ const train_ys = tf.tensor2d([
   [0]
 ]);
 
-
 function setup() {
   createCanvas(400, 400);
-  let cols = width / resolution;
-  let rows = height / resolution;
+  cols = width / resolution;
+  rows = height / resolution;
 
-  // Create input Data thing
+  // Create the input data
   let inputs = [];
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -39,11 +44,10 @@ function setup() {
   xs = tf.tensor2d(inputs);
 
 
-
   model = tf.sequential();
   let hidden = tf.layers.dense({
     inputShape: [2],
-    units: 2,
+    units: 16,
     activation: 'sigmoid'
   });
   let output = tf.layers.dense({
@@ -53,55 +57,56 @@ function setup() {
   model.add(hidden);
   model.add(output);
 
-  // Optimizer with gradient descent
-  const learningRate = 0.1
-  const sgdOpt = tf.train.adam(learningRate)
-
-  // Compile the code
+  const optimizer = tf.train.adam(0.2);
   model.compile({
-    optimizer: sgdOpt,
+    optimizer: optimizer,
     loss: 'meanSquaredError'
   })
-  setTimeout(train, 100)
+
+  setTimeout(train, 10);
+
 }
 
-
 function train() {
-  trainModel().then(response => {
-    console.log(response.history.loss[0])
-    setTimeout(train, 100)
+  trainModel().then(result => {
+    ///console.log(result.history.loss[0]);
+    setTimeout(train, 10);
   });
 }
 
 function trainModel() {
   return model.fit(train_xs, train_ys, {
     shuffle: true,
-    epochs: 8
-  })
+    epochs: 1
+  });
 }
 
 function draw() {
-  background(0)
-  // noLoop()
+  background(0);
+
+
+
+
 
   tf.tidy(() => {
-    //PREDICT ME SOMETHING COMPUTER
-    let ys = model.predict(xs)
-    let y_values = ys.dataSync()
+    // Get the predictions
+    let ys = model.predict(xs);
+    let y_values = ys.dataSync();
 
-    // DRAW ME SOMETHING MACHINE
+    // Draw the results
     let index = 0;
     for (let i = 0; i < cols; i++) {
-      for (letj = 0; j < rows; j++) {
-        let br = y_values[index * 255]
+      for (let j = 0; j < rows; j++) {
+        let br = y_values[index] * 255
         fill(br);
         rect(i * resolution, j * resolution, resolution, resolution);
         fill(255 - br);
+        textSize(8);
         textAlign(CENTER, CENTER);
-        text(nf(y_values[index], 1, 2, i * resolution + resolution / 2))
-        index++
+        text(nf(y_values[index], 1, 2), i * resolution + resolution / 2, j * resolution + resolution / 2)
+        index++;
       }
     }
-  })
-}
+  });
 
+}
