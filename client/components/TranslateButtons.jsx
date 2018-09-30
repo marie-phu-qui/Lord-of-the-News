@@ -1,14 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { translate } from '../../server/lib/gollum'
+import { connect } from 'react-redux'
+import { gollumify } from '../../server/lib/gollum'
 import { nazgulify } from '../../server/lib/nazgul'
-import {changeLanguage} from '../actions'
+import { changeLanguage } from '../actions'
 
 class TranslateButtons extends React.Component {
     constructor(props) {
-    super(props)
+        super(props)
 
-    this.handleLanguageChange = this.handleLanguageChange.bind(this)
+        this.handleLanguageChange = this.handleLanguageChange.bind(this)
     }
 
     //On event function for handling click
@@ -18,17 +18,17 @@ class TranslateButtons extends React.Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand-lg ">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button> 
+            <nav className="navbar navbar-expand-lg ">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(translate)}>Gollumify</button>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(gollumify)}>Gollumify</button>
                         </li>
-                        <li class="nav-item">
-                            <button class="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
+                        <li className="nav-item">
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     changeLanguage: (language) => dispatch(changeLanguage(language))
 })
-  
+
 export default connect(mapStateToProps, mapDispatchToProps)(TranslateButtons);
 
 

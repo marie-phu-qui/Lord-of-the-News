@@ -72,13 +72,13 @@ class Header extends React.Component {
         <div id="myNav" className="overlay">
           <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>
           <div className="overlay-content">
-            <a href="#" onClick={() => this.showAbout()}>
+            <a href="#" id='about-project' onClick={() => this.showAbout()}>
               About</a>
             {(this.state.showAbout) ? <About /> : console.log('nope')}
-            <a href="#" onClick={() => this.showTeam()}>
+            <a href="#" id='meet-team' onClick={() => this.showTeam()}>
               Meet the Team</a>
             {(this.state.showTeam) ? <Meet /> : console.log('nope')}
-            <a href="#" onClick={() => this.showContact()}>
+            <a href="#" id='contact-list' onClick={() => this.showContact()}>
               Contact</a>
             {(this.state.showContact) ? <Contact /> : console.log('nope')}
           </div>

@@ -623,7 +623,7 @@ var Header = function (_React$Component) {
             { className: 'overlay-content' },
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'about-project', onClick: function onClick() {
                   return _this2.showAbout();
                 } },
               'About'
@@ -631,7 +631,7 @@ var Header = function (_React$Component) {
             this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'meet-team', onClick: function onClick() {
                   return _this2.showTeam();
                 } },
               'Meet the Team'
@@ -639,7 +639,7 @@ var Header = function (_React$Component) {
             this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'contact-list', onClick: function onClick() {
                   return _this2.showContact();
                 } },
               'Contact'
@@ -775,19 +775,19 @@ var TranslateButtons = function (_React$Component) {
 
             return _react2.default.createElement(
                 'nav',
-                { 'class': 'navbar navbar-expand-lg ' },
+                { className: 'navbar navbar-expand-lg ' },
                 _react2.default.createElement(
                     'div',
-                    { 'class': 'collapse navbar-collapse', id: 'navbarNav' },
+                    { className: 'collapse navbar-collapse', id: 'navbarNav' },
                     _react2.default.createElement(
                         'ul',
-                        { 'class': 'navbar-nav' },
+                        { className: 'navbar-nav' },
                         _react2.default.createElement(
                             'li',
-                            { 'class': 'nav-item' },
+                            { className: 'nav-item' },
                             _react2.default.createElement(
                                 'button',
-                                { 'class': 'nav-link', onClick: function onClick() {
+                                { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(null);
                                     } },
                                 'English'
@@ -795,21 +795,48 @@ var TranslateButtons = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'li',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                             { 'class': 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { 'class': 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(_gollum.translate);
+<<<<<<< HEAD
+=======
+=======
+                            { className: 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_gollum.gollumify);
+>>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
+>>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                                     } },
                                 'Gollumify'
                             )
                         ),
                         _react2.default.createElement(
                             'li',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                             { 'class': 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { 'class': 'nav-link', onClick: function onClick() {
+<<<<<<< HEAD
+=======
+=======
+                            { className: 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'nav-link', onClick: function onClick() {
+>>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
+>>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                                         return _this2.handleLanguageChange(_nazgul.nazgulify);
                                     } },
                                 'Nazgul'
@@ -40862,7 +40889,8 @@ var dictionary = {
 	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New Zealand": "Middle Earth",
+	"New": "Middle",
+	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
 	"Kaikōura": "Rivendell",
@@ -40916,6 +40944,7 @@ function isLetter(character) {
 
 // module.exports.dictionary = dictionary;
 
+
 function translate(text) {
 	var translatedText = "";
 
@@ -40948,8 +40977,26 @@ function translate(text) {
 	return translatedText;
 };
 
+var processGollumAdj = function processGollumAdj(text) {
+	var originalText = nlp(text);
+	var adjPossibilities = ['nasty', 'filthy', 'tricksy', 'false', 'sneaky', 'wicked'];
+	var chosenAdj = adjPossibilities[Math.floor(Math.random() * adjPossibilities.length)];
+	var adj = originalText.replace('#Adjective', chosenAdj).out('text');
+	return adj;
+};
+
+var compromisedGollum = function compromisedGollum(text) {
+	var gollumDic = translate(text);
+	var gollumAdj = processGollumAdj(gollumDic);
+	return gollumAdj;
+};
+
+var gollumify = function gollumify(text) {
+	return compromisedGollum(text);
+};
+
 module.exports = {
-	translate: translate
+	gollumify: gollumify
 };
 
 /***/ }),
@@ -41047,8 +41094,8 @@ var processNazLastName = function processNazLastName(text) {
 
 var processNazNouns = function processNazNouns(text) {
   var originalText = nlp(text);
-  var upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
-  return upperCase;
+  var nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
+  return nouns;
 
   //   originalText.nouns().list.map(noun => {
   //     let nazgulNoun = 'Ash nazg'
