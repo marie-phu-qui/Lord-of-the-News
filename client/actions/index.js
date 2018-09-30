@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-
+// Actions to show news data
 export const requestDATA = () => {
   return {
     type: "REQUEST_DATA"
@@ -22,6 +22,7 @@ export const receiveNews = (news) => {
   }
 }
 
+// Fetching from API
 export function fetchNews() {
   return (dispatch) => {
     dispatch(requestDATA())
@@ -36,29 +37,8 @@ export function fetchNews() {
   }
 }
 
-// export const requestFUNC = () => {
-//   return {
-//     type: "REQUEST_FUNC"
-//   }
-// }
-
-// export const receiveLanguage = (language) => {
-//   return {
-//     type: "RECEIVE_LANGUAGE",
-//     language: language
-//   }
-// }
-
-// export function fetchNews() {
-//   return (dispatch) => {
-//     dispatch(requestFUNC())
-//     return request
-//       .get('/api/v1/news')
-//       .then(res => {
-//         dispatch(receiveLanguage(res.text))
-//       })
-//       .catch(err => {
-//         dispatch(showError(err.message))
-//       })
-//   }
-// }
+// Action for language change
+export const changeLanguage = (language) => ({
+  type: 'CHANGE_LANGUAGE',
+  language
+})
