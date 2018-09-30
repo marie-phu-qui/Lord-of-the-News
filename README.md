@@ -52,9 +52,12 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
        - We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we, on the other hand, are. &nbsp;
        - Fun master Nat, brings drinks for ous Alpha MVP - Team building is just as important as machine learning &nbsp;
    - Saturday :  Getting Tensorflow.js running &nbsp;
-       - Fine tunning of Gollum and Nazgul speeches s &nbsp;
+       - Fine tunning of Gollum and Nazgul speeches &nbsp;
        - Tensorflow.js is installed and we can create our dataset with an array of numbers - Reflection on the look of our own dataset - Can we use text and strings ? How will the model interpret that ? What are actually our predictions expectations ? &nbsp;
        - The 'more' part of our app gets filled with 3 components - About (the machine learning and natural language processing adventure) Meet the Team (us) and Contact (links to our preferred contacts modes and why you should contact us) &nbsp;
+   - Sunday :  Can we make it a Chrome extension ? &nbsp;
+       - Determining what functionalities we should get to test &nbsp;
+       - Reasearch on creating a chrome extension (manifest.json) &nbsp;
       
 - Stretch
 - <a href=https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes>Our Wireframes</a>
