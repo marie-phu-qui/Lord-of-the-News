@@ -48,7 +48,7 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
       - A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools &nbsp;
   - Friday :  MVP Lord of the News 1.0 Alpha is up &nbsp;
        - Nazgul speech is fully functionnal using the compromise npm - We can now enjoy a change of dark adjectives, dark people, dark places and nouns &nbsp;
-       - The CSS is starting to look good - enjoy some new feature perspectives with our Project and Team presentation &nbsp;
+       - The CSS is starting to look good - we can now enjoy some new feature perspectives with our Project and Team presentation &nbsp;
        - We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we, on the other hand, are. &nbsp;
        - Fun master Nat, brings drinks for ous Alpha MVP - Team building is just as important as machine learning &nbsp;
    - Saturday :  Getting Tensorflow.js running &nbsp;
