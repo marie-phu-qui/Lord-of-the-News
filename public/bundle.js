@@ -797,21 +797,36 @@ var TranslateButtons = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'li',
+<<<<<<< HEAD
+                            { 'class': 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { 'class': 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_gollum.translate);
+=======
                             { className: 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(_gollum.gollumify);
+>>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
                                     } },
                                 'Gollumify'
                             )
                         ),
                         _react2.default.createElement(
                             'li',
+<<<<<<< HEAD
+                            { 'class': 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { 'class': 'nav-link', onClick: function onClick() {
+=======
                             { className: 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
+>>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
                                         return _this2.handleLanguageChange(_nazgul.nazgulify);
                                     } },
                                 'Nazgul'
