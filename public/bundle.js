@@ -99,7 +99,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.receiveNews = exports.showError = exports.requestDATA = undefined;
+exports.changeLanguage = exports.receiveNews = exports.showError = exports.requestDATA = undefined;
 exports.fetchNews = fetchNews;
 
 var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
@@ -108,6 +108,7 @@ var _superagent2 = _interopRequireDefault(_superagent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Actions to show news data
 var requestDATA = exports.requestDATA = function requestDATA() {
   return {
     type: "REQUEST_DATA"
@@ -128,6 +129,7 @@ var receiveNews = exports.receiveNews = function receiveNews(news) {
   };
 };
 
+// Fetching from API
 function fetchNews() {
   return function (dispatch) {
     dispatch(requestDATA());
@@ -139,32 +141,13 @@ function fetchNews() {
   };
 }
 
-// export const requestFUNC = () => {
-//   return {
-//     type: "REQUEST_FUNC"
-//   }
-// }
-
-// export const receiveLanguage = (language) => {
-//   return {
-//     type: "RECEIVE_LANGUAGE",
-//     language: language
-//   }
-// }
-
-// export function fetchNews() {
-//   return (dispatch) => {
-//     dispatch(requestFUNC())
-//     return request
-//       .get('/api/v1/news')
-//       .then(res => {
-//         dispatch(receiveLanguage(res.text))
-//       })
-//       .catch(err => {
-//         dispatch(showError(err.message))
-//       })
-//   }
-// }
+// Action for language change
+var changeLanguage = exports.changeLanguage = function changeLanguage(language) {
+  return {
+    type: 'CHANGE_LANGUAGE',
+    language: language
+  };
+};
 
 /***/ }),
 
@@ -188,14 +171,6 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _superagent = __webpack_require__(/*! superagent */ "./node_modules/superagent/lib/client.js");
-
-var _superagent2 = _interopRequireDefault(_superagent);
-
-var _Nav = __webpack_require__(/*! ./Nav */ "./client/components/Nav.jsx");
-
-var _Nav2 = _interopRequireDefault(_Nav);
-
 var _Header = __webpack_require__(/*! ./Header */ "./client/components/Header.jsx");
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -208,6 +183,10 @@ var _Footer = __webpack_require__(/*! ./Footer */ "./client/components/Footer.js
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _TranslateButtons = __webpack_require__(/*! ./TranslateButtons */ "./client/components/TranslateButtons.jsx");
+
+var _TranslateButtons2 = _interopRequireDefault(_TranslateButtons);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -215,11 +194,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import request from 'superagent';
 
-// import { getNews } from '../utils/api'
+// import Nav from "./Nav";
 
 
-var googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29';
+// const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -227,39 +207,33 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-    _this.state = {
-      news: ''
-    };
-    _this.getNews = _this.getNews.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    // this.getNews = this.getNews.bind(this)
   }
 
-  _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.getNews();
-    }
-  }, {
-    key: 'getNews',
-    value: function getNews() {
-      var _this2 = this;
+  // Have commented out as this not not doing anything - fetchnews is being called within articleList component.
 
-      return _superagent2.default.get(googleNewsApi).then(function (res) {
-        _this2.setState({
-          news: res.body
-        });
-      });
-    }
-  }, {
-    key: 'render',
+  // componentDidMount() {
+  //   this.getNews()
+  // }
+
+  // getNews() {
+  //   return request.get(googleNewsApi)
+  //     .then(res => {
+  //       this.setState({
+  //         news: res.body
+  //       })
+  //     })
+  // }
+
+  _createClass(App, [{
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Nav2.default, null),
+        _react2.default.createElement(_TranslateButtons2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
       );
@@ -342,10 +316,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var _gollum = __webpack_require__(/*! ../../server/lib/gollum */ "./server/lib/gollum.js");
-
-var _nazgul = __webpack_require__(/*! ../../server/lib/nazgul */ "./server/lib/nazgul.js");
-
 var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
 var _Article = __webpack_require__(/*! ./Article */ "./client/components/Article.jsx");
@@ -362,46 +332,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // import request from 'superagent';
 
-// import request from 'superagent';
-
 var ArticleList = function (_React$Component) {
   _inherits(ArticleList, _React$Component);
 
-  function ArticleList(props) {
+  function ArticleList() {
     _classCallCheck(this, ArticleList);
 
-    var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
-
-    _this.state = {
-      news: "",
-      language: _nazgul.nazgulify
-    };
-    _this.gollumify = _this.gollumify.bind(_this);
-    _this.english = _this.english.bind(_this);
-    _this.nazgulify = _this.nazgulify.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).apply(this, arguments));
   }
 
   _createClass(ArticleList, [{
-    key: "gollumify",
-    value: function gollumify() {
-      this.setState({
-        language: _gollum.translate
-      });
-    }
-  }, {
-    key: "nazgulify",
-    value: function nazgulify() {
-      this.setState({
-        language: _nazgul.nazgulify
-      });
-    }
-  }, {
-    key: "english",
-    value: function english() {
-      this.setState({ language: "" });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -409,27 +349,12 @@ var ArticleList = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { id: "list_articles", className: "container" },
-        _react2.default.createElement(
-          "button",
-          { className: "news-button", onClick: this.english },
-          "English"
-        ),
-        _react2.default.createElement(
-          "button",
-          { className: "gollum-button", onClick: this.gollumify },
-          "Gollumify"
-        ),
-        _react2.default.createElement(
-          "button",
-          { className: "nazgul-button", onClick: this.nazgulify },
-          "Nazgul"
-        ),
         this.props.news && JSON.parse(this.props.news).map(function (article, i) {
           return _react2.default.createElement(_Article2.default, {
             key: i++,
-            title: _this2.state.language ? _this2.state.language(article.title) : article.title,
+            title: _this2.props.language ? _this2.props.language(article.title) : article.title,
 
-            content: _this2.state.language && article.content ? _this2.state.language(article.content) : article.content,
+            content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
             url: article.url });
         })
       );
@@ -642,10 +567,10 @@ exports.default = Meet;
 
 /***/ }),
 
-/***/ "./client/components/Nav.jsx":
-/*!***********************************!*\
-  !*** ./client/components/Nav.jsx ***!
-  \***********************************/
+/***/ "./client/components/TranslateButtons.jsx":
+/*!************************************************!*\
+  !*** ./client/components/TranslateButtons.jsx ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -653,58 +578,125 @@ exports.default = Meet;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _gollum = __webpack_require__(/*! ../../server/lib/gollum */ "./server/lib/gollum.js");
+
+var _nazgul = __webpack_require__(/*! ../../server/lib/nazgul */ "./server/lib/nazgul.js");
+
+var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Nav = function Nav() {
-  return _react2.default.createElement(
-    "nav",
-    { "class": "navbar navbar-expand-lg " },
-    _react2.default.createElement(
-      "div",
-      { "class": "collapse navbar-collapse", id: "navbarNav" },
-      _react2.default.createElement(
-        "ul",
-        { "class": "navbar-nav" },
-        _react2.default.createElement(
-          "li",
-          { "class": "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { "class": "nav-link", href: "#" },
-            "English"
-          )
-        ),
-        _react2.default.createElement(
-          "li",
-          { "class": "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { "class": "nav-link", href: "#" },
-            "Gollumify"
-          )
-        ),
-        _react2.default.createElement(
-          "li",
-          { "class": "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { "class": "nav-link", href: "#" },
-            "Nazgul"
-          )
-        )
-      )
-    )
-  );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TranslateButtons = function (_React$Component) {
+    _inherits(TranslateButtons, _React$Component);
+
+    function TranslateButtons(props) {
+        _classCallCheck(this, TranslateButtons);
+
+        var _this = _possibleConstructorReturn(this, (TranslateButtons.__proto__ || Object.getPrototypeOf(TranslateButtons)).call(this, props));
+
+        _this.handleLanguageChange = _this.handleLanguageChange.bind(_this);
+        return _this;
+    }
+
+    //On event function for handling click
+
+
+    _createClass(TranslateButtons, [{
+        key: 'handleLanguageChange',
+        value: function handleLanguageChange(language) {
+            this.props.changeLanguage(language);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'nav',
+                { 'class': 'navbar navbar-expand-lg ' },
+                _react2.default.createElement(
+                    'div',
+                    { 'class': 'collapse navbar-collapse', id: 'navbarNav' },
+                    _react2.default.createElement(
+                        'ul',
+                        { 'class': 'navbar-nav' },
+                        _react2.default.createElement(
+                            'li',
+                            { 'class': 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { 'class': 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(null);
+                                    } },
+                                'English'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { 'class': 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { 'class': 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_gollum.translate);
+                                    } },
+                                'Gollumify'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { 'class': 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { 'class': 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_nazgul.nazgulify);
+                                    } },
+                                'Nazgul'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TranslateButtons;
+}(_react2.default.Component);
+
+//Receiving data from redux store
+
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        language: state.language
+    };
 };
 
-exports.default = Nav;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        changeLanguage: function changeLanguage(language) {
+            return dispatch((0, _actions.changeLanguage)(language));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TranslateButtons);
 
 /***/ }),
 
@@ -771,35 +763,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
-var _news = __webpack_require__(/*! ./news */ "./client/reducers/news.js");
+// import news from './news'
 
-var _news2 = _interopRequireDefault(_news);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var reducers = (0, _redux.combineReducers)({
-  news: _news2.default
-});
-
-exports.default = reducers;
-
-/***/ }),
-
-/***/ "./client/reducers/news.js":
-/*!*********************************!*\
-  !*** ./client/reducers/news.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var INITIAL_NEWS_STATE = "";
 function news() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_NEWS_STATE;
   var action = arguments[1];
 
   switch (action.type) {
@@ -810,7 +778,23 @@ function news() {
   }
 }
 
-exports.default = news;
+var INITIAL_LANGUAGE_STATE = null;
+function language() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_LANGUAGE_STATE;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "CHANGE_LANGUAGE":
+      return action.language;
+    default:
+      return state;
+  }
+}
+
+exports.default = (0, _redux.combineReducers)({
+  news: news,
+  language: language
+});
 
 /***/ }),
 
@@ -40902,9 +40886,16 @@ var processNazAdj = function processNazAdj(text) {
   return adj;
 };
 
-var processNazPeople = function processNazPeople(text) {
+var processNazFirstName = function processNazFirstName(text) {
   var originalText = nlp(text);
-  var people = originalText.replace('#Person', 'Sauron' || 'Dark Lord').out('text');
+  var people = originalText.replace('#FirstName', 'Dark Lord').out('text');
+
+  return people;
+};
+
+var processNazLastName = function processNazLastName(text) {
+  var originalText = nlp(text);
+  var people = originalText.replace('#LastName', 'Sauron').out('text');
 
   return people;
 };
@@ -40937,10 +40928,11 @@ var compromiseNazgul = function compromiseNazgul(text) {
   var nazPlaces = processNazPlaces(text);
   var nazNouns = processNazNouns(nazPlaces);
   var nazAdj = processNazAdj(nazNouns);
-  var nazPep = processNazPeople(nazAdj);
+  var nazFirst = processNazFirstName(nazAdj);
+  var nazLast = processNazLastName(nazFirst);
 
   // let nazVerbs = processNazVerbs(text)
-  return nazPep;
+  return nazLast;
 };
 
 var nazgulify = function nazgulify(text) {
