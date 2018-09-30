@@ -74,17 +74,24 @@ const processNazAdj = (text) => {
   return adj
 }
 
-const processNazPeople = (text) => {
+const processNazFirstName = (text) => {
   let originalText = nlp(text)
-  let people = originalText.replace('#Person', 'Sauron' || 'Dark Lord').out('text')
+  let people = originalText.replace('#FirstName', 'Dark Lord').out('text')
+
+  return people
+}
+
+const processNazLastName = (text) => {
+  let originalText = nlp(text)
+  let people = originalText.replace('#LastName', 'Sauron').out('text')
 
   return people
 }
 
 const processNazNouns = (text) => {
   let originalText = nlp(text)
-  let upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
-  return upperCase
+  let nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
+  return nouns
 
   //   originalText.nouns().list.map(noun => {
   //     let nazgulNoun = 'Ash nazg'
@@ -111,10 +118,11 @@ const compromiseNazgul = (text) => {
   let nazPlaces = processNazPlaces(text)
   let nazNouns = processNazNouns(nazPlaces)
   let nazAdj = processNazAdj(nazNouns)
-  let nazPep = processNazPeople(nazAdj)
+  let nazFirst = processNazFirstName(nazAdj)
+  let nazLast = processNazLastName(nazFirst)
 
   // let nazVerbs = processNazVerbs(text)
-  return nazPep
+  return nazLast
 }
 
 
