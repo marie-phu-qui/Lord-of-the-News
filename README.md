@@ -70,7 +70,7 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
 We receive our news from the Google News Api. Here is what we expect : 
 
   | Method | Endpoint | Response | 
-  | --- | --- | --- | --- | 
+  | --- | --- | --- |
   | GET | api/v1/news | array of news objects | 
 
 
