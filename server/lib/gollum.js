@@ -1,6 +1,6 @@
 // var fs  = require('fs');
 // var pos = require('pos');
-// var nlp = require('compromise');
+var nlp = require('compromise');
 // var ent = require('html-entities').AllHtmlEntities;
 
 // const googleNews = require('.../routes/googleNews')
