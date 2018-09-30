@@ -700,7 +700,7 @@ var Header = function (_React$Component) {
             { className: 'overlay-content' },
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'about-project', onClick: function onClick() {
                   return _this2.showAbout();
                 } },
               'About'
@@ -708,7 +708,7 @@ var Header = function (_React$Component) {
             this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'meet-team', onClick: function onClick() {
                   return _this2.showTeam();
                 } },
               'Meet the Team'
@@ -716,7 +716,7 @@ var Header = function (_React$Component) {
             this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'contact-list', onClick: function onClick() {
                   return _this2.showContact();
                 } },
               'Contact'
