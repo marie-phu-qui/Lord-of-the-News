@@ -807,6 +807,10 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _noWords = __webpack_require__(/*! ../../server/lib/noWords */ "./server/lib/noWords.js");
+
+var _noWords2 = _interopRequireDefault(_noWords);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Nav = function Nav() {
@@ -845,11 +849,21 @@ var Nav = function Nav() {
             { className: "nav-link", href: "#" },
             "Nazgul"
           )
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "nav-item" },
+          _react2.default.createElement(
+            "a",
+            { className: "nav-link", href: "javacript:(function(){let script = document.createElement('script'); script.src ={noWords}; document.body.appendChild(script) })();" },
+            "No Words"
+          )
         )
       )
     )
   );
 };
+// import Bookmarklet from "./Bookmarklet";
 
 exports.default = Nav;
 
@@ -41098,6 +41112,32 @@ var nazgulify = function nazgulify(text) {
 module.exports = {
   nazgulify: nazgulify
 };
+
+/***/ }),
+
+/***/ "./server/lib/noWords.js":
+/*!*******************************!*\
+  !*** ./server/lib/noWords.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.noWords = noWords;
+function noWords() {
+  console.log('he he he');
+  var paragraphs = document.getElementsByTagName('p');
+  for (var i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].innerHTML = 'kittens';
+  }
+}
+
+noWords();
 
 /***/ })
 

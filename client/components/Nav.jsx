@@ -1,4 +1,7 @@
 import React from "react";
+// import Bookmarklet from "./Bookmarklet";
+
+import noWords from "../../server/lib/noWords";
 
 
 const Nav = () => {
@@ -18,7 +21,11 @@ const Nav = () => {
           <li className="nav-item">
             <a className="nav-link" href="#">Nazgul</a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="javacript:(function(){let script = document.createElement('script'); script.src ={noWords}; document.body.appendChild(script) })();">No Words</a>
+          </li>
         </ul>
+        {/* <Bookmarklet /> */}
       </div>
     </nav>
   )
