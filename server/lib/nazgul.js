@@ -90,8 +90,8 @@ const processNazLastName = (text) => {
 
 const processNazNouns = (text) => {
   let originalText = nlp(text)
-  let upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
-  return upperCase
+  let nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
+  return nouns
 
   //   originalText.nouns().list.map(noun => {
   //     let nazgulNoun = 'Ash nazg'

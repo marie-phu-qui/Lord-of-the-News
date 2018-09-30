@@ -1,14 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { translate } from '../../server/lib/gollum'
+import { connect } from 'react-redux'
+import { gollumify } from '../../server/lib/gollum'
 import { nazgulify } from '../../server/lib/nazgul'
-import {changeLanguage} from '../actions'
+import { changeLanguage } from '../actions'
 
 class TranslateButtons extends React.Component {
     constructor(props) {
-    super(props)
+        super(props)
 
-    this.handleLanguageChange = this.handleLanguageChange.bind(this)
+        this.handleLanguageChange = this.handleLanguageChange.bind(this)
     }
 
     //On event function for handling click
@@ -22,10 +22,10 @@ class TranslateButtons extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button> 
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(translate)}>Gollumify</button>
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(gollumify)}>Gollumify</button>
                         </li>
                         <li className="nav-item">
                             <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     changeLanguage: (language) => dispatch(changeLanguage(language))
 })
-  
+
 export default connect(mapStateToProps, mapDispatchToProps)(TranslateButtons);
 
 

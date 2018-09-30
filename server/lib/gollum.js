@@ -28,7 +28,8 @@ var dictionary = {
 	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New Zealand": "Middle Earth",
+	"New": "Middle",
+	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
 	"Kaikōura": "Rivendell",
@@ -84,6 +85,7 @@ function isLetter(character) {
 
 // module.exports.dictionary = dictionary;
 
+
 function translate(text) {
 	var translatedText = "";
 
@@ -116,6 +118,22 @@ function translate(text) {
 	return translatedText;
 };
 
+const processGollumAdj = (text) => {
+	let originalText = nlp(text)
+	let adj = originalText.replace('#Adjective', 'nasty').out('text')
+	return adj
+}
+
+const compromisedGollum = (text) => {
+	let gollumDic = translate(text)
+	let gollumAdj = processGollumAdj(gollumDic)
+	return gollumAdj
+}
+
+const gollumify = (text) => {
+	return (compromisedGollum(text))
+}
+
 module.exports = {
-	translate
+	gollumify
 } 

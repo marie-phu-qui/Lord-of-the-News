@@ -801,7 +801,7 @@ var TranslateButtons = function (_React$Component) {
                             _react2.default.createElement(
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_gollum.translate);
+                                        return _this2.handleLanguageChange(_gollum.gollumify);
                                     } },
                                 'Gollumify'
                             )
@@ -40864,7 +40864,8 @@ var dictionary = {
 	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New Zealand": "Middle Earth",
+	"New": "Middle",
+	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
 	"Kaikōura": "Rivendell",
@@ -40918,6 +40919,7 @@ function isLetter(character) {
 
 // module.exports.dictionary = dictionary;
 
+
 function translate(text) {
 	var translatedText = "";
 
@@ -40950,8 +40952,24 @@ function translate(text) {
 	return translatedText;
 };
 
+var processGollumAdj = function processGollumAdj(text) {
+	var originalText = nlp(text);
+	var adj = originalText.replace('#Adjective', 'nasty').out('text');
+	return adj;
+};
+
+var compromisedGollum = function compromisedGollum(text) {
+	var gollumDic = translate(text);
+	var gollumAdj = processGollumAdj(gollumDic);
+	return gollumAdj;
+};
+
+var gollumify = function gollumify(text) {
+	return compromisedGollum(text);
+};
+
 module.exports = {
-	translate: translate
+	gollumify: gollumify
 };
 
 /***/ }),
@@ -41049,8 +41067,8 @@ var processNazLastName = function processNazLastName(text) {
 
 var processNazNouns = function processNazNouns(text) {
   var originalText = nlp(text);
-  var upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
-  return upperCase;
+  var nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
+  return nouns;
 
   //   originalText.nouns().list.map(noun => {
   //     let nazgulNoun = 'Ash nazg'
