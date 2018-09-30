@@ -625,7 +625,7 @@ var Header = function (_React$Component) {
             { className: 'overlay-content' },
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'about-project', onClick: function onClick() {
                   return _this2.showAbout();
                 } },
               'About'
@@ -633,7 +633,7 @@ var Header = function (_React$Component) {
             this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'meet-team', onClick: function onClick() {
                   return _this2.showTeam();
                 } },
               'Meet the Team'
@@ -641,7 +641,7 @@ var Header = function (_React$Component) {
             this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: function onClick() {
+              { href: '#', id: 'contact-list', onClick: function onClick() {
                   return _this2.showContact();
                 } },
               'Contact'
@@ -744,46 +744,103 @@ var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js"
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Nav = function Nav() {
-  return _react2.default.createElement(
-    "nav",
-    { className: "navbar navbar-expand-lg " },
-    _react2.default.createElement(
-      "div",
-      { className: "collapse navbar-collapse", id: "navbarNav" },
-      _react2.default.createElement(
-        "ul",
-        { className: "navbar-nav" },
-        _react2.default.createElement(
-          "li",
-          { className: "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { className: "nav-link", href: "#" },
-            "English"
-          )
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { className: "nav-link", href: "#" },
-            "Gollumify"
-          )
-        ),
-        _react2.default.createElement(
-          "li",
-          { className: "nav-item" },
-          _react2.default.createElement(
-            "a",
-            { className: "nav-link", href: "#" },
-            "Nazgul"
-          )
-        )
-      )
-    )
-  );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TranslateButtons = function (_React$Component) {
+    _inherits(TranslateButtons, _React$Component);
+
+    function TranslateButtons(props) {
+        _classCallCheck(this, TranslateButtons);
+
+        var _this = _possibleConstructorReturn(this, (TranslateButtons.__proto__ || Object.getPrototypeOf(TranslateButtons)).call(this, props));
+
+        _this.handleLanguageChange = _this.handleLanguageChange.bind(_this);
+        return _this;
+    }
+
+    //On event function for handling click
+
+
+    _createClass(TranslateButtons, [{
+        key: 'handleLanguageChange',
+        value: function handleLanguageChange(language) {
+            this.props.changeLanguage(language);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'nav',
+                { className: 'navbar navbar-expand-lg ' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'collapse navbar-collapse', id: 'navbarNav' },
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'navbar-nav' },
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(null);
+                                    } },
+                                'English'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_gollum.gollumify);
+                                    } },
+                                'Gollumify'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'nav-item' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'nav-link', onClick: function onClick() {
+                                        return _this2.handleLanguageChange(_nazgul.nazgulify);
+                                    } },
+                                'Nazgul'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TranslateButtons;
+}(_react2.default.Component);
+
+//Receiving data from redux store
+
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        language: state.language
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        changeLanguage: function changeLanguage(language) {
+            return dispatch((0, _actions.changeLanguage)(language));
+        }
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TranslateButtons);
@@ -40807,7 +40864,8 @@ var dictionary = {
 	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New Zealand": "Middle Earth",
+	"New": "Middle",
+	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
 	"Kaikōura": "Rivendell",
@@ -40861,6 +40919,7 @@ function isLetter(character) {
 
 // module.exports.dictionary = dictionary;
 
+
 function translate(text) {
 	var translatedText = "";
 
@@ -40893,8 +40952,26 @@ function translate(text) {
 	return translatedText;
 };
 
+var processGollumAdj = function processGollumAdj(text) {
+	var originalText = nlp(text);
+	var adjPossibilities = ['nasty', 'filthy', 'tricksy', 'false', 'sneaky', 'wicked'];
+	var chosenAdj = adjPossibilities[Math.floor(Math.random() * adjPossibilities.length)];
+	var adj = originalText.replace('#Adjective', chosenAdj).out('text');
+	return adj;
+};
+
+var compromisedGollum = function compromisedGollum(text) {
+	var gollumDic = translate(text);
+	var gollumAdj = processGollumAdj(gollumDic);
+	return gollumAdj;
+};
+
+var gollumify = function gollumify(text) {
+	return compromisedGollum(text);
+};
+
 module.exports = {
-	translate: translate
+	gollumify: gollumify
 };
 
 /***/ }),
@@ -40992,8 +41069,8 @@ var processNazLastName = function processNazLastName(text) {
 
 var processNazNouns = function processNazNouns(text) {
   var originalText = nlp(text);
-  var upperCase = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
-  return upperCase;
+  var nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
+  return nouns;
 
   //   originalText.nouns().list.map(noun => {
   //     let nazgulNoun = 'Ash nazg'
