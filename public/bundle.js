@@ -209,7 +209,17 @@ var Animation = function Animation() {
         null,
         _react2.default.createElement("div", { "class": "outerCircle" }),
         _react2.default.createElement("div", { "class": "innerCircle" }),
-        _react2.default.createElement("div", { "class": "icon" })
+        _react2.default.createElement("div", { "class": "icon" }),
+        _react2.default.createElement(
+            "div",
+            { "class": "center" },
+            _react2.default.createElement(
+                "div",
+                { "class": "text" },
+                "News Ring"
+            ),
+            _react2.default.createElement("div", { "class": "ring" })
+        )
     );
 };
 exports.default = Animation;
