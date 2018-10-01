@@ -18,6 +18,12 @@
       "./tests/setup-env.js"
     ]
   },
+  "babel": {
+    "presets": [
+      "babel-preset-env",
+      "babel-preset-react"
+    ]
+  },
   "dependencies": {
     "@tensorflow/tfjs": "^0.13.1",
     "@tensorflow/tfjs-node": "^0.1.17",
@@ -26,6 +32,7 @@
     "babel-loader": "^7.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "compromise": "^11.12.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
@@ -38,7 +45,10 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
+    "react-test-renderer": "^16.5.2",
     "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-testkit": "^1.0.6",
     "redux-thunk": "^2.3.0",
     "sqlite3": "^4.0.2",
     "superagent": "^^3.8.2",
@@ -47,6 +57,7 @@
     "webpack-cli": "^3.1.0"
   },
   "devDependencies": {
+    "babel-jest": "^23.6.0",
     "nodemon": "^1.18.4"
   }
 }

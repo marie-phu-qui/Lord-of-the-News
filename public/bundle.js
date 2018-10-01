@@ -725,6 +725,7 @@ exports.default = Meet;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.TranslateButtons = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -748,7 +749,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TranslateButtons = function (_React$Component) {
+var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
 
     function TranslateButtons(props) {
@@ -795,48 +796,21 @@ var TranslateButtons = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'li',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
-                            { 'class': 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { 'class': 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_gollum.translate);
-<<<<<<< HEAD
-=======
-=======
                             { className: 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(_gollum.gollumify);
->>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
->>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                                     } },
                                 'Gollumify'
                             )
                         ),
                         _react2.default.createElement(
                             'li',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
-                            { 'class': 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { 'class': 'nav-link', onClick: function onClick() {
-<<<<<<< HEAD
-=======
-=======
                             { className: 'nav-item' },
                             _react2.default.createElement(
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
->>>>>>> 0e610eac7f267da18c0b06a93e91986d3556cf10
->>>>>>> 88d84f151325b80c050a6a54cc9914c1b556450b
                                         return _this2.handleLanguageChange(_nazgul.nazgulify);
                                     } },
                                 'Nazgul'

@@ -4,7 +4,7 @@ import { gollumify } from '../../server/lib/gollum'
 import { nazgulify } from '../../server/lib/nazgul'
 import { changeLanguage } from '../actions'
 
-class TranslateButtons extends React.Component {
+export class TranslateButtons extends React.Component {
     constructor(props) {
         super(props)
 
