@@ -183,6 +183,39 @@ exports.default = About;
 
 /***/ }),
 
+/***/ "./client/components/Animation.jsx":
+/*!*****************************************!*\
+  !*** ./client/components/Animation.jsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Animation = function Animation() {
+    return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement("div", { "class": "outerCircle" }),
+        _react2.default.createElement("div", { "class": "innerCircle" }),
+        _react2.default.createElement("div", { "class": "icon" })
+    );
+};
+exports.default = Animation;
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -218,6 +251,14 @@ var _Footer2 = _interopRequireDefault(_Footer);
 var _TranslateButtons = __webpack_require__(/*! ./TranslateButtons */ "./client/components/TranslateButtons.jsx");
 
 var _TranslateButtons2 = _interopRequireDefault(_TranslateButtons);
+
+var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
+
+var _Animation2 = _interopRequireDefault(_Animation);
+
+var _Overlay = __webpack_require__(/*! ./Overlay */ "./client/components/Overlay.jsx");
+
+var _Overlay2 = _interopRequireDefault(_Overlay);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -265,6 +306,7 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Overlay2.default, null),
         _react2.default.createElement(_TranslateButtons2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
@@ -535,6 +577,173 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
+
+var _Animation2 = _interopRequireDefault(_Animation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    'div',
+    { id: 'Header' },
+    _react2.default.createElement(
+      'h1',
+      null,
+      'Lord of the News'
+    )
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
+
+/***/ "./client/components/Meet.jsx":
+/*!************************************!*\
+  !*** ./client/components/Meet.jsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Meet = function Meet() {
+  return _react2.default.createElement(
+    "div",
+    { "class": "container" },
+    _react2.default.createElement(
+      "div",
+      { "class": "row" },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "The Team"
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { "class": "row" },
+      _react2.default.createElement(
+        "div",
+        { "class": "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { "class": "card" },
+          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { "class": "avatar" },
+            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { "class": "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Marie "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The wizard behind the project"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { "class": "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { "class": "card" },
+          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { "class": "avatar" },
+            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { "class": "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Kyoko "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The courageous one"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { "class": "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { "class": "card" },
+          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { "class": "avatar" },
+            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { "class": "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Nat "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The ambitious one"
+            )
+          )
+        )
+      )
+    )
+  );
+};
+exports.default = Meet;
+
+/***/ }),
+
+/***/ "./client/components/Overlay.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Overlay.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -584,13 +793,13 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-var Header = function (_React$Component) {
-  _inherits(Header, _React$Component);
+var Overlay = function (_React$Component) {
+  _inherits(Overlay, _React$Component);
 
-  function Header(props) {
-    _classCallCheck(this, Header);
+  function Overlay(props) {
+    _classCallCheck(this, Overlay);
 
-    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Overlay.__proto__ || Object.getPrototypeOf(Overlay)).call(this, props));
 
     _this.state = {
       showContact: false,
@@ -603,7 +812,7 @@ var Header = function (_React$Component) {
     return _this;
   }
 
-  _createClass(Header, [{
+  _createClass(Overlay, [{
     key: 'showTeam',
     value: function showTeam() {
       console.log('show meeeeeeeeeeeeee TEAM');
@@ -641,11 +850,6 @@ var Header = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'Header' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Lord of the News'
-        ),
         _react2.default.createElement(
           'div',
           { id: 'myNav', className: 'overlay' },
@@ -711,42 +915,10 @@ var Header = function (_React$Component) {
     }
   }]);
 
-  return Header;
+  return Overlay;
 }(_react2.default.Component);
 
-exports.default = Header;
-
-/***/ }),
-
-/***/ "./client/components/Meet.jsx":
-/*!************************************!*\
-  !*** ./client/components/Meet.jsx ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Meet = function Meet() {
-  return _react2.default.createElement(
-    "div",
-    null,
-    "Hellooooo"
-  );
-};
-
-exports.default = Meet;
+exports.default = Overlay;
 
 /***/ }),
 
@@ -831,7 +1003,7 @@ var TranslateButtons = function (_React$Component) {
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(null);
-                                    } },
+                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
                                 'English'
                             )
                         ),
@@ -842,7 +1014,7 @@ var TranslateButtons = function (_React$Component) {
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(_gollum.gollumify);
-                                    } },
+                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
                                 'Gollumify'
                             )
                         ),
@@ -853,7 +1025,7 @@ var TranslateButtons = function (_React$Component) {
                                 'button',
                                 { className: 'nav-link', onClick: function onClick() {
                                         return _this2.handleLanguageChange(_nazgul.nazgulify);
-                                    } },
+                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
                                 'Nazgul'
                             )
                         )
