@@ -16,7 +16,7 @@ class App extends React.Component {
     // this.getNews = this.getNews.bind(this)
   }
 
-// Have commented out as this not not doing anything - fetchnews is being called within articleList component.
+  // Have commented out as this not not doing anything - fetchnews is being called within articleList component.
 
   // componentDidMount() {
   //   this.getNews()
@@ -36,8 +36,8 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Overlay />
-        {/* <Animation /> */}
-        <TranslateButtons/>
+        <Animation />
+        <TranslateButtons />
         {/* <Nav /> */}
         <ArticleList />
         <Footer />
