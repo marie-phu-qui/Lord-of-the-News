@@ -24,8 +24,8 @@ const train_ys = tf.tensor2d([
 
 function setup() {
   createCanvas(400, 400);
-  cols = width / resolution;
-  rows = height / resolution;
+  let cols = width / resolution;
+  let rows = height / resolution;
 
   // Create input Data thing
   let inputs = [];
@@ -43,7 +43,7 @@ function setup() {
   model = tf.sequential();
   let hidden = tf.layers.dense({
     inputShape: [2],
-    units: 16,
+    units: 2,
     activation: 'sigmoid'
   });
   let output = tf.layers.dense({
@@ -54,7 +54,7 @@ function setup() {
   model.add(output);
 
   // Optimizer with gradient descent
-  const learningRate = 0.01
+  const learningRate = 0.1
   const sgdOpt = tf.train.adam(learningRate)
 
   // Compile the code
@@ -83,7 +83,7 @@ function trainModel() {
 function draw() {
   background(0)
   // noLoop()
-  // console.log('drawdrawe')
+
   tf.tidy(() => {
     //PREDICT ME SOMETHING COMPUTER
     let ys = model.predict(xs)
@@ -92,15 +92,13 @@ function draw() {
     // DRAW ME SOMETHING MACHINE
     let index = 0;
     for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        let br = y_values[index] * 255
+      for (letj = 0; j < rows; j++) {
+        let br = y_values[index * 255]
         fill(br);
-        rect(i * 50, j * 50, 50, 50);
-        fill(Math.ceil(Math.random() * 255 - br));
-        // rect(i * resolution, j * resolution, resolution, resolution);
-        // fill(255 - br);
+        rect(i * resolution, j * resolution, resolution, resolution);
+        fill(255 - br);
         textAlign(CENTER, CENTER);
-        text(nf(y_values[index], 1, 2, i * resolution + resolution / 2, j * resolution - resolution / 2))
+        text(nf(y_values[index], 1, 2, i * resolution + resolution / 2))
         index++
       }
     }
