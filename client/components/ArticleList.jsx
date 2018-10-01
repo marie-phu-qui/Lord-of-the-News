@@ -36,15 +36,12 @@ class ArticleList extends React.Component {
     );
   };
 }
-
 const mapStateToProps = state => ({
   news: state.news,
   language: state.language
 })
-
 const mapDispatchToProps = (dispatch) => {
   dispatch(fetchNews())
   return {}
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

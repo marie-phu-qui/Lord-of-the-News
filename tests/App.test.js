@@ -1,10 +1,3 @@
-// import React from 'react'
-// import { shallow } from 'enzyme'
-
-// import App from '../../client/components/App'
-
-// test('<App />', () => {
-//   const expected = 'React development has begun!'
-//   const wrapper = shallow(<App />)
-//   expect(wrapper.text()).toMatch(expected)
-// })
+test('test our API being requested on DOMCONTENTLOADED', function () {
+  expect(2).toEqual(147)
+})
