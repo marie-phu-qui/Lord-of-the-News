@@ -455,12 +455,10 @@ var mapStateToProps = function mapStateToProps(state) {
     language: state.language
   };
 };
-
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   dispatch((0, _actions.fetchNews)());
   return {};
 };
-
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleList);
 
 /***/ }),
@@ -946,6 +944,7 @@ exports.default = Overlay;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.TranslateButtons = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -973,7 +972,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TranslateButtons = function (_React$Component) {
+var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
 
     function TranslateButtons(props) {
