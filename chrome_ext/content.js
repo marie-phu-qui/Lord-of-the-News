@@ -7,7 +7,7 @@
 gollumExt = () => {
   console.log('dark dark gollum darker');
   var script = document.createElement('script');
-  script.src = 'https://rawgit.com/marie-phu-qui/Lord-of-the-News/master/server/lib/gollum.js';
+  script.src = 'https://cdn.rawgit.com/marie-phu-qui/Lord-of-the-News/loading_ring/chrome_ext/dist/ext.js';
   console.log(script.src)
   document.body.appendChild(script);
 }
