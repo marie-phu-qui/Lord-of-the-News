@@ -36,7 +36,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Overlay />
-        {/* <Animation /> */}
+        <Animation />
         <TranslateButtons/>
         {/* <Nav /> */}
         <ArticleList />
