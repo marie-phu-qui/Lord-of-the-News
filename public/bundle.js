@@ -207,18 +207,15 @@ var Animation = function Animation() {
     return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement("div", { "class": "outerCircle" }),
-        _react2.default.createElement("div", { "class": "innerCircle" }),
-        _react2.default.createElement("div", { "class": "icon" }),
+        _react2.default.createElement("img", { src: "/images/theRing.svg" }),
         _react2.default.createElement(
-            "div",
-            { "class": "center" },
+            "section",
+            null,
             _react2.default.createElement(
                 "div",
-                { "class": "text" },
-                "News Ring"
-            ),
-            _react2.default.createElement("div", { "class": "ring" })
+                { "class": "Orbit" },
+                _react2.default.createElement("div", { "class": "Electron" })
+            )
         )
     );
 };
@@ -907,7 +904,7 @@ var Overlay = function (_React$Component) {
             'button',
             { onClick: function onClick() {
                 return openNav();
-              } },
+              }, type: 'button', 'class': 'btn btn-light btn-lg' },
             ' More  '
           ),
           _react2.default.createElement(

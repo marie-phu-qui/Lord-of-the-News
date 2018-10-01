@@ -82,7 +82,7 @@ class Overlay extends React.Component {
           </div>
         </div>
         <div id='navpopup'>
-          <button onClick={() => openNav()}> More  </button>
+          <button onClick={() => openNav()} type="button" class="btn btn-light btn-lg"> More  </button>
           <div id='myBtn'>
             <button onClick={() => topFunction()}> Top </button>
           </div>
