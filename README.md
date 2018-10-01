@@ -62,6 +62,9 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
        - Testing with enzyme our Reac Component and Redux store &nbsp;
        - Testing with jest our Api call and functions &nbsp;
        - Getting UX and UI to get nicer with loading precious ring &nbsp;
+   - Tuesday :  Yes ! We can make it a Chrome extension - Let's to it -- Give this machine a writting brain &nbsp;
+       - More on machine learning &nbsp;
+       - Developper side chrome extension practices &nbsp;
        
        
 - Stretch
