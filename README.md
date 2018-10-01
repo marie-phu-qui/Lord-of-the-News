@@ -39,19 +39,62 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
         - Open source machine learning framework  : <a href='https://github.com/tensorflow/tensorflow'>Tensorflow</a>\
         - Machine learning Software  : Weka, develloped by the University of Waikato\
         - Creative AI to write horror stories  : <a href='http://shelley.ai/'>Shelley</a>, by the MIT media team \
-        - Other Text AI : <a href='http://fido.ai/'>FIDO.AI</a> is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.\
-  - Thursday : \ MVP Lord of the News 1.0 Beta is up \
-      - Gollum functional language changing function is up. Hard coded without language processing tools. Text changes on screen and applies to our API of news feed \
-      - Language is added as a state in our App - We are going to add many type of translations \
-      - The App is laucnhed to Heroku under [Lord of the News](http://lord-of-the-news.herokuapp.com/) \
-      - We have a clearer view of our different pages thanks to our Wireframes \
-      - A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools \
-       
+        - Other Text AI : <a href='http://fido.ai/'>FIDO.AI</a> is an AI created to detect cyberbullying violence between children online, this is important to us to help carry meaning in our news;  <a href='https://textio.com/'>TEXTIO</a>, predict the expected response to a text(positive/negative) - <i>less meaningful to our project goal</i>;  <a href='https://www.cortical.io/'>CORTICAL</a>, is an AI which processes Natural Language Understanding - it goes from language detection (for our elvish strech) - to Twitter filters;  <a href='https://narrativescience.com/'>NARRATIVE SCIENCE</a>, has a strong company driven approch, this transforms data to text - <i>less meaningful to our project goal</i>.
+  - Thursday :  MVP Lord of the News 1.0 Beta is up &nbsp;
+      - Gollum functional language changing function is up. Hard coded without language processing tools. Text changes on screen and applies to our API of news feed &nbsp;
+      - Language is added as a state in our App - We are going to add many type of translations &nbsp;
+      - The App is laucnhed to Heroku under [Lord of the News](http://lord-of-the-news.herokuapp.com/) &nbsp;
+      - We have a clearer view of our different pages thanks to our Wireframes &nbsp;
+      - A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools &nbsp;
+  - Friday :  MVP Lord of the News 1.0 Alpha is up &nbsp;
+       - Nazgul speech is fully functionnal using the compromise npm - We can now enjoy a change of dark adjectives, dark people, dark places and nouns &nbsp;
+       - The CSS is starting to look good - we can now enjoy some new feature perspectives with our Project and Team presentation &nbsp;
+       - We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we, on the other hand, are. &nbsp;
+       - Fun master Nat, brings drinks for ous Alpha MVP - Team building is just as important as machine learning &nbsp;
+   - Saturday :  Getting Tensorflow.js running &nbsp;
+       - Fine tunning of Gollum and Nazgul speeches &nbsp;
+       - Tensorflow.js is installed and we can create our dataset with an array of numbers - Reflection on the look of our own dataset - Can we use text and strings ? How will the model interpret that ? What are actually our predictions expectations ? &nbsp;
+       - The 'more' part of our app gets filled with 3 components - About (the machine learning and natural language processing adventure) Meet the Team (us) and Contact (links to our preferred contacts modes and why you should contact us) &nbsp;
+   - Sunday :  Can we make it a Chrome extension ? &nbsp;
+       - Determining what functionalities we should get to test &nbsp;
+       - Reasearch on creating a chrome extension (manifest.json) &nbsp;
       
 - Stretch
-- Wireframes <a href https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes </a>
+- <a href=https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes>Our Wireframes</a>
 - Libraries
 - Timeline
+
+
+# API DOCS
+
+We receive our news from the Google News Api. Here is what we expect : 
+
+  | Method | Endpoint | Response | 
+  | --- | --- | --- |
+  | GET | api/v1/news | array of news objects | 
+
+
+Method : GET 
+Route : / API/V1/NEWS
+(body) - an array of objects
+
+```sh
+[
+    {
+        "source": {
+            "id": null,
+            "name": "Tvnz.co.nz"
+        },
+        "author": null,
+        "title": "Auckland Transport to be free from alcohol advertising from Monday",
+        "description": null,
+        "url": "https://www.tvnz.co.nz/one-news/new-zealand/auckland-transport-free-alcohol-advertising-monday",
+        "urlToImage": null,
+        "publishedAt": "2018-09-30T02:11:48Z",
+        "content": null
+    }
+]
+```
 
 # Focus on
 - Teamwork
