@@ -1,5 +1,5 @@
 #Header {
-    margin-left: 30%;
+    margin-left: 35%;
     font-family: Luminari, fantasy;
     font-style: cursive;
     font-variant: small-caps;
@@ -8,7 +8,10 @@
     /* margin-bottom: 3%; */
     /* margin-top: 0%; */
 }
-
+#footer {
+    position: absolute;
+    margin-top: 30px;
+}
 #navpopup {
     margin-left: 80%;
 }
@@ -25,14 +28,17 @@
     letter-spacing: 1px;
     background-color: beige;
     overflow: auto;
-    max-height: 700px;
-    max-width: 80%;
+    /* max-height: 900px; */
+    /* max-width: 80%; */
+    max-width: 45vw;
+    max-height: 45vw;
 }
 
 #app {
-    width: 55%;
+    /* width: 55%; */
+    width: 50vw;
     margin: 0 auto;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.2);
     padding: 20px;
 }
 
@@ -120,193 +126,72 @@ body {
     background-color: #555; /* Add a dark-grey background on hover */
 }
 
-.icon {
-    background: url('images/hive.png') 0 0 no-repeat;
-    width: 76px;
-    height: 76px;
-    top: -200px;
-    margin: 0 auto;
+.Orbit {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
     position: relative;
-    }
-    .icon:hover {
-    -moz-animation: rotatecircle 4s infinite linear;
-    -webkit-animation: rotatecircle 4s linear;
-    }
-    .outerCircle {
-    background-color: transparent;
-    border: 8px solid rgba(97, 82, 72, 0.9);
-    opacity: .9;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    border-radius: 100px;
-    width: 103px;
-    height: 103px;
-    margin: 0 auto;
-    -moz-animation: spinPulse 3s infinite ease-in-out;
-    -webkit-animation: spinPulse 3s infinite ease-in-out;
-    }
-    .innerCircle {
-    background-color: transparent;
-    border: 5px solid rgba(189, 215, 60, 0.6);
-    opacity: .9;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-radius: 100px;
-    top: -110px;
-    width: 92px;
-    height: 92px;
-    margin: 0 auto;
-    position: relative;
-    -moz-animation: spinoffPulse 1s infinite linear;
-    -webkit-animation: spinoffPulse 1s infinite linear;
-    
-    }
-    
-    .animation {
-       
-    }
-    @-moz-keyframes spinPulse {
-        0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c;}
-        50% { -moz-transform:rotate(145deg); opacity:1; }
-        100% { -moz-transform:rotate(-320deg); opacity:0; }
-    }
-    @-moz-keyframes spinoffPulse {
-        0% { -moz-transform:rotate(0deg); }
-        100% { -moz-transform:rotate(360deg);  }
-    }
-    @-webkit-keyframes spinPulse {
-        0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c; }
-        50% { -webkit-transform:rotate(145deg); opacity:1;}
-        100% { -webkit-transform:rotate(-320deg); opacity:0; }
-    }
-    @-webkit-keyframes spinoffPulse {
-        0% { -webkit-transform:rotate(0deg); }
-        100% { -webkit-transform:rotate(360deg); }
-    }
-    @-moz-keyframes rotatecircle {
-        0% { -moz-transform:rotate(0deg); }
-        100% { -moz-transform:rotate(-360deg); }
-    }
-    
-    @-webkit-keyframes rotatecircle {
-        0% { -webkit-transform:rotate(0deg); }
-    100% { -webkit-transform:rotate(-360deg); }
-    }
-
-    .src-image {
-        display: none;
-      }
-      
-      .card {
-        overflow: hidden;
-        position: relative;
-        border: 1px solid #CCC;
-        border-radius: 8px;
-        text-align: center;
-        padding: 0;
-        background-color: #284c79;
-        color: rgb(136, 172, 217);
-      }
-      
-      .card .header-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        border-bottom: 1px blue;
-        z-index: 1;
-      }
-      .card .avatar {
-        position: relative;
-        margin-top: 15px;
-        z-index: 100;
-      }
-      
-.card .avatar img {
-    width: 100px;
-    height: 100px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+  }
+  
+  .Electron {
     border-radius: 50%;
-    border: 5px solid rgba(0,0,30,0.8);
-      }
-
-.ring {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    box-shadow: 0 4px 0 #fff000;
-    background: transparent;
-    animation: animate 1s linear infinite;
- }
-
-.ring:before {
-    content: '';
+    width: 20px;
+    height: 20px;
     position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid transparent;
-    border-top: 3px solid #262626;
-    border-radius: 50%;
-    animation: animateCircle 3s linear infinite;
-}
-/* .ring:after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid transparent;
-    border-top: 3px solid #262626;
-    border-radius: 50%;
-    animation: animateCircle 2s linear infinite;
-} */
-
-@keyframes animateCircle {
-    0%
-    {
-        transform: rotate(0deg);
+    top: 80px;
+    left: 80px;
+    background-color: black;
+    -webkit-animation: rotate 2s infinite linear;
+            animation: rotate 2s infinite linear;
+           
+  }
+  
+  @-webkit-keyframes rotate {
+    0% {
+      -webkit-transform: rotateZ(0deg) translateX(50px);
+              transform: rotateZ(0deg) translateX(50px);
     }
     100% {
-        transform: rotate(360deg);
+      -webkit-transform: rotateZ(360deg) translateX(50px);
+              transform: rotateZ(360deg) translateX(50px);
     }
-
-}
-@keyframes animate {
-    0%
-    {
-        transform: rotate(0deg);
+  }
+  
+  @keyframes rotate {
+    0% {
+      -webkit-transform: rotateZ(0deg) translateX(50px);
+              transform: rotateZ(0deg) translateX(50px);
     }
     100% {
-        transform: rotate(360deg);
+      -webkit-transform: rotateZ(360deg) translateX(50px);
+              transform: rotateZ(360deg) translateX(50px);
     }
-}
-.text {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    color: #262626;
-    position: absolute;
-    top: 0;
-    Left: 0;
-    text-align: centre;
-    line-height: 300px;
-    font-size: 2em;
-    background: transparent;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
-    font-family: Luminari, fantasy;
-    font-style: cursive;
-    font-variant: small-caps;
-    letter-spacing: 3px;
-    padding-left: 20%;
-}
-.center {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    transform: translate(-50%,-50%);
-}
+  }
+  .Orbit {
+    border: solid 2px black;
+    transform: skew(20deg)
+  }
+  
+  h1 {
+    font-weight: normal;
+    font-size: 22px;
+  }
+  
+  section {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  html,
+  body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    font-family: Helvetica;
+  }
+ 
+
+ 

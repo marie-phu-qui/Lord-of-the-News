@@ -21,7 +21,7 @@ export class TranslateButtons extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg ">
                 <div className="collapse navbar-collapse" id="navbarNav">
-                 {/* <div id='Header'> */}
+
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <button className="nav-link" onClick={() => this.handleLanguageChange(null)} type="button" class="btn btn-light btn-lg">English</button>
@@ -35,7 +35,6 @@ export class TranslateButtons extends React.Component {
                     </ul>
                     <Bookmarklet />
                 </div>
-            {/* </div> */}
             </nav>
         )
     }

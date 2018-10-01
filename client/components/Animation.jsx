@@ -1,20 +1,15 @@
 import React from "react";
 
 const Animation = () => {
-        return (
-     <div>   
-         <div class="outerCircle"></div>
-             <div class="innerCircle"></div>
-                <div class="icon"></div> 
-                <div class="center">   
-                <div class="text">News Ring</div> 
-                    <div class="ring">
-                    </div>
-                       
-                        
-                    </div>
+    return (
+        <div>
+            <img src='/images/theRing.svg'></img>
+            <section>
+                <div class="Orbit">
+                    <div class="Electron"></div>
                 </div>
-        )
-    }
-    export default Animation     
-                 
+            </section>
+        </div>
+    )
+}
+export default Animation
