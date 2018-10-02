@@ -412,6 +412,53 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
+/***/ "./client/components/ChromeExt.jsx":
+/*!*****************************************!*\
+  !*** ./client/components/ChromeExt.jsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ChromeExt = function ChromeExt() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'overlay-content' },
+    _react2.default.createElement(
+      'p',
+      { style: { color: 'white' } },
+      'This is a CRX file - Your can install it as a Chrome developer through \'Load Unpacked\'. ',
+      _react2.default.createElement('br', null),
+      'Bless us and splash us, precious.'
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: function onClick() {
+          return downloadExt();
+        } },
+      'Come here my precious extension'
+    )
+  );
+};
+
+var downloadExt = function downloadExt() {};
+
+exports.default = ChromeExt;
+
+/***/ }),
+
 /***/ "./client/components/Contact.jsx":
 /*!***************************************!*\
   !*** ./client/components/Contact.jsx ***!
@@ -517,6 +564,10 @@ var _Contact = __webpack_require__(/*! ./Contact */ "./client/components/Contact
 
 var _Contact2 = _interopRequireDefault(_Contact);
 
+var _ChromeExt = __webpack_require__(/*! ./ChromeExt */ "./client/components/ChromeExt.jsx");
+
+var _ChromeExt2 = _interopRequireDefault(_ChromeExt);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -559,11 +610,13 @@ var Header = function (_React$Component) {
     _this.state = {
       showContact: false,
       showTeam: false,
-      showAbout: false
+      showAbout: false,
+      showExt: false
     };
     _this.showContact = _this.showContact.bind(_this);
     _this.showAbout = _this.showAbout.bind(_this);
     _this.showTeam = _this.showTeam.bind(_this);
+    _this.showExt = _this.showExt.bind(_this);
     return _this;
   }
 
@@ -574,7 +627,8 @@ var Header = function (_React$Component) {
       this.setState({
         showContact: false,
         showTeam: true,
-        showAbout: false
+        showAbout: false,
+        showExt: false
       });
     }
   }, {
@@ -584,7 +638,8 @@ var Header = function (_React$Component) {
       this.setState({
         showContact: false,
         showTeam: false,
-        showAbout: true
+        showAbout: true,
+        showExt: false
       });
     }
   }, {
@@ -594,7 +649,19 @@ var Header = function (_React$Component) {
       this.setState({
         showContact: true,
         showTeam: false,
-        showAbout: false
+        showAbout: false,
+        showExt: false
+      });
+    }
+  }, {
+    key: 'showExt',
+    value: function showExt() {
+      console.log('show meeeeeeeeeeeeee CONTACT');
+      this.setState({
+        showContact: false,
+        showTeam: false,
+        showAbout: false,
+        showExt: true
       });
     }
   }, {
@@ -646,7 +713,15 @@ var Header = function (_React$Component) {
                 } },
               'Contact'
             ),
-            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope')
+            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope'),
+            _react2.default.createElement(
+              'a',
+              { href: '#', id: 'download-ext', onClick: function onClick() {
+                  return _this2.showExt();
+                } },
+              'Gollumify your Chrome'
+            ),
+            this.state.showExt ? _react2.default.createElement(_ChromeExt2.default, null) : console.log('nope')
           )
         ),
         _react2.default.createElement(
