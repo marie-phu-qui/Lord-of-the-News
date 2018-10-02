@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { gollumify } from '../../server/lib/gollum'
 import { nazgulify } from '../../server/lib/nazgul'
 import { changeLanguage } from '../actions'
+// import Bookmarklet from './Bookmarklet'
 
 class TranslateButtons extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class TranslateButtons extends React.Component {
                             <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
                         </li>
                     </ul>
+                    {/* <Bookmarklet /> */}
                 </div>
             </nav>
         )
