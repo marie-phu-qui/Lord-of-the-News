@@ -3,9 +3,8 @@ import { connect } from 'react-redux'
 import { gollumify } from '../../server/lib/gollum'
 import { nazgulify } from '../../server/lib/nazgul'
 import { changeLanguage } from '../actions'
-import Bookmarklet from './Bookmarklet'
 
-export class TranslateButtons extends React.Component {
+class TranslateButtons extends React.Component {
     constructor(props) {
         super(props)
 
@@ -21,19 +20,21 @@ export class TranslateButtons extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg ">
                 <div className="collapse navbar-collapse" id="navbarNav">
+<<<<<<< HEAD
+=======
 
+>>>>>>> Dev
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)} type="button" class="btn btn-light btn-lg">English</button>
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(gollumify)} type="button" class="btn btn-light btn-lg">Gollumify</button>
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(gollumify)}>Gollumify</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)} type="button" class="btn btn-light btn-lg">Nazgul</button>
+                            <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
                         </li>
                     </ul>
-                    <Bookmarklet />
                 </div>
             </nav>
         )

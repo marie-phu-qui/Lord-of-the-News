@@ -58,7 +58,15 @@ Based in Wellington, New Zealand our team has a time frame of 8 days to catch up
    - Sunday :  Can we make it a Chrome extension ? &nbsp;
        - Determining what functionalities we should get to test &nbsp;
        - Reasearch on creating a chrome extension (manifest.json) &nbsp;
-      
+   - Monday :  You haven't made it until you can test it &nbsp;
+       - Testing with enzyme our Reac Component and Redux store &nbsp;
+       - Testing with jest our Api call and functions &nbsp;
+       - Getting UX and UI to get nicer with loading precious ring &nbsp;
+   - Tuesday :  Yes ! We can make it a Chrome extension - Let's to it -- Give this machine a writting brain &nbsp;
+       - More on machine learning &nbsp;
+       - Developper side chrome extension practices &nbsp;
+       
+       
 - Stretch
 - <a href=https://github.com/marie-phu-qui/Lord-of-the-News/tree/master/public/images/wireframes>Our Wireframes</a>
 - Libraries
