@@ -5,9 +5,9 @@ chrome.runtime.onMessage.addListener(receiver);
 function receiver(request, sender, sendResponse) {
   if (request.message === "user clicked!") {
     let body = document.getElementsByTagName('body')[0]
-    body.style = "background-color:black;color:brown;"
+    body.style = "background-color:#23211e;color:brown;"
     let divs = document.getElementsByTagName('div')
-    divs.style = "background-color:black;color:red;"
+    divs.style = "background-color:#444337;color:#ba7e25;"
 
 
     console.log('çlickclickclic')
