@@ -13676,6 +13676,14 @@ const gollumify = (text) => {
 	return (compromisedGollum(text))
 }
 
+const runScript = () => {
+  let htmltext = document.getElementsByTagName('body')
+  console.log('helloo')
+  return (gollumify(htmltext))
+}
+
+runScript()
+
 module.exports = {
 	gollumify
 } 
