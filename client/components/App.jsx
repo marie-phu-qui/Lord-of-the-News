@@ -34,13 +34,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-<<<<<<< HEAD
-        <TranslateButtons/>
-=======
         <Overlay />
         <Animation />
         <TranslateButtons />
->>>>>>> Dev
         {/* <Nav /> */}
         <ArticleList />
         <Footer />

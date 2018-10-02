@@ -20,10 +20,6 @@ class TranslateButtons extends React.Component {
         return (
             <nav className="navbar navbar-expand-lg ">
                 <div className="collapse navbar-collapse" id="navbarNav">
-<<<<<<< HEAD
-=======
-
->>>>>>> Dev
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button>

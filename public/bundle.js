@@ -183,46 +183,6 @@ exports.default = About;
 
 /***/ }),
 
-/***/ "./client/components/Animation.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/Animation.jsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Animation = function Animation() {
-    return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement("img", { src: "/images/theRing.svg" }),
-        _react2.default.createElement(
-            "section",
-            null,
-            _react2.default.createElement(
-                "div",
-                { "class": "Orbit" },
-                _react2.default.createElement("div", { "class": "Electron" })
-            )
-        )
-    );
-};
-exports.default = Animation;
-
-/***/ }),
-
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -305,6 +265,8 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(Overlay, null),
+        _react2.default.createElement(Animation, null),
         _react2.default.createElement(_TranslateButtons2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
@@ -696,7 +658,7 @@ var Header = function (_React$Component) {
             'button',
             { onClick: function onClick() {
                 return openNav();
-              }, type: 'button', 'class': 'btn btn-light btn-lg' },
+              } },
             ' More  '
           ),
           _react2.default.createElement(
