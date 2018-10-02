@@ -548,6 +548,173 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
+
+var _Animation2 = _interopRequireDefault(_Animation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    'div',
+    { id: 'Header' },
+    _react2.default.createElement(
+      'h1',
+      null,
+      'Lord of the News'
+    )
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
+
+/***/ "./client/components/Meet.jsx":
+/*!************************************!*\
+  !*** ./client/components/Meet.jsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Meet = function Meet() {
+  return _react2.default.createElement(
+    "div",
+    { className: "container" },
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "The Team"
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Marie "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The wizard behind the project"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Kyoko "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The courageous one"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Nat "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The ambitious one"
+            )
+          )
+        )
+      )
+    )
+  );
+};
+exports.default = Meet;
+
+/***/ }),
+
+/***/ "./client/components/Overlay.jsx":
+/*!***************************************!*\
+  !*** ./client/components/Overlay.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -828,8 +995,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var TranslateButtons = function (_React$Component) {
-    _inherits(TranslateButtons, _React$Component);
+// import Bookmarklet from './Bookmarklet'
 
+var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
+    _inherits(TranslateButtons, _React$Component);
+}
     function TranslateButtons(props) {
         _classCallCheck(this, TranslateButtons);
 
@@ -40927,10 +41097,10 @@ var dictionary = {
 	"she": "it",
 	"they": "its",
 	"Jacinda": "Gandalf",
-	"Donald": "Grrr President",
-	"Trump": "we hate it...we hate this man",
-	"trump": "we hate it...we hate this man",
-	"Trump's": "we hate it...we hate this man, he is orange,",
+	"Donald": "Smeagol",
+	"Trump": "we hate it...we hate this",
+	"trump": "we hate it...we hate this",
+	"Trump's": "Smeagol's",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",
