@@ -1,6 +1,6 @@
 // var fs  = require('fs');
 // var pos = require('pos');
-var nlp = require('compromise');
+// var nlp = require('compromise');
 // var ent = require('html-entities').AllHtmlEntities;
 
 // const googleNews = require('.../routes/googleNews')
@@ -14,10 +14,10 @@ var dictionary = {
 	"she": "it",
 	"they": "its",
 	"Jacinda": "Gandalf",
-	"Donald": "Grrr President",
-	"Trump": "we hate it...we hate this man",
-	"trump": "we hate it...we hate this man",
-	"Trump's": "we hate it...we hate this man, he is orange,",
+	"Donald": "Smeagol",
+	"Trump": "we hate it...we hate this",
+	"trump": "we hate it...we hate this",
+	"Trump's": "Smeagol's",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",

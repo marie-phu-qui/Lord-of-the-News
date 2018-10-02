@@ -6,8 +6,7 @@ import Header from "./Header";
 import ArticleList from "./ArticleList";
 import Footer from './Footer';
 import TranslateButtons from './TranslateButtons';
-import Animation from './Animation';
-import Overlay from './Overlay';
+
 // const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
 class App extends React.Component {
@@ -16,7 +15,7 @@ class App extends React.Component {
     // this.getNews = this.getNews.bind(this)
   }
 
-// Have commented out as this not not doing anything - fetchnews is being called within articleList component.
+  // Have commented out as this not not doing anything - fetchnews is being called within articleList component.
 
   // componentDidMount() {
   //   this.getNews()
@@ -35,9 +34,9 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Overlay />
-        <Animation />
-        <TranslateButtons/>
+        {/* <Overlay /> */}
+        {/* <Animation /> */}
+        <TranslateButtons />
         {/* <Nav /> */}
         <ArticleList />
         <Footer />
@@ -47,4 +46,5 @@ class App extends React.Component {
 }
 
 export default App
+
 

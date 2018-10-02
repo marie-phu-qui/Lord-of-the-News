@@ -1,7 +1,13 @@
-console.log('background he he he')
-
 chrome.browserAction.onClicked.addListener(buttonClicked)
 
+
 function buttonClicked(tab) {
-  chrome.tabs.sendMessage(tab.id, 'hello')
+  var msg = {
+    message: "user clicked!"
+  }
+  chrome.tabs.executeScript({
+    file: '/dist/ext.js'
+  });
+  chrome.tabs.sendMessage(tab.id, msg);
 }
+
