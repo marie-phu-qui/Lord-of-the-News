@@ -596,10 +596,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Meet = function Meet() {
   return _react2.default.createElement(
     "div",
-    { "class": "container" },
+    { className: "container" },
     _react2.default.createElement(
       "div",
-      { "class": "row" },
+      { className: "row" },
       _react2.default.createElement(
         "h1",
         null,
@@ -608,22 +608,22 @@ var Meet = function Meet() {
     ),
     _react2.default.createElement(
       "div",
-      { "class": "row" },
+      { className: "row" },
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm-3" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
+            { className: "avatar" },
             _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
           ),
           _react2.default.createElement(
             "div",
-            { "class": "content" },
+            { className: "content" },
             _react2.default.createElement(
               "p",
               null,
@@ -639,19 +639,19 @@ var Meet = function Meet() {
       ),
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm-3" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
+            { className: "avatar" },
             _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
           ),
           _react2.default.createElement(
             "div",
-            { "class": "content" },
+            { className: "content" },
             _react2.default.createElement(
               "p",
               null,
@@ -667,19 +667,19 @@ var Meet = function Meet() {
       ),
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm-3" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
+            { className: "avatar" },
             _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
           ),
           _react2.default.createElement(
             "div",
-            { "class": "content" },
+            { className: "content" },
             _react2.default.createElement(
               "p",
               null,
