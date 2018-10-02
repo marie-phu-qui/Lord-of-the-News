@@ -27,7 +27,8 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-class Header extends React.Component {
+// Must keep export here also for testing purposes 
+export class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
