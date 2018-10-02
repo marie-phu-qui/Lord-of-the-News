@@ -460,42 +460,6 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ "./client/components/Bookmarklet.jsx":
-/*!*******************************************!*\
-  !*** ./client/components/Bookmarklet.jsx ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Bookmarklet = function Bookmarklet() {
-  return _react2.default.createElement(
-    "div",
-    { className: "navbar navbar-expand-lg " },
-    _react2.default.createElement(
-      "a",
-      { href: "javascript:(function () { var script = document.createElement('script'); script.src = 'https://raw.githubusercontent.com/marie-phu-qui/Lord-of-the-News/master/server/lib/gollum.js'; console.log(script.src) document.body.appendChild(script);\n})();\n" },
-      "Bookmarklet"
-    )
-  );
-};
-
-exports.default = Bookmarklet;
-
-/***/ }),
-
 /***/ "./client/components/Contact.jsx":
 /*!***************************************!*\
   !*** ./client/components/Contact.jsx ***!
@@ -957,10 +921,6 @@ var _nazgul = __webpack_require__(/*! ../../server/lib/nazgul */ "./server/lib/n
 
 var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
-var _Bookmarklet = __webpack_require__(/*! ./Bookmarklet */ "./client/components/Bookmarklet.jsx");
-
-var _Bookmarklet2 = _interopRequireDefault(_Bookmarklet);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -968,6 +928,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import Bookmarklet from './Bookmarklet'
 
 var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
@@ -1036,8 +998,7 @@ var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
                                 'Nazgul'
                             )
                         )
-                    ),
-                    _react2.default.createElement(_Bookmarklet2.default, null)
+                    )
                 )
             );
         }
