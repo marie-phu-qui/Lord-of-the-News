@@ -5,7 +5,9 @@ import { nazgulify } from '../../server/lib/nazgul'
 import { changeLanguage } from '../actions'
 // import Bookmarklet from './Bookmarklet'
 
-class TranslateButtons extends React.Component {
+// Must keep export here also for testing purposes 
+
+export class TranslateButtons extends React.Component {
     constructor(props) {
         super(props)
 
