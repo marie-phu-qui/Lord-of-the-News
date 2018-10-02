@@ -439,21 +439,23 @@ var ChromeExt = function ChromeExt() {
     _react2.default.createElement(
       'p',
       { style: { color: 'white' } },
-      'This is a CRX file - Your can install it as a Chrome developer through \'Load Unpacked\'. ',
-      _react2.default.createElement('br', null),
-      'Bless us and splash us, precious.'
+      'This is a CRX file - Your can install it as a Chrome developer through \'Load Unpacked\'.'
     ),
     _react2.default.createElement(
-      'button',
-      { onClick: function onClick() {
-          return downloadExt();
-        } },
-      'Come here my precious extension'
+      'a',
+      { href: '/chrome_ext.crx', download: 'Gollumify' },
+      _react2.default.createElement(
+        'button',
+        null,
+        'Bless us and splash us, precious'
+      )
     )
   );
 };
 
-var downloadExt = function downloadExt() {};
+// const downloadExt = () => {
+
+// }
 
 exports.default = ChromeExt;
 
@@ -656,7 +658,7 @@ var Header = function (_React$Component) {
   }, {
     key: 'showExt',
     value: function showExt() {
-      console.log('show meeeeeeeeeeeeee CONTACT');
+      console.log('show meeeeeeeeeeeeee the EXTENTION');
       this.setState({
         showContact: false,
         showTeam: false,

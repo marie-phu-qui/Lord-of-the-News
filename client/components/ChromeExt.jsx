@@ -5,16 +5,17 @@ const ChromeExt = () => {
   return (
     <div className='overlay-content'>
       <p style={{ color: 'white' }}>
-        This is a CRX file - Your can install it as a Chrome developer through 'Load Unpacked'. <br></br>
-        Bless us and splash us, precious.
+        This is a CRX file - Your can install it as a Chrome developer through 'Load Unpacked'.
     </p>
-      <button onClick={() => downloadExt()}>Come here my precious extension</button>
+      <a href="/chrome_ext.crx" download="Gollumify">
+        <button>Bless us and splash us, precious</button>
+      </a>
     </div>
   )
 }
 
-const downloadExt = () => {
+// const downloadExt = () => {
 
-}
+// }
 
 export default ChromeExt

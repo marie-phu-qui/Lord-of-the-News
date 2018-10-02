@@ -71,7 +71,7 @@ class Header extends React.Component {
   }
 
   showExt() {
-    console.log('show meeeeeeeeeeeeee CONTACT')
+    console.log('show meeeeeeeeeeeeee the EXTENTION')
     this.setState({
       showContact: false,
       showTeam: false,
