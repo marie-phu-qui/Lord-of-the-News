@@ -13690,7 +13690,6 @@ const runScript = () => {
   // console.log(typeof htmltext)
 
 Object.keys(htmltext).forEach(function(key) {
-  console.log(gollumify(htmltext[key].innerText));
   return (htmltext[key].innerText) = gollumify((htmltext[key].innerText));
 });
 
