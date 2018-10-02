@@ -18,6 +18,12 @@
       "./tests/setup-env.js"
     ]
   },
+  "babel": {
+    "presets": [
+      "babel-preset-env",
+      "babel-preset-react"
+    ]
+  },
   "dependencies": {
     "@tensorflow/tfjs": "^0.13.1",
     "@tensorflow/tfjs-node": "^0.1.17",
