@@ -265,8 +265,6 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(Overlay, null),
-        _react2.default.createElement(Animation, null),
         _react2.default.createElement(_TranslateButtons2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
