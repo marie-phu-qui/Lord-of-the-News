@@ -174,8 +174,141 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var About = function About() {
   return _react2.default.createElement(
     "div",
-    null,
-    "THIS IS MY ABOUT THING"
+    { className: "main-container" },
+    _react2.default.createElement(
+      "div",
+      { className: "content" },
+      _react2.default.createElement(
+        "p",
+        null,
+        "Enjoy the regular news narrated by J.R. Tolkien. Because world state is more entertaining when there are hobbits around."
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "focus-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "content" },
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Our Focus: "
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Machine learning and neural networks. We want to transform a text of dry news to J.R. Tolkien style narrative. Based in Wellington, New Zealand our team has a time frame of 8 days to catch up on machine learning tools to build a real time (based on Google news) news app transpilled to Lord of the Ring style."
+        )
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "goals-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "content" },
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Our Goals:"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "We enjoy Lord of the ring so much and our AI is such a talented writer - the whole web should be such a pleasure to read. We intend to build a Chrome extension to transpile every bit of english sentence to this enjoyable adventure. We want to see elvish on the screen and as Tolkien would have done it. We will be stretching our AI to detect foreign language (not english) on your page to be of elvish beauty."
+        )
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "planning-container" },
+      _react2.default.createElement(
+        "h2",
+        null,
+        "Our Project Planning:"
+      ),
+      _react2.default.createElement("br", null),
+      _react2.default.createElement(
+        "div",
+        { className: "content" },
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Timeline"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Wednesday: Research"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Natural Language Processing tool : Compromise Open source machine learning framework : Tensorflow"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Thursday: MVP Lord of the News 1.0 Beta is up"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Gollum function changing language is up and running, this is hard coded without language processing tools. The text changes on screen, and applies to our API of Google news feed. Language is added as a state in our App, as we are going to add many type of translations. The App is deployed in its intial state to Heroku under Lord of the News. We have a clearer view of our different pages thanks to our Wireframes. A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools."
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Friday: MVP Lord of the News 1.0 Alpha is up"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Nazgul speech is fully functionnal using the compromise.js npm. We can now enjoy a change of dark adjectives, dark people, dark places and nouns. CSS is coming together, and we can now enjoy some new feature perspectives with our Project and Team presentation. We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we, on the other hand, are. Fun master Nat, brings drinks for our Alpha MVP - Team building is just as important as machine learning"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Saturday: Getting Tensorflow.js running"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Fine tunning of the Gollum and Nazgul functional speeches. Tensorflow.js is installed and we can create our dataset with an array of numbers. The 'more' part of our app gets filled with 3 components - About (the machine learning and natural language processing adventure) Meet the Team (us) and Contact (links to our preferred contacts modes and why you should contact us)"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Sunday: Can we make it a Chrome extension?"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Determining what functionalities we should get to test Reasearch on creating a chrome extension (manifest.json)"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Monday: You haven't made it until you can test it"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Testing with enzyme our React Component and Redux store Testing with jest our Api call and functions Getting UX and UI to get nicer with loading precious ring"
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Tuesday: Yes! We can make it a Chrome extension - Let's do it -- Give this machine a writting brain"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "More on machine learning Developper side chrome extension practices"
+        )
+      )
+    )
   );
 };
 
@@ -484,8 +617,86 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Contact = function Contact() {
   return _react2.default.createElement(
     "div",
-    null,
-    "Contact"
+    { className: "container" },
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "Contact"
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "For CSS, UI, UX queries "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Nat"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "For React, Redux, Testing, Natural Language Processing(Compromise.js), Basic Chrome Extension queries "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Kyoko"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "For Machine Learning(TensorFlow.js), API + Testing, Natural Language Processing(Compromise.js), Chrome Extension queries "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Marie"
+            )
+          )
+        )
+      )
+    )
   );
 };
 
@@ -538,173 +749,6 @@ exports.default = Footer;
 /*!**************************************!*\
   !*** ./client/components/Header.jsx ***!
   \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
-
-var _Animation2 = _interopRequireDefault(_Animation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header() {
-  return _react2.default.createElement(
-    'div',
-    { id: 'Header' },
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Lord of the News'
-    )
-  );
-};
-
-exports.default = Header;
-
-/***/ }),
-
-/***/ "./client/components/Meet.jsx":
-/*!************************************!*\
-  !*** ./client/components/Meet.jsx ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Meet = function Meet() {
-  return _react2.default.createElement(
-    "div",
-    { className: "container" },
-    _react2.default.createElement(
-      "div",
-      { className: "row" },
-      _react2.default.createElement(
-        "h1",
-        null,
-        "The Team"
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      { className: "row" },
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
-          _react2.default.createElement(
-            "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "Marie "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "The wizard behind the project"
-            )
-          )
-        )
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
-          _react2.default.createElement(
-            "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "Kyoko "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "The courageous one"
-            )
-          )
-        )
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
-          _react2.default.createElement(
-            "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "Nat "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "The ambitious one"
-            )
-          )
-        )
-      )
-    )
-  );
-};
-exports.default = Meet;
-
-/***/ }),
-
-/***/ "./client/components/Overlay.jsx":
-/*!***************************************!*\
-  !*** ./client/components/Overlay.jsx ***!
-  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -949,8 +993,104 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Meet = function Meet() {
   return _react2.default.createElement(
     "div",
-    null,
-    "Hellooooo"
+    { className: "container" },
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "The Team"
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "row" },
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Marie "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The wizard behind the project"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Kyoko "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The courageous one"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-sm-3" },
+        _react2.default.createElement(
+          "div",
+          { className: "card" },
+          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          _react2.default.createElement(
+            "div",
+            { className: "avatar" },
+            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "content" },
+            _react2.default.createElement(
+              "p",
+              null,
+              "Nat "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "The ambitious one"
+            )
+          )
+        )
+      )
+    )
   );
 };
 
@@ -994,12 +1134,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TranslateButtons = function (_React$Component) {
 // import Bookmarklet from './Bookmarklet'
 
-var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
+var TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
-}
+
     function TranslateButtons(props) {
         _classCallCheck(this, TranslateButtons);
 
