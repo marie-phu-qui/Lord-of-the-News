@@ -24,7 +24,7 @@
 
 }
 #list_articles {
-    /* padding-top: 6%; */
+    padding-top: 6%;
     letter-spacing: 1px;
     background-color: beige;
     overflow: auto;
