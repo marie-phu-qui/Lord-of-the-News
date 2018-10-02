@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Lord of the News",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {},
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self' https://cdn.rawgit.com/marie-phu-qui/Lord-of-the-News/loading_ring/chrome_ext/dist/ext.js; object-src 'self'",
+  "web_accessible_resources": ["content.js"]
+}

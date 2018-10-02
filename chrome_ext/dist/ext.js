@@ -13553,7 +13553,8 @@ var dictionary = {
 	"he": "it",
 	"she": "it",
 	"they": "its",
-	"Jacinda": "Gandalf",
+  "Jacinda": "Gandalf",
+  "jacinda": "Gandalf",
 	"Donald": "Grrr President",
 	"Trump": "we hate it...we hate this man",
 	"trump": "we hate it...we hate this man",
@@ -13567,7 +13568,9 @@ var dictionary = {
 	"tourism": "stupid",
 	"NZ": "Middle Earth",
 	"kiwis": "creatures",
-	"Kiwis": "hobbitses",
+  "Kiwis": "Hobbitses",
+  "kiwi": "creature",
+	"Kiwi": "Hobbit",
 	"New": "Middle",
 	"Zealand": "Earth",
 	"Police": "Orc",
@@ -13619,6 +13622,9 @@ function applyCase(wordA, wordB) {
 };
 
 function isLetter(character) {
+  if(typeof character === 'object') return false
+  // console.log(character)
+  // console.log(typeof character)
 	if (character.search(/[a-zA-Z'-]/) === -1) return false;
 	return true;
 }
@@ -13630,9 +13636,11 @@ function translate(text) {
 	var translatedText = "";
 
 	// Loop through the text, one character at a time.
-	var word = "";
+  var word = "";
+  // console.log({text})
 	for (var i = 0; i < text.length; i += 1) {
-		var character = text[i];
+    var character = text[i];
+    // console.log({character})
 		// If the char is a letter, then we are in the middle of a word, so we
 		// should accumulate the letter into the word variable
 		if (isLetter(character)) {
@@ -13675,6 +13683,27 @@ const compromisedGollum = (text) => {
 const gollumify = (text) => {
 	return (compromisedGollum(text))
 }
+
+const runScript = () => {
+  let htmltext = document.getElementsByTagName('p')
+  // console.log(htmltext[3].innerText)
+  // console.log(typeof htmltext)
+
+Object.keys(htmltext).forEach(function(key) {
+  console.log(gollumify(htmltext[key].innerText));
+  return (htmltext[key].innerText) = gollumify((htmltext[key].innerText));
+});
+
+  // load into cheerio
+  // first: use cheerio to find all the p nodes
+  // later: use cheerio to find all the text nodes
+  // gollumify each one (start with just 1)
+  // return (gollumify(content))
+  // }
+  // })
+}
+
+runScript()
 
 module.exports = {
 	gollumify
