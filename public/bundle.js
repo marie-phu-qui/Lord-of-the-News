@@ -730,7 +730,7 @@ var Footer = function Footer(props) {
     { id: 'footer' },
     _react2.default.createElement(
       'a',
-      { href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
+      { 'class': 'impact-link', href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
       'Our github'
     ),
     _react2.default.createElement(

@@ -3,7 +3,7 @@ import React from "react";
 const Footer = props => {
   return (
     <div id='footer'>
-      <a href='https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md'>
+      <a class='impact-link' href='https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md'>
         Our github
       </a>
       <p>
