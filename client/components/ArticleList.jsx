@@ -7,6 +7,9 @@ import Article from "./Article";
 class ArticleList extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+
+    }
     // this.fetchNews = this.fetchNews.bind(this)
   }
 
@@ -16,6 +19,9 @@ class ArticleList extends React.Component {
       <div id="list_articles" className="container" >
         <ul className="list-group">
           <li className="list-group-item">
+        {this.props.loading && <img src="/images/ring.gif" alt="" />}
+
+
         {
           this.props.news && JSON.parse(this.props.news).map((article, i) => {
             return (
@@ -47,7 +53,8 @@ class ArticleList extends React.Component {
 
 const mapStateToProps = state => ({
   news: state.news,
-  language: state.language
+  language: state.language,
+  loading: state.loading,
 })
 
 const mapDispatchToProps = (dispatch) => {
