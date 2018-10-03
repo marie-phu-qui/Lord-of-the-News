@@ -5,7 +5,9 @@ import { nazgulify } from '../../server/lib/nazgul'
 import { changeLanguage } from '../actions'
 // import Bookmarklet from './Bookmarklet'
 
-class TranslateButtons extends React.Component {
+// Must keep export here also for testing purposes 
+
+export class TranslateButtons extends React.Component {
     constructor(props) {
         super(props)
 
@@ -19,25 +21,21 @@ class TranslateButtons extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg ">
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(null)}>English</button>
-                        </li>
-                        <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(gollumify)}>Gollumify</button>
-                        </li>
-                        <li className="nav-item">
-                            <button className="nav-link" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
-                        </li>
-                    </ul>
+            // <nav className="navbar navbar-expand-lg ">
+            <div className="container" >
+                <div className="button-group">           
+                            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => this.handleLanguageChange(null)}>English</button>
+                            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => this.handleLanguageChange(gollumify)}>Gollumify</button>
+                            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => this.handleLanguageChange(nazgulify)}>Nazgul</button>
                     {/* <Bookmarklet /> */}
                 </div>
-            </nav>
+            </div>
+            //  </nav>
         )
     }
 }
+
+
 
 //Receiving data from redux store
 const mapStateToProps = state => ({

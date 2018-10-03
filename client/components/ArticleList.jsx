@@ -1,15 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 
-// import request from 'superagent';
-
-import { fetchNews} from '../actions'
+import { fetchNews } from '../actions'
 import Article from "./Article";
 
 class ArticleList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+    // this.fetchNews = this.fetchNews.bind(this)
+  }
+
+
   render() {
     return (
-      < div id="list_articles" className="container" >
+      <div>
+        {this.props.loading && <img className="img-ring" src="/images/ring.gif" alt="Responsive image"/>}
+        <br/>
+          <div  id="list_articles" className="container"> 
+          <ul className="list-group">
+            <li className="list-group-item">
         {
           this.props.news && JSON.parse(this.props.news).map((article, i) => {
             return (
@@ -29,9 +41,12 @@ class ArticleList extends React.Component {
                 }
                 url={article.url} />
             )
-            
+
           })
         }
+        </li>
+        </ul>
+      </div >
       </div >
     );
   };
@@ -39,7 +54,8 @@ class ArticleList extends React.Component {
 
 const mapStateToProps = state => ({
   news: state.news,
-  language: state.language
+  language: state.language,
+  loading: state.loading,
 })
 
 const mapDispatchToProps = (dispatch) => {

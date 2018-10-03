@@ -134,7 +134,9 @@ function fetchNews() {
   return function (dispatch) {
     dispatch(requestDATA());
     return _superagent2.default.get('/api/v1/news').then(function (res) {
-      dispatch(receiveNews(res.text));
+      setTimeout(function () {
+        return dispatch(receiveNews(res.text));
+      }, 4000);
     }).catch(function (err) {
       dispatch(showError(err.message));
     });
@@ -219,95 +221,6 @@ var About = function About() {
           "We enjoy Lord of the ring so much and our AI is such a talented writer - the whole web should be such a pleasure to read. We intend to build a Chrome extension to transpile every bit of english sentence to this enjoyable adventure. We want to see elvish on the screen and as Tolkien would have done it. We will be stretching our AI to detect foreign language (not english) on your page to be of elvish beauty."
         )
       )
-    ),
-    _react2.default.createElement(
-      "div",
-      { className: "planning-container" },
-      _react2.default.createElement(
-        "h2",
-        null,
-        "Our Project Planning:"
-      ),
-      _react2.default.createElement("br", null),
-      _react2.default.createElement(
-        "div",
-        { className: "content" },
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Timeline"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Wednesday: Research"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Natural Language Processing tool : Compromise Open source machine learning framework : Tensorflow"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Thursday: MVP Lord of the News 1.0 Beta is up"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Gollum function changing language is up and running, this is hard coded without language processing tools. The text changes on screen, and applies to our API of Google news feed. Language is added as a state in our App, as we are going to add many type of translations. The App is deployed in its intial state to Heroku under Lord of the News. We have a clearer view of our different pages thanks to our Wireframes. A dev beta-gamma-epsilon version of nazgul/black speech is in develpoment including Compromise natural language processing tools."
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Friday: MVP Lord of the News 1.0 Alpha is up"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Nazgul speech is fully functionnal using the compromise.js npm. We can now enjoy a change of dark adjectives, dark people, dark places and nouns. CSS is coming together, and we can now enjoy some new feature perspectives with our Project and Team presentation. We are launching our great learning curve with Tensorflow now installed on our serverside and the start of our dataset building up. One thing for sure, if our machine is not learning YET, we, on the other hand, are. Fun master Nat, brings drinks for our Alpha MVP - Team building is just as important as machine learning"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Saturday: Getting Tensorflow.js running"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Fine tunning of the Gollum and Nazgul functional speeches. Tensorflow.js is installed and we can create our dataset with an array of numbers. The 'more' part of our app gets filled with 3 components - About (the machine learning and natural language processing adventure) Meet the Team (us) and Contact (links to our preferred contacts modes and why you should contact us)"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Sunday: Can we make it a Chrome extension?"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Determining what functionalities we should get to test Reasearch on creating a chrome extension (manifest.json)"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Monday: You haven't made it until you can test it"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "Testing with enzyme our React Component and Redux store Testing with jest our Api call and functions Getting UX and UI to get nicer with loading precious ring"
-        ),
-        _react2.default.createElement(
-          "h3",
-          null,
-          "Tuesday: Yes! We can make it a Chrome extension - Let's do it -- Give this machine a writting brain"
-        ),
-        _react2.default.createElement(
-          "p",
-          null,
-          "More on machine learning Developper side chrome extension practices"
-        )
-      )
     )
   );
 };
@@ -329,6 +242,7 @@ exports.default = About;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.App = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -366,7 +280,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
-var App = function (_React$Component) {
+var App = exports.App = function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
@@ -443,7 +357,7 @@ var Article = function Article(props) {
       { href: props.url },
       _react2.default.createElement(
         "h4",
-        null,
+        { className: "text-success" },
         props.title
       )
     ),
@@ -495,15 +409,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import request from 'superagent';
-
 var ArticleList = function (_React$Component) {
   _inherits(ArticleList, _React$Component);
 
-  function ArticleList() {
+  function ArticleList(props) {
     _classCallCheck(this, ArticleList);
 
-    return _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+
+    _this.state = {};
+    // this.fetchNews = this.fetchNews.bind(this)
+    return _this;
   }
 
   _createClass(ArticleList, [{
@@ -513,15 +429,29 @@ var ArticleList = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { id: "list_articles", className: "container" },
-        this.props.news && JSON.parse(this.props.news).map(function (article, i) {
-          return _react2.default.createElement(_Article2.default, {
-            key: i++,
-            title: _this2.props.language ? _this2.props.language(article.title) : article.title,
+        null,
+        this.props.loading && _react2.default.createElement("img", { className: "img-ring", src: "/images/ring.gif", alt: "Responsive image" }),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "div",
+          { id: "list_articles", className: "container" },
+          _react2.default.createElement(
+            "ul",
+            { className: "list-group" },
+            _react2.default.createElement(
+              "li",
+              { className: "list-group-item" },
+              this.props.news && JSON.parse(this.props.news).map(function (article, i) {
+                return _react2.default.createElement(_Article2.default, {
+                  key: i++,
+                  title: _this2.props.language ? _this2.props.language(article.title) : article.title,
 
-            content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
-            url: article.url });
-        })
+                  content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
+                  url: article.url });
+              })
+            )
+          )
+        )
       );
     }
   }]);
@@ -532,7 +462,8 @@ var ArticleList = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     news: state.news,
-    language: state.language
+    language: state.language,
+    loading: state.loading
   };
 };
 
@@ -594,116 +525,6 @@ exports.default = ChromeExt;
 
 /***/ }),
 
-/***/ "./client/components/Contact.jsx":
-/*!***************************************!*\
-  !*** ./client/components/Contact.jsx ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Contact = function Contact() {
-  return _react2.default.createElement(
-    "div",
-    { className: "container" },
-    _react2.default.createElement(
-      "div",
-      { className: "row" },
-      _react2.default.createElement(
-        "h1",
-        null,
-        "Contact"
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      { className: "row" },
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "For CSS, UI, UX queries "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Nat"
-            )
-          )
-        )
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "For React, Redux, Testing, Natural Language Processing(Compromise.js), Basic Chrome Extension queries "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Kyoko"
-            )
-          )
-        )
-      ),
-      _react2.default.createElement(
-        "div",
-        { className: "col-sm-3" },
-        _react2.default.createElement(
-          "div",
-          { className: "card" },
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
-            _react2.default.createElement(
-              "p",
-              null,
-              "For Machine Learning(TensorFlow.js), API + Testing, Natural Language Processing(Compromise.js), Chrome Extension queries "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Marie"
-            )
-          )
-        )
-      )
-    )
-  );
-};
-
-exports.default = Contact;
-
-/***/ }),
-
 /***/ "./client/components/Footer.jsx":
 /*!**************************************!*\
   !*** ./client/components/Footer.jsx ***!
@@ -726,17 +547,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Footer = function Footer(props) {
   return _react2.default.createElement(
-    'div',
-    { id: 'footer' },
+    "div",
+    { className: "container-footer" },
     _react2.default.createElement(
-      'a',
-      { href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
-      'Our github'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'The news API is provided by Google News. Thank you Google News'
+      "div",
+      { id: "footer" },
+      _react2.default.createElement(
+        "a",
+        { className: "text-success", href: "https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md" },
+        "Our github"
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "font-italic" },
+        "The news API is provided by Google News. Thank you Google News"
+      )
     )
   );
 };
@@ -758,6 +583,7 @@ exports.default = Footer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Header = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -773,10 +599,6 @@ var _About = __webpack_require__(/*! ./About */ "./client/components/About.jsx")
 
 var _About2 = _interopRequireDefault(_About);
 
-var _Contact = __webpack_require__(/*! ./Contact */ "./client/components/Contact.jsx");
-
-var _Contact2 = _interopRequireDefault(_Contact);
-
 var _ChromeExt = __webpack_require__(/*! ./ChromeExt */ "./client/components/ChromeExt.jsx");
 
 var _ChromeExt2 = _interopRequireDefault(_ChromeExt);
@@ -788,6 +610,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import Contact from './Contact';
+
 
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
@@ -812,7 +636,9 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-var Header = function (_React$Component) {
+// Must keep export here also for testing purposes 
+
+var Header = exports.Header = function (_React$Component) {
   _inherits(Header, _React$Component);
 
   function Header(props) {
@@ -825,9 +651,8 @@ var Header = function (_React$Component) {
       showTeam: false,
       showAbout: false,
       showExt: false
-    };
-    _this.showContact = _this.showContact.bind(_this);
-    _this.showAbout = _this.showAbout.bind(_this);
+      // this.showContact = this.showContact.bind(this)
+    };_this.showAbout = _this.showAbout.bind(_this);
     _this.showTeam = _this.showTeam.bind(_this);
     _this.showExt = _this.showExt.bind(_this);
     return _this;
@@ -836,7 +661,6 @@ var Header = function (_React$Component) {
   _createClass(Header, [{
     key: 'showTeam',
     value: function showTeam() {
-      console.log('show meeeeeeeeeeeeee TEAM');
       this.setState({
         showContact: false,
         showTeam: true,
@@ -847,7 +671,6 @@ var Header = function (_React$Component) {
   }, {
     key: 'showAbout',
     value: function showAbout() {
-      console.log('show meeeeeeeeeeeeee ABOUT');
       this.setState({
         showContact: false,
         showTeam: false,
@@ -855,21 +678,18 @@ var Header = function (_React$Component) {
         showExt: false
       });
     }
-  }, {
-    key: 'showContact',
-    value: function showContact() {
-      console.log('show meeeeeeeeeeeeee CONTACT');
-      this.setState({
-        showContact: true,
-        showTeam: false,
-        showAbout: false,
-        showExt: false
-      });
-    }
+    // showContact() {
+    //   this.setState({
+    //     showContact: true,
+    //     showTeam: false,
+    //     showAbout: false,
+    //     showExt: false
+    //   })
+    // }
+
   }, {
     key: 'showExt',
     value: function showExt() {
-      console.log('show meeeeeeeeeeeeee the EXTENTION');
       this.setState({
         showContact: false,
         showTeam: false,
@@ -884,10 +704,10 @@ var Header = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { id: 'Header' },
+        { id: 'Header', className: 'container' },
         _react2.default.createElement(
           'h1',
-          null,
+          { className: 'title font-weight-bold' },
           'Lord of the News'
         ),
         _react2.default.createElement(
@@ -910,7 +730,7 @@ var Header = function (_React$Component) {
                 } },
               'About'
             ),
-            this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
+            this.state.showAbout && _react2.default.createElement(_About2.default, null),
             _react2.default.createElement(
               'a',
               { href: '#', id: 'meet-team', onClick: function onClick() {
@@ -918,15 +738,7 @@ var Header = function (_React$Component) {
                 } },
               'Meet the Team'
             ),
-            this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
-            _react2.default.createElement(
-              'a',
-              { href: '#', id: 'contact-list', onClick: function onClick() {
-                  return _this2.showContact();
-                } },
-              'Contact'
-            ),
-            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope'),
+            this.state.showTeam && _react2.default.createElement(_Meet2.default, null),
             _react2.default.createElement(
               'a',
               { href: '#', id: 'download-ext', onClick: function onClick() {
@@ -934,28 +746,36 @@ var Header = function (_React$Component) {
                 } },
               'Gollumify your Chrome'
             ),
-            this.state.showExt ? _react2.default.createElement(_ChromeExt2.default, null) : console.log('nope')
+            this.state.showExt && _react2.default.createElement(_ChromeExt2.default, null)
           )
         ),
         _react2.default.createElement(
           'div',
           { id: 'navpopup' },
           _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return openNav();
-              } },
-            ' More  '
-          ),
-          _react2.default.createElement(
             'div',
-            { id: 'myBtn' },
+            { className: 'container' },
             _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return topFunction();
-                } },
-              ' Top '
+              'div',
+              { className: 'button-group' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return openNav();
+                  } },
+                ' More  '
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { id: 'myBtn' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return topFunction();
+                  } },
+                ' Top '
+              )
             )
           )
         )
@@ -993,7 +813,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Meet = function Meet() {
   return _react2.default.createElement(
     "div",
-    { className: "container" },
+    { className: "meet-container" },
     _react2.default.createElement(
       "div",
       { className: "row" },
@@ -1008,84 +828,144 @@ var Meet = function Meet() {
       { className: "row" },
       _react2.default.createElement(
         "div",
-        { className: "col-sm-3" },
+        { className: "col-sm-4 d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/gandalf.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
+            { className: "card-body" },
             _react2.default.createElement(
-              "p",
-              null,
-              "Marie "
+              "h5",
+              { className: "card-title" },
+              "Marie"
             ),
             _react2.default.createElement(
-              "p",
-              null,
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
               "The wizard behind the project"
+            ),
+            _react2.default.createElement(
+              "p",
+              { className: "card-text" },
+              "For Machine Learning(TensorFlow.js), API + Testing, Natural Language Processing(Compromise.js), Chrome Extension queries"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseMarie", "aria-expanded": "false", "aria-controls": "collapseMarie" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseMarie" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: marie.nguyen.phu.qui at gmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 02108934396"
+              )
             )
           )
         )
       ),
       _react2.default.createElement(
         "div",
-        { className: "col-sm-3" },
+        { className: "col-sm-4 d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/frodo.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
+            { className: "card-body" },
             _react2.default.createElement(
-              "p",
-              null,
-              "Kyoko "
+              "h5",
+              { className: "card-title" },
+              "Kyoko"
             ),
             _react2.default.createElement(
-              "p",
-              null,
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
               "The courageous one"
+            ),
+            _react2.default.createElement(
+              "p",
+              { className: "card-text" },
+              "For React, Redux, Testing, CSS, Natural Language Processing, Basic Chrome Extension queries"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseKyoko", "aria-expanded": "false", "aria-controls": "collapseKyoko" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseKyoko" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: kmpohe at gmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 0211991056"
+              )
             )
           )
         )
       ),
       _react2.default.createElement(
         "div",
-        { className: "col-sm-3" },
+        { className: "col-sm- d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { className: "card" },
-          _react2.default.createElement("canvas", { className: "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/gollum.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { className: "avatar" },
-            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "content" },
+            { className: "card-body" },
+            _react2.default.createElement(
+              "h5",
+              { className: "card-title" },
+              "Nat"
+            ),
+            _react2.default.createElement(
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
+              "The ambitious one"
+            ),
             _react2.default.createElement(
               "p",
-              null,
-              "Nat "
+              { className: "card-text" },
+              "For React, CSS, User Interface, User Experience, GIF queries "
             ),
             _react2.default.createElement(
               "p",
               null,
-              "The ambitious one"
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseNat", "aria-expanded": "false", "aria-controls": "collapseNat" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseNat" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: nat_sirisamphan at hotmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 0220723077"
+              )
             )
           )
         )
@@ -1111,6 +991,7 @@ exports.default = Meet;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.TranslateButtons = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1136,7 +1017,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // import Bookmarklet from './Bookmarklet'
 
-var TranslateButtons = function (_React$Component) {
+// Must keep export here also for testing purposes 
+
+var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
 
     function TranslateButtons(props) {
@@ -1161,50 +1044,39 @@ var TranslateButtons = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            return _react2.default.createElement(
-                'nav',
-                { className: 'navbar navbar-expand-lg ' },
+            return (
+                // <nav className="navbar navbar-expand-lg ">
                 _react2.default.createElement(
                     'div',
-                    { className: 'collapse navbar-collapse', id: 'navbarNav' },
+                    { className: 'container' },
                     _react2.default.createElement(
-                        'ul',
-                        { className: 'navbar-nav' },
+                        'div',
+                        { className: 'button-group' },
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(null);
-                                    } },
-                                'English'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(null);
+                                } },
+                            'English'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_gollum.gollumify);
-                                    } },
-                                'Gollumify'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_gollum.gollumify);
+                                } },
+                            'Gollumify'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_nazgul.nazgulify);
-                                    } },
-                                'Nazgul'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_nazgul.nazgulify);
+                                } },
+                            'Nazgul'
                         )
                     )
                 )
+                //  </nav>
+
             );
         }
     }]);
@@ -1311,6 +1183,23 @@ function news() {
   }
 }
 
+var LOADING = false;
+function loading() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : LOADING;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "REQUEST_DATA":
+      return true;
+    case "RECEIVE_NEWS":
+      return false;
+    case "SHOW_ERROR":
+      return false;
+    default:
+      return state;
+  }
+}
+
 var INITIAL_LANGUAGE_STATE = null;
 function language() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_LANGUAGE_STATE;
@@ -1326,7 +1215,8 @@ function language() {
 
 exports.default = (0, _redux.combineReducers)({
   news: news,
-  language: language
+  language: language,
+  loading: loading
 });
 
 /***/ }),
@@ -41222,7 +41112,7 @@ module.exports = function(originalModule) {
 
 // var fs  = require('fs');
 // var pos = require('pos');
-// var nlp = require('compromise');
+var nlp = __webpack_require__(/*! compromise */ "./node_modules/compromise/builds/compromise.js");
 // var ent = require('html-entities').AllHtmlEntities;
 
 // const googleNews = require('.../routes/googleNews')
