@@ -134,7 +134,9 @@ function fetchNews() {
   return function (dispatch) {
     dispatch(requestDATA());
     return _superagent2.default.get('/api/v1/news').then(function (res) {
-      dispatch(receiveNews(res.text));
+      setTimeout(function () {
+        return dispatch(receiveNews(res.text));
+      }, 3000);
     }).catch(function (err) {
       dispatch(showError(err.message));
     });
@@ -413,8 +415,11 @@ var ArticleList = function (_React$Component) {
   function ArticleList(props) {
     _classCallCheck(this, ArticleList);
 
-    return _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+
+    _this.state = {};
     // this.fetchNews = this.fetchNews.bind(this)
+    return _this;
   }
 
   _createClass(ArticleList, [{
@@ -425,6 +430,7 @@ var ArticleList = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { id: "list_articles", className: "container" },
+        this.props.loading && _react2.default.createElement("img", { src: "/images/ring.gif", alt: "" }),
         this.props.news && JSON.parse(this.props.news).map(function (article, i) {
           return _react2.default.createElement(_Article2.default, {
             key: i++,
@@ -443,7 +449,8 @@ var ArticleList = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     news: state.news,
-    language: state.language
+    language: state.language,
+    loading: state.loading
   };
 };
 
@@ -531,7 +538,7 @@ var Footer = function Footer(props) {
     { id: 'footer' },
     _react2.default.createElement(
       'a',
-      { href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
+      { className: 'impact-link', href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
       'Our github'
     ),
     _react2.default.createElement(
@@ -1162,6 +1169,23 @@ function news() {
   }
 }
 
+var LOADING = false;
+function loading() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : LOADING;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "REQUEST_DATA":
+      return true;
+    case "RECEIVE_NEWS":
+      return false;
+    case "SHOW_ERROR":
+      return false;
+    default:
+      return state;
+  }
+}
+
 var INITIAL_LANGUAGE_STATE = null;
 function language() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_LANGUAGE_STATE;
@@ -1177,7 +1201,8 @@ function language() {
 
 exports.default = (0, _redux.combineReducers)({
   news: news,
-  language: language
+  language: language,
+  loading: loading
 });
 
 /***/ }),
