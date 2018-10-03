@@ -2,7 +2,7 @@ import React from "react";
 
 import Meet from './Meet';
 import About from './About';
-import Contact from './Contact';
+// import Contact from './Contact';
 import ChromeExt from './ChromeExt';
 
 
@@ -37,7 +37,7 @@ export class Header extends React.Component {
       showAbout: false,
       showExt: false
     }
-    this.showContact = this.showContact.bind(this)
+    // this.showContact = this.showContact.bind(this)
     this.showAbout = this.showAbout.bind(this)
     this.showTeam = this.showTeam.bind(this)
     this.showExt = this.showExt.bind(this)
@@ -59,14 +59,14 @@ export class Header extends React.Component {
       showExt: false
     })
   }
-  showContact() {
-    this.setState({
-      showContact: true,
-      showTeam: false,
-      showAbout: false,
-      showExt: false
-    })
-  }
+  // showContact() {
+  //   this.setState({
+  //     showContact: true,
+  //     showTeam: false,
+  //     showAbout: false,
+  //     showExt: false
+  //   })
+  // }
 
   showExt() {
     this.setState({
@@ -90,9 +90,9 @@ export class Header extends React.Component {
             <a href="#" id='meet-team' onClick={() => this.showTeam()}>
               Meet the Team</a>
             {this.state.showTeam &&  <Meet />}
-            <a href="#" id='contact-list' onClick={() => this.showContact()}>
+            {/* <a href="#" id='contact-list' onClick={() => this.showContact()}>
               Contact</a>
-            {this.state.showContact && <Contact />}
+            {this.state.showContact && <Contact />} */}
             <a href="#" id='download-ext' onClick={() => this.showExt()}>
               Gollumify your Chrome</a>
             {this.state.showExt && <ChromeExt />}

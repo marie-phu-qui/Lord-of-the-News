@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="col-sm-3">
           <div className="card">
             <div className="content">
-              <p>For CSS, UI, UX queries </p>
+              <p>For React, CSS, UI, UX queries </p>
               <p>Nat</p>
             </div>
           </div>
