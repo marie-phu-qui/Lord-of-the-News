@@ -4,6 +4,7 @@
     font-style: cursive;
     font-variant: small-caps;
     letter-spacing: 3px;
+    margin-top: 5vw;
     /* font-weight: bold;     */
     /* margin-bottom: 3%; */
     /* margin-top: 0%; */
@@ -18,10 +19,13 @@
     margin-right: 10%;
 }
 
-#footer {
+/* #footer {
     position: absolute;
+    padding : 2vw;
     margin-top: 30px;
-}
+    width: 40vw;
+    background-color:  rgba(255,255,255,0.2); 
+} */
 #navpopup {
     margin-left: 80%;
 }
@@ -31,7 +35,6 @@
     margin-bottom: 2%;
     font-weight: bold;
     font-size: 2em;
-
 }
 #list_articles {
     padding-top: 6%;
@@ -40,13 +43,13 @@
     overflow: auto;
     /* max-height: 900px; */
     /* max-width: 80%; */
-    max-width: 45vw;
-    max-height: 45vw;
+    max-width: 70vw;
+    height: 70vw;
 }
 
 #app {
     /* width: 55%; */
-    width: 50vw;
+    width: 75vw;
     margin: 0 auto;
     background-color: rgba(255,255,255,0.2);
     padding: 20px;
@@ -140,64 +143,12 @@ body {
 #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
 }
-
-.Orbit {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    position: relative;
-  }
-  
-  .Electron {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 80px;
-    left: 80px;
-    background-color: black;
-    -webkit-animation: rotate 2s infinite linear;
-            animation: rotate 2s infinite linear;
-           
-  }
-  
-  @-webkit-keyframes rotate {
-    0% {
-      -webkit-transform: rotateZ(0deg) translateX(50px);
-              transform: rotateZ(0deg) translateX(50px);
-    }
-    100% {
-      -webkit-transform: rotateZ(360deg) translateX(50px);
-              transform: rotateZ(360deg) translateX(50px);
-    }
-  }
-  
-  @keyframes rotate {
-    0% {
-      -webkit-transform: rotateZ(0deg) translateX(50px);
-              transform: rotateZ(0deg) translateX(50px);
-    }
-    100% {
-      -webkit-transform: rotateZ(360deg) translateX(50px);
-              transform: rotateZ(360deg) translateX(50px);
-    }
-  }
-  .Orbit {
-    border: solid 2px black;
-    transform: skew(20deg)
-  }
   
   h1 {
     font-weight: normal;
     font-size: 22px;
   }
   
-  section {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   
   html,
   body {

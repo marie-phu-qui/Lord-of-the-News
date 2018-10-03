@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
-// import request from 'superagent';
-
-import { fetchNews} from '../actions'
+import { fetchNews } from '../actions'
 import Article from "./Article";
 
 class ArticleList extends React.Component {
+  constructor(props) {
+    super(props)
+    // this.fetchNews = this.fetchNews.bind(this)
+  }
+
   render() {
     return (
       < div id="list_articles" className="container" >
@@ -29,7 +32,7 @@ class ArticleList extends React.Component {
                 }
                 url={article.url} />
             )
-            
+
           })
         }
       </div >
