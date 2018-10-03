@@ -10,46 +10,71 @@ const Meet = () => {
        </h1>
       </div>
       <div className="row">
-        <div className="col-sm-3">
-          <div className="card">
-            <canvas className="header-bg" width="250" height="70" id="header-blur"></canvas>
-            <div className="avatar">
-              <img src="images/gandalf.jpeg" alt="" />
-            </div>
-            <div className="content">
-              <p>Marie </p>
-              <p>The wizard behind the project</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-3">
-          <div className="card">
-            <canvas className="header-bg" width="250" height="70" id="header-blur"></canvas>
-            <div className="avatar">
-              <img src="images/frodo.jpeg" alt="" />
-            </div>
-            <div className="content">
-              <p>Kyoko </p>
-              <p>The courageous one</p>
+        <div className="col-sm-4 d-flex align-items-stretch">
+          <div className="card" style={{ width: '18rem' }}>
+            <img className="card-img-top" src="images/gandalf.jpg" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">Marie</h5>
+              <h6 className="card-subtitle mb-2 text-muted">The wizard behind the project</h6>
+              <p className="card-text">For Machine Learning(TensorFlow.js), API + Testing, Natural Language Processing(Compromise.js), Chrome Extension queries</p>
+              <p>
+              <button className="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseMarie" aria-expanded="false" aria-controls="collapseMarie">
+              Contact  
+              </button>
+              </p>
+              <div className="collapse" id="collapseMarie">
+                <div className="card card-body">
+                  Email: jdfj<br/>
+                  Phone: 329842093                
+                  </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-sm-3">
-          <div className="card">
-            <canvas className="header-bg" width="250" height="70" id="header-blur"></canvas>
-            <div className="avatar">
-              <img src="images/gollum.jpeg" alt="" />
+        <div className="col-sm-4 d-flex align-items-stretch">
+          <div className="card" style={{ width: '18rem' }}>
+            <img className="card-img-top" src="images/frodo.jpg" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">Kyoko</h5>
+              <h6 className="card-subtitle mb-2 text-muted">The courageous one</h6>
+              <p className="card-text">For React, Redux, Testing, Natural Language Processing(Compromise.js), Basic Chrome Extension queries</p>
+              <p>
+              <button className="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseKyoko" aria-expanded="false" aria-controls="collapseKyoko">
+              Contact  
+              </button>
+              </p>
+              <div className="collapse" id="collapseKyoko">
+                <div className="card card-body">
+                  Email: kmpohe@gmail.com<br/>
+                  Phone: 0211991056                
+                  </div>
+              </div>
             </div>
-            <div className="content">
-              <p>Nat </p>
-              <p>The ambitious one</p>
+          </div>
+        </div>
+        <div className="col-sm- d-flex align-items-stretch">
+          <div className="card" style={{ width: '18rem' }}>
+            <img className="card-img-top" src="images/gollum.jpg" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">Nat</h5>
+              <h6 className="card-subtitle mb-2 text-muted">The ambitious one</h6>
+              <p className="card-text">For React, CSS, UI, UX queries </p>
+              <p>
+              <button className="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseNat" aria-expanded="false" aria-controls="collapseNat">
+              Contact  
+              </button>
+              </p>
+              <div className="collapse" id="collapseNat">
+                <div className="card card-body">
+                  Email: dfasdf@gmail.com<br/>
+                  Phone: 8475923857               
+                  </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
   )
 }
 
