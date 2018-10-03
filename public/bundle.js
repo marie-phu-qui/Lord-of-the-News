@@ -329,6 +329,7 @@ exports.default = About;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.App = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -366,7 +367,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
-var App = function (_React$Component) {
+var App = exports.App = function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
@@ -758,6 +759,7 @@ exports.default = Footer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Header = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -812,7 +814,9 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-var Header = function (_React$Component) {
+// Must keep export here also for testing purposes 
+
+var Header = exports.Header = function (_React$Component) {
   _inherits(Header, _React$Component);
 
   function Header(props) {
@@ -836,7 +840,6 @@ var Header = function (_React$Component) {
   _createClass(Header, [{
     key: 'showTeam',
     value: function showTeam() {
-      console.log('show meeeeeeeeeeeeee TEAM');
       this.setState({
         showContact: false,
         showTeam: true,
@@ -847,7 +850,6 @@ var Header = function (_React$Component) {
   }, {
     key: 'showAbout',
     value: function showAbout() {
-      console.log('show meeeeeeeeeeeeee ABOUT');
       this.setState({
         showContact: false,
         showTeam: false,
@@ -858,7 +860,6 @@ var Header = function (_React$Component) {
   }, {
     key: 'showContact',
     value: function showContact() {
-      console.log('show meeeeeeeeeeeeee CONTACT');
       this.setState({
         showContact: true,
         showTeam: false,
@@ -869,7 +870,6 @@ var Header = function (_React$Component) {
   }, {
     key: 'showExt',
     value: function showExt() {
-      console.log('show meeeeeeeeeeeeee the EXTENTION');
       this.setState({
         showContact: false,
         showTeam: false,
@@ -910,7 +910,7 @@ var Header = function (_React$Component) {
                 } },
               'About'
             ),
-            this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
+            this.state.showAbout && _react2.default.createElement(_About2.default, null),
             _react2.default.createElement(
               'a',
               { href: '#', id: 'meet-team', onClick: function onClick() {
@@ -918,7 +918,7 @@ var Header = function (_React$Component) {
                 } },
               'Meet the Team'
             ),
-            this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
+            this.state.showTeam && _react2.default.createElement(_Meet2.default, null),
             _react2.default.createElement(
               'a',
               { href: '#', id: 'contact-list', onClick: function onClick() {
@@ -926,7 +926,7 @@ var Header = function (_React$Component) {
                 } },
               'Contact'
             ),
-            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope'),
+            this.state.showContact && _react2.default.createElement(_Contact2.default, null),
             _react2.default.createElement(
               'a',
               { href: '#', id: 'download-ext', onClick: function onClick() {
@@ -934,7 +934,7 @@ var Header = function (_React$Component) {
                 } },
               'Gollumify your Chrome'
             ),
-            this.state.showExt ? _react2.default.createElement(_ChromeExt2.default, null) : console.log('nope')
+            this.state.showExt && _react2.default.createElement(_ChromeExt2.default, null)
           )
         ),
         _react2.default.createElement(
@@ -1111,6 +1111,7 @@ exports.default = Meet;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.TranslateButtons = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1136,7 +1137,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // import Bookmarklet from './Bookmarklet'
 
-var TranslateButtons = function (_React$Component) {
+// Must keep export here also for testing purposes 
+
+var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
 
     function TranslateButtons(props) {
@@ -41222,7 +41225,7 @@ module.exports = function(originalModule) {
 
 // var fs  = require('fs');
 // var pos = require('pos');
-// var nlp = require('compromise');
+var nlp = __webpack_require__(/*! compromise */ "./node_modules/compromise/builds/compromise.js");
 // var ent = require('html-entities').AllHtmlEntities;
 
 // const googleNews = require('.../routes/googleNews')

@@ -44,7 +44,6 @@ export class Header extends React.Component {
   }
 
   showTeam() {
-    console.log('show meeeeeeeeeeeeee TEAM')
     this.setState({
       showContact: false,
       showTeam: true,
@@ -53,7 +52,6 @@ export class Header extends React.Component {
     })
   }
   showAbout() {
-    console.log('show meeeeeeeeeeeeee ABOUT')
     this.setState({
       showContact: false,
       showTeam: false,
@@ -62,7 +60,6 @@ export class Header extends React.Component {
     })
   }
   showContact() {
-    console.log('show meeeeeeeeeeeeee CONTACT')
     this.setState({
       showContact: true,
       showTeam: false,
@@ -72,7 +69,6 @@ export class Header extends React.Component {
   }
 
   showExt() {
-    console.log('show meeeeeeeeeeeeee the EXTENTION')
     this.setState({
       showContact: false,
       showTeam: false,
@@ -90,16 +86,16 @@ export class Header extends React.Component {
           <div className="overlay-content">
             <a href="#" id='about-project' onClick={() => this.showAbout()}>
               About</a>
-            {(this.state.showAbout) ? <About /> : console.log('nope')}
+            {this.state.showAbout && <About />}
             <a href="#" id='meet-team' onClick={() => this.showTeam()}>
               Meet the Team</a>
-            {(this.state.showTeam) ? <Meet /> : console.log('nope')}
+            {this.state.showTeam &&  <Meet />}
             <a href="#" id='contact-list' onClick={() => this.showContact()}>
               Contact</a>
-            {(this.state.showContact) ? <Contact /> : console.log('nope')}
+            {this.state.showContact && <Contact />}
             <a href="#" id='download-ext' onClick={() => this.showExt()}>
               Gollumify your Chrome</a>
-            {(this.state.showExt) ? <ChromeExt /> : console.log('nope')}
+            {this.state.showExt && <ChromeExt />}
           </div>
         </div>
         <div id='navpopup'>
