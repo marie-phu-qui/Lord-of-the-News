@@ -355,7 +355,7 @@ var Article = function Article(props) {
       { href: props.url },
       _react2.default.createElement(
         "h4",
-        null,
+        { className: "text-success" },
         props.title
       )
     ),
@@ -425,14 +425,22 @@ var ArticleList = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         { id: "list_articles", className: "container" },
-        this.props.news && JSON.parse(this.props.news).map(function (article, i) {
-          return _react2.default.createElement(_Article2.default, {
-            key: i++,
-            title: _this2.props.language ? _this2.props.language(article.title) : article.title,
+        _react2.default.createElement(
+          "ul",
+          { className: "list-group" },
+          _react2.default.createElement(
+            "li",
+            { className: "list-group-item" },
+            this.props.news && JSON.parse(this.props.news).map(function (article, i) {
+              return _react2.default.createElement(_Article2.default, {
+                key: i++,
+                title: _this2.props.language ? _this2.props.language(article.title) : article.title,
 
-            content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
-            url: article.url });
-        })
+                content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
+                url: article.url });
+            })
+          )
+        )
       );
     }
   }]);
@@ -527,17 +535,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Footer = function Footer(props) {
   return _react2.default.createElement(
-    'div',
-    { id: 'footer' },
+    "div",
+    { className: "container-footer" },
     _react2.default.createElement(
-      'a',
-      { href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
-      'Our github'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'The news API is provided by Google News. Thank you Google News'
+      "div",
+      { id: "footer" },
+      _react2.default.createElement(
+        "a",
+        { className: "text-success", href: "https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md" },
+        "Our github"
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "font-italic" },
+        "The news API is provided by Google News. Thank you Google News"
+      )
     )
   );
 };
@@ -680,10 +692,10 @@ var Header = exports.Header = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { id: 'Header' },
+        { id: 'Header', className: 'container' },
         _react2.default.createElement(
           'h1',
-          null,
+          { className: 'font-weight-bold' },
           'Lord of the News'
         ),
         _react2.default.createElement(
@@ -729,21 +741,29 @@ var Header = exports.Header = function (_React$Component) {
           'div',
           { id: 'navpopup' },
           _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return openNav();
-              } },
-            ' More  '
-          ),
-          _react2.default.createElement(
             'div',
-            { id: 'myBtn' },
+            { className: 'container' },
             _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return topFunction();
-                } },
-              ' Top '
+              'div',
+              { className: 'button-group' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return openNav();
+                  } },
+                ' More  '
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { id: 'myBtn' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return topFunction();
+                  } },
+                ' Top '
+              )
             )
           )
         )
@@ -1012,50 +1032,39 @@ var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            return _react2.default.createElement(
-                'nav',
-                { className: 'navbar navbar-expand-lg ' },
+            return (
+                // <nav className="navbar navbar-expand-lg ">
                 _react2.default.createElement(
                     'div',
-                    { className: 'collapse navbar-collapse', id: 'navbarNav' },
+                    { className: 'container' },
                     _react2.default.createElement(
-                        'ul',
-                        { className: 'navbar-nav' },
+                        'div',
+                        { className: 'button-group' },
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(null);
-                                    } },
-                                'English'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(null);
+                                } },
+                            'English'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_gollum.gollumify);
-                                    } },
-                                'Gollumify'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_gollum.gollumify);
+                                } },
+                            'Gollumify'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_nazgul.nazgulify);
-                                    } },
-                                'Nazgul'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_nazgul.nazgulify);
+                                } },
+                            'Nazgul'
                         )
                     )
                 )
+                //  </nav>
+
             );
         }
     }]);

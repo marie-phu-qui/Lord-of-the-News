@@ -10,9 +10,12 @@ class ArticleList extends React.Component {
     // this.fetchNews = this.fetchNews.bind(this)
   }
 
+
   render() {
     return (
-      < div id="list_articles" className="container" >
+      <div id="list_articles" className="container" >
+        <ul className="list-group">
+          <li className="list-group-item">
         {
           this.props.news && JSON.parse(this.props.news).map((article, i) => {
             return (
@@ -35,6 +38,8 @@ class ArticleList extends React.Component {
 
           })
         }
+        </li>
+        </ul>
       </div >
     );
   };

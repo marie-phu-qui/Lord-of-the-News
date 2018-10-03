@@ -78,8 +78,8 @@ export class Header extends React.Component {
   }
   render() {
     return (
-      <div id='Header'>
-        <h1>Lord of the News</h1>
+      <div id='Header' className="container">
+        <h1 className="font-weight-bold">Lord of the News</h1>
 
         <div id="myNav" className="overlay">
           <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>
@@ -99,10 +99,14 @@ export class Header extends React.Component {
           </div>
         </div>
         <div id='navpopup'>
-          <button onClick={() => openNav()}> More  </button>
+                <div className="container" >
+          <div className="button-group">  
+            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => openNav()}> More  </button>
+            </div>
           <div id='myBtn'>
-            <button onClick={() => topFunction()}> Top </button>
+            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => topFunction()}> Top </button>
           </div>
+        </div>
         </div>
       </div>
     )

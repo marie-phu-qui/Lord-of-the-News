@@ -34,10 +34,10 @@ export class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        {/* <Overlay /> */}
-        {/* <Animation /> */}
         <TranslateButtons />
         {/* <Nav /> */}
+        {/* <Overlay /> */}
+        {/* <Animation /> */}
         <ArticleList />
         <Footer />
       </React.Fragment>
