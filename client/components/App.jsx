@@ -34,7 +34,6 @@ export class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-       {/* <img src="/images/ring.gif" alt=""/>  */}
         {/* <Overlay /> */}
         {/* <Animation /> */}
         <TranslateButtons />
