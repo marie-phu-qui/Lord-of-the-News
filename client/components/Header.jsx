@@ -27,6 +27,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+
 // Must keep export here also for testing purposes 
 export class Header extends React.Component {
   constructor(props) {
@@ -76,10 +77,11 @@ export class Header extends React.Component {
       showExt: true
     })
   }
+
   render() {
     return (
       <div id='Header' className="container">
-        <h1 className="font-weight-bold">Lord of the News</h1>
+        <h1 className="title font-weight-bold">Lord of the News</h1>
 
         <div id="myNav" className="overlay">
           <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>

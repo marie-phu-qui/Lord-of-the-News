@@ -3,7 +3,7 @@ import React from "react";
 
 const Meet = () => {
   return (
-    <div className="container">
+    <div className="meet-container">
       <div className="row">
         <h1>
           The Team
@@ -24,8 +24,8 @@ const Meet = () => {
               </p>
               <div className="collapse" id="collapseMarie">
                 <div className="card card-body">
-                  Email: jdfj<br/>
-                  Phone: 329842093                
+                  Email: marie.nguyen.phu.qui at gmail.com<br/>
+                  Phone: 02108934396                
                   </div>
               </div>
             </div>
@@ -37,7 +37,7 @@ const Meet = () => {
             <div className="card-body">
               <h5 className="card-title">Kyoko</h5>
               <h6 className="card-subtitle mb-2 text-muted">The courageous one</h6>
-              <p className="card-text">For React, Redux, Testing, Natural Language Processing(Compromise.js), Basic Chrome Extension queries</p>
+              <p className="card-text">For React, Redux, Testing, CSS, Natural Language Processing, Basic Chrome Extension queries</p>
               <p>
               <button className="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseKyoko" aria-expanded="false" aria-controls="collapseKyoko">
               Contact  
@@ -45,7 +45,7 @@ const Meet = () => {
               </p>
               <div className="collapse" id="collapseKyoko">
                 <div className="card card-body">
-                  Email: kmpohe@gmail.com<br/>
+                  Email: kmpohe at gmail.com<br/>
                   Phone: 0211991056                
                   </div>
               </div>
@@ -58,7 +58,7 @@ const Meet = () => {
             <div className="card-body">
               <h5 className="card-title">Nat</h5>
               <h6 className="card-subtitle mb-2 text-muted">The ambitious one</h6>
-              <p className="card-text">For React, CSS, UI, UX queries </p>
+              <p className="card-text">For React, CSS, User Interface, User Experience, GIF queries </p>
               <p>
               <button className="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseNat" aria-expanded="false" aria-controls="collapseNat">
               Contact  
@@ -66,8 +66,8 @@ const Meet = () => {
               </p>
               <div className="collapse" id="collapseNat">
                 <div className="card card-body">
-                  Email: dfasdf@gmail.com<br/>
-                  Phone: 8475923857               
+                  Email: nat_sirisamphan at hotmail.com<br/>
+                  Phone: 0220723077               
                   </div>
               </div>
             </div>

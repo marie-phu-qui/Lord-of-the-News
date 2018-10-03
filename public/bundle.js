@@ -136,7 +136,7 @@ function fetchNews() {
     return _superagent2.default.get('/api/v1/news').then(function (res) {
       setTimeout(function () {
         return dispatch(receiveNews(res.text));
-      }, 3000);
+      }, 4000);
     }).catch(function (err) {
       dispatch(showError(err.message));
     });
@@ -429,16 +429,29 @@ var ArticleList = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { id: "list_articles", className: "container" },
-        this.props.loading && _react2.default.createElement("img", { src: "/images/ring.gif", alt: "" }),
-        this.props.news && JSON.parse(this.props.news).map(function (article, i) {
-          return _react2.default.createElement(_Article2.default, {
-            key: i++,
-            title: _this2.props.language ? _this2.props.language(article.title) : article.title,
+        null,
+        this.props.loading && _react2.default.createElement("img", { className: "img-ring", src: "/images/ring.gif", alt: "Responsive image" }),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "div",
+          { id: "list_articles", className: "container" },
+          _react2.default.createElement(
+            "ul",
+            { className: "list-group" },
+            _react2.default.createElement(
+              "li",
+              { className: "list-group-item" },
+              this.props.news && JSON.parse(this.props.news).map(function (article, i) {
+                return _react2.default.createElement(_Article2.default, {
+                  key: i++,
+                  title: _this2.props.language ? _this2.props.language(article.title) : article.title,
 
-            content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
-            url: article.url });
-        })
+                  content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
+                  url: article.url });
+              })
+            )
+          )
+        )
       );
     }
   }]);
@@ -536,13 +549,6 @@ var Footer = function Footer(props) {
   return _react2.default.createElement(
     "div",
     { className: "container-footer" },
-    'div',
-    { id: 'footer' },
-    _react2.default.createElement(
-      'a',
-      { className: 'impact-link', href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
-      'Our github'
-    ),
     _react2.default.createElement(
       "div",
       { id: "footer" },
@@ -701,7 +707,7 @@ var Header = exports.Header = function (_React$Component) {
         { id: 'Header', className: 'container' },
         _react2.default.createElement(
           'h1',
-          { className: 'font-weight-bold' },
+          { className: 'title font-weight-bold' },
           'Lord of the News'
         ),
         _react2.default.createElement(
@@ -807,7 +813,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Meet = function Meet() {
   return _react2.default.createElement(
     "div",
-    { className: "container" },
+    { className: "meet-container" },
     _react2.default.createElement(
       "div",
       { className: "row" },
@@ -860,9 +866,9 @@ var Meet = function Meet() {
               _react2.default.createElement(
                 "div",
                 { className: "card card-body" },
-                "Email: jdfj",
+                "Email: marie.nguyen.phu.qui at gmail.com",
                 _react2.default.createElement("br", null),
-                "Phone: 329842093"
+                "Phone: 02108934396"
               )
             )
           )
@@ -891,7 +897,7 @@ var Meet = function Meet() {
             _react2.default.createElement(
               "p",
               { className: "card-text" },
-              "For React, Redux, Testing, Natural Language Processing(Compromise.js), Basic Chrome Extension queries"
+              "For React, Redux, Testing, CSS, Natural Language Processing, Basic Chrome Extension queries"
             ),
             _react2.default.createElement(
               "p",
@@ -908,7 +914,7 @@ var Meet = function Meet() {
               _react2.default.createElement(
                 "div",
                 { className: "card card-body" },
-                "Email: kmpohe@gmail.com",
+                "Email: kmpohe at gmail.com",
                 _react2.default.createElement("br", null),
                 "Phone: 0211991056"
               )
@@ -939,7 +945,7 @@ var Meet = function Meet() {
             _react2.default.createElement(
               "p",
               { className: "card-text" },
-              "For React, CSS, UI, UX queries "
+              "For React, CSS, User Interface, User Experience, GIF queries "
             ),
             _react2.default.createElement(
               "p",
@@ -956,9 +962,9 @@ var Meet = function Meet() {
               _react2.default.createElement(
                 "div",
                 { className: "card card-body" },
-                "Email: dfasdf@gmail.com",
+                "Email: nat_sirisamphan at hotmail.com",
                 _react2.default.createElement("br", null),
-                "Phone: 8475923857"
+                "Phone: 0220723077"
               )
             )
           )
