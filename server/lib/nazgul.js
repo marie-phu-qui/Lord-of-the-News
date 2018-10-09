@@ -33,6 +33,8 @@ let dictionary = {
   "ness": "um",
   "orc": "uruk",
   "son of": "una",
+  "god" : "Eru Ilúvatar", 
+  "God" : "Eru Ilúvatar"
 };
 
 function translateWord(word) {

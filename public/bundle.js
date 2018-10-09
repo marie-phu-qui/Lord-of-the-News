@@ -41082,15 +41082,10 @@ var dictionary = {
 	"accuser": "thieff...ring thieff...oh my precious",
 	"Tourism": "Pie eating",
 	"tourism": "stupid",
-	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New": "Middle",
-	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
-	"Kaikōura": "Rivendell",
-	"Kaikoura": "Rivendell",
 	"Government": "Fellowship of the Ring",
 	"Government's": "Fellowship of the Ring's",
 	"Govt": "The Fellowship of the Ring",
@@ -41099,14 +41094,23 @@ var dictionary = {
 	"Teens": "Hobbitses",
 	"teens": "hobbitses",
 	"local": "nasty hobbitses",
-	"Canterbury": "Gondor",
-	"Auckland": "the Shire",
-	"Ngauruhoe": "Mount Doom",
-	"Tongariro": "Mount Doom",
 	"cycling": "Eagle riding",
-	"Rotorua": "Helm's Deep",
 	"Rugby": "Catering Event for Hobbits",
-	"All Blacks": "Dragons"
+	"All Blacks": "Dragons",
+	"Kaikōura": "Rivendell",
+	"Kaikoura": "Rivendell",
+	"Canterbury": "Gondor",
+	"NZ": "Middle Earth",
+	"Auckland": " Minas Tirith",
+	"Ngauruhoe": "Mount Doom",
+	"Tongariro": "Moria",
+	"Rotorua": "Helm's Deep",
+	"New": "Middle",
+	"Zealand": "Earth",
+	"Napier": "The Mouths of Anduin",
+	"Christchurch": "Pelargir",
+	"Wellington": "the Shire",
+	"Otago": "Bree"
 
 };
 
@@ -41229,7 +41233,7 @@ var dictionary = (_dictionary = {
   "pool": "ronk",
   "and the": "sha",
   "old": "sharku"
-}, _defineProperty(_dictionary, "old", "sharku"), _defineProperty(_dictionary, "slave", "snaga"), _defineProperty(_dictionary, "bring", "thrak"), _defineProperty(_dictionary, "to find", "gimbatul"), _defineProperty(_dictionary, "to rule", "durbatulûk"), _defineProperty(_dictionary, "to bring", "thrakatulûk"), _defineProperty(_dictionary, "to", "u"), _defineProperty(_dictionary, "all", "ûk"), _defineProperty(_dictionary, "them all", "tuluk"), _defineProperty(_dictionary, "them", "atul"), _defineProperty(_dictionary, "ness", "um"), _defineProperty(_dictionary, "orc", "uruk"), _defineProperty(_dictionary, "son of", "una"), _dictionary);
+}, _defineProperty(_dictionary, "old", "sharku"), _defineProperty(_dictionary, "slave", "snaga"), _defineProperty(_dictionary, "bring", "thrak"), _defineProperty(_dictionary, "to find", "gimbatul"), _defineProperty(_dictionary, "to rule", "durbatulûk"), _defineProperty(_dictionary, "to bring", "thrakatulûk"), _defineProperty(_dictionary, "to", "u"), _defineProperty(_dictionary, "all", "ûk"), _defineProperty(_dictionary, "them all", "tuluk"), _defineProperty(_dictionary, "them", "atul"), _defineProperty(_dictionary, "ness", "um"), _defineProperty(_dictionary, "orc", "uruk"), _defineProperty(_dictionary, "son of", "una"), _defineProperty(_dictionary, "god", "Eru Ilúvatar"), _defineProperty(_dictionary, "God", "Eru Ilúvatar"), _dictionary);
 
 function translateWord(word) {
   var nazgulWord = dictionary[word];
