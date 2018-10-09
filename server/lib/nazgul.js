@@ -1,8 +1,5 @@
-// let fs  = require('fs');
-// let pos = require('pos');
 let nlp = require('compromise');
-// let ent = require('html-entities').AllHtmlEntities;
-// const googleNews = require('.../routes/googleNews')
+
 
 let dictionary = {
   "and": "agh",
@@ -39,29 +36,8 @@ let dictionary = {
   "son of": "una",
 };
 
-//   // switch (nlp(word)) {
-//   //   case '#Noun':
-//   //     return 'Ash nazg'
-//   //     break;
-//   //   case '#Person':
-//   //     return 'Sauron'
-//   //     break;
-//   //   case '#Location':
-//   //     return 'Minas Morgul'
-//   //     break;
-//   //   default:
-//   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
-//   // }
 
-
-// const matchDict = (compromiseNazgul) => {
-//   nlp(compromiseNazgul).list.map(terms => {
-//     (terms.terms.map(text => {
-//       // console.log(text._text)
-//     }))
-//   })
-// }
-
+// Compromise functions
 const processNazPlaces = (text) => {
   let originalText = nlp(text)
   let places = originalText.replace('#Place', 'Minas Morgul').out('text')
@@ -92,42 +68,18 @@ const processNazNouns = (text) => {
   let originalText = nlp(text)
   let nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text')
   return nouns
-
-  //   originalText.nouns().list.map(noun => {
-  //     let nazgulNoun = 'Ash nazg'
-  //     return noun = nazgulNoun
-  //   })
 }
 
-
-
-const processNazVerbs = (text) => {
-  let originalText = nlp(text)
-  originalText.verbs().list.map(verb => {
-    let nazgulVerb = 'IIIIIIIIIIIIIIIIIK'
-    verb = nazgulVerb
-    // console.log(originalText.verbs().list)
-  })
-  return originalText.out('text')
-}
-
-const compromiseNazgul = (text) => {
-  let originalText = nlp(text)
-
-  // return (originalText.out('text'))
+const compromiseNazgul = (text) => {  
   let nazPlaces = processNazPlaces(text)
   let nazNouns = processNazNouns(nazPlaces)
   let nazAdj = processNazAdj(nazNouns)
   let nazFirst = processNazFirstName(nazAdj)
   let nazLast = processNazLastName(nazFirst)
-
-  // let nazVerbs = processNazVerbs(text)
   return nazLast
 }
 
-
 const nazgulify = (text) => {
-  // console.log(matchDict(compromiseNazgul(text)))
   return (compromiseNazgul(text))
 }
 

@@ -41060,12 +41060,7 @@ module.exports = function(originalModule) {
 "use strict";
 
 
-// var fs  = require('fs');
-// var pos = require('pos');
 var nlp = __webpack_require__(/*! compromise */ "./node_modules/compromise/builds/compromise.js");
-// var ent = require('html-entities').AllHtmlEntities;
-
-// const googleNews = require('.../routes/googleNews')
 
 var dictionary = {
 	"ring": "precious",
@@ -41143,9 +41138,6 @@ function isLetter(character) {
 	return true;
 }
 
-// module.exports.dictionary = dictionary;
-
-
 function translate(text) {
 	var translatedText = "";
 
@@ -41216,11 +41208,7 @@ var _dictionary;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// let fs  = require('fs');
-// let pos = require('pos');
 var nlp = __webpack_require__(/*! compromise */ "./node_modules/compromise/builds/compromise.js");
-// let ent = require('html-entities').AllHtmlEntities;
-// const googleNews = require('.../routes/googleNews')
 
 var dictionary = (_dictionary = {
   "and": "agh",
@@ -41244,29 +41232,7 @@ var dictionary = (_dictionary = {
   "old": "sharku"
 }, _defineProperty(_dictionary, "old", "sharku"), _defineProperty(_dictionary, "slave", "snaga"), _defineProperty(_dictionary, "bring", "thrak"), _defineProperty(_dictionary, "to find", "gimbatul"), _defineProperty(_dictionary, "to rule", "durbatulûk"), _defineProperty(_dictionary, "to bring", "thrakatulûk"), _defineProperty(_dictionary, "to", "u"), _defineProperty(_dictionary, "all", "ûk"), _defineProperty(_dictionary, "them all", "tuluk"), _defineProperty(_dictionary, "them", "atul"), _defineProperty(_dictionary, "ness", "um"), _defineProperty(_dictionary, "orc", "uruk"), _defineProperty(_dictionary, "son of", "una"), _dictionary);
 
-//   // switch (nlp(word)) {
-//   //   case '#Noun':
-//   //     return 'Ash nazg'
-//   //     break;
-//   //   case '#Person':
-//   //     return 'Sauron'
-//   //     break;
-//   //   case '#Location':
-//   //     return 'Minas Morgul'
-//   //     break;
-//   //   default:
-//   //     return "IIIIIIIIIIIIIIIIIIIIIIIK"
-//   // }
-
-
-// const matchDict = (compromiseNazgul) => {
-//   nlp(compromiseNazgul).list.map(terms => {
-//     (terms.terms.map(text => {
-//       // console.log(text._text)
-//     }))
-//   })
-// }
-
+// Compromise functions
 var processNazPlaces = function processNazPlaces(text) {
   var originalText = nlp(text);
   var places = originalText.replace('#Place', 'Minas Morgul').out('text');
@@ -41297,39 +41263,18 @@ var processNazNouns = function processNazNouns(text) {
   var originalText = nlp(text);
   var nouns = originalText.replace('[#Noun /Minas Morgul]', 'Ash nazg').out('text');
   return nouns;
-
-  //   originalText.nouns().list.map(noun => {
-  //     let nazgulNoun = 'Ash nazg'
-  //     return noun = nazgulNoun
-  //   })
-};
-
-var processNazVerbs = function processNazVerbs(text) {
-  var originalText = nlp(text);
-  originalText.verbs().list.map(function (verb) {
-    var nazgulVerb = 'IIIIIIIIIIIIIIIIIK';
-    verb = nazgulVerb;
-    // console.log(originalText.verbs().list)
-  });
-  return originalText.out('text');
 };
 
 var compromiseNazgul = function compromiseNazgul(text) {
-  var originalText = nlp(text);
-
-  // return (originalText.out('text'))
   var nazPlaces = processNazPlaces(text);
   var nazNouns = processNazNouns(nazPlaces);
   var nazAdj = processNazAdj(nazNouns);
   var nazFirst = processNazFirstName(nazAdj);
   var nazLast = processNazLastName(nazFirst);
-
-  // let nazVerbs = processNazVerbs(text)
   return nazLast;
 };
 
 var nazgulify = function nazgulify(text) {
-  // console.log(matchDict(compromiseNazgul(text)))
   return compromiseNazgul(text);
 };
 

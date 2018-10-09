@@ -1,9 +1,5 @@
-// var fs  = require('fs');
-// var pos = require('pos');
 var nlp = require('compromise');
-// var ent = require('html-entities').AllHtmlEntities;
 
-// const googleNews = require('.../routes/googleNews')
 
 var dictionary = {
 	"ring": "precious",
@@ -82,9 +78,6 @@ function isLetter(character) {
 	if (character.search(/[a-zA-Z'-]/) === -1) return false;
 	return true;
 }
-
-// module.exports.dictionary = dictionary;
-
 
 function translate(text) {
 	var translatedText = "";
