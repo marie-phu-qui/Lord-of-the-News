@@ -8,12 +8,8 @@ class ArticleList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     }
-    // this.fetchNews = this.fetchNews.bind(this)
   }
-
-
   render() {
     return (
       <div>

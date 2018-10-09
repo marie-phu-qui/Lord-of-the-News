@@ -5,9 +5,6 @@
         letter-spacing: 3px;
         margin-top: 5vw;
         text-align: center;
-        /* font-weight: bold;     */
-        /* margin-bottom: 3%; */
-        /* margin-top: 0%; */
     }
     
     .title {
@@ -17,7 +14,6 @@
         text-align: left; 
         color: #f1f1f1;
         font-family: Arial, Helvetica, sans-serif;
-        /* letter-spacing: 3px; */
         margin-left: 10%;
         margin-right: 10%;
     }
@@ -33,7 +29,6 @@
     }
 
     .img-ring {
-        /* width: 100% \9; */
         max-width: 30%;
         max-height: 30%;
         display: block;
@@ -67,15 +62,12 @@
         font-size: 2em;
     }
     #list_articles {
-        /* padding-top: 6%; */
-        /* letter-spacing: 1px; */
         overflow: auto;
         max-height: 900px;
         max-width: 100%;
     }
     
     #app {
-        /* width: 55%; */
         width: 75vw;
         margin: 0 auto;
         background-color: rgba(255,255,255,0.2);
@@ -176,7 +168,7 @@
     }
     
     #myBtn:hover {
-        background-color: #555; /* Add a dark-grey background on hover */
+        background-color: #555;
     }
       
       h1 {
