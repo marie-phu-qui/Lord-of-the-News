@@ -75,7 +75,7 @@
     }
     
     body {
-        background-image: url("/images/background3.jpeg");
+        background-image: url("/images/background.jpeg");
         background-size: cover;
         background-position: center center;
         position: relative;
