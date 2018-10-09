@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 // Actions to be tested
-import * as selectActions from '../client/actions/index.js';
+import * as selectActions from '../../client/actions/index.js';
 
 const mockStore = configureStore();
 const store = mockStore();

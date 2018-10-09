@@ -134,7 +134,9 @@ function fetchNews() {
   return function (dispatch) {
     dispatch(requestDATA());
     return _superagent2.default.get('/api/v1/news').then(function (res) {
-      dispatch(receiveNews(res.text));
+      setTimeout(function () {
+        return dispatch(receiveNews(res.text));
+      }, 4000);
     }).catch(function (err) {
       dispatch(showError(err.message));
     });
@@ -174,52 +176,56 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var About = function About() {
   return _react2.default.createElement(
     "div",
-    null,
-    "THIS IS MY ABOUT THING"
+    { className: "main-container" },
+    _react2.default.createElement(
+      "div",
+      { className: "content" },
+      _react2.default.createElement(
+        "p",
+        null,
+        "Enjoy the regular news narrated by J.R. Tolkien. Because world state is more entertaining when there are hobbits around."
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "focus-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "content" },
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Our Focus: "
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "Machine learning and neural networks. We want to transform a text of dry news to J.R. Tolkien style narrative. Based in Wellington, New Zealand our team has a time frame of 8 days to catch up on machine learning tools to build a real time (based on Google news) news app transpilled to Lord of the Ring style."
+        )
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "goals-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "content" },
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Our Goals:"
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "We enjoy Lord of the ring so much and our AI is such a talented writer - the whole web should be such a pleasure to read. We intend to build a Chrome extension to transpile every bit of english sentence to this enjoyable adventure. We want to see elvish on the screen and as Tolkien would have done it. We will be stretching our AI to detect foreign language (not english) on your page to be of elvish beauty."
+        )
+      )
+    )
   );
 };
 
 exports.default = About;
-
-/***/ }),
-
-/***/ "./client/components/Animation.jsx":
-/*!*****************************************!*\
-  !*** ./client/components/Animation.jsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Animation = function Animation() {
-    return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement("img", { src: "/images/theRing.svg" }),
-        _react2.default.createElement(
-            "section",
-            null,
-            _react2.default.createElement(
-                "div",
-                { "class": "Orbit" },
-                _react2.default.createElement("div", { "class": "Electron" })
-            )
-        )
-    );
-};
-exports.default = Animation;
 
 /***/ }),
 
@@ -236,6 +242,7 @@ exports.default = Animation;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.App = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -259,14 +266,6 @@ var _TranslateButtons = __webpack_require__(/*! ./TranslateButtons */ "./client/
 
 var _TranslateButtons2 = _interopRequireDefault(_TranslateButtons);
 
-var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
-
-var _Animation2 = _interopRequireDefault(_Animation);
-
-var _Overlay = __webpack_require__(/*! ./Overlay */ "./client/components/Overlay.jsx");
-
-var _Overlay2 = _interopRequireDefault(_Overlay);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -281,7 +280,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // const googleNewsApi = 'https://newsapi.org/v2/top-headlines?country=nz&apiKey=4db317e841ff4a9ab8831f158ed48c29'
 
-var App = function (_React$Component) {
+var App = exports.App = function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
@@ -313,8 +312,6 @@ var App = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Overlay2.default, null),
-        _react2.default.createElement(_Animation2.default, null),
         _react2.default.createElement(_TranslateButtons2.default, null),
         _react2.default.createElement(_ArticleList2.default, null),
         _react2.default.createElement(_Footer2.default, null)
@@ -360,7 +357,7 @@ var Article = function Article(props) {
       { href: props.url },
       _react2.default.createElement(
         "h4",
-        null,
+        { className: "text-success" },
         props.title
       )
     ),
@@ -412,15 +409,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import request from 'superagent';
-
 var ArticleList = function (_React$Component) {
   _inherits(ArticleList, _React$Component);
 
-  function ArticleList() {
+  function ArticleList(props) {
     _classCallCheck(this, ArticleList);
 
-    return _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ArticleList.__proto__ || Object.getPrototypeOf(ArticleList)).call(this, props));
+
+    _this.state = {};
+    // this.fetchNews = this.fetchNews.bind(this)
+    return _this;
   }
 
   _createClass(ArticleList, [{
@@ -430,15 +429,29 @@ var ArticleList = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { id: "list_articles", className: "container" },
-        this.props.news && JSON.parse(this.props.news).map(function (article, i) {
-          return _react2.default.createElement(_Article2.default, {
-            key: i++,
-            title: _this2.props.language ? _this2.props.language(article.title) : article.title,
+        null,
+        this.props.loading && _react2.default.createElement("img", { className: "img-ring", src: "/images/ring.gif", alt: "Responsive image" }),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "div",
+          { id: "list_articles", className: "container" },
+          _react2.default.createElement(
+            "ul",
+            { className: "list-group" },
+            _react2.default.createElement(
+              "li",
+              { className: "list-group-item" },
+              this.props.news && JSON.parse(this.props.news).map(function (article, i) {
+                return _react2.default.createElement(_Article2.default, {
+                  key: i++,
+                  title: _this2.props.language ? _this2.props.language(article.title) : article.title,
 
-            content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
-            url: article.url });
-        })
+                  content: _this2.props.language && article.content ? _this2.props.language(article.content) : article.content,
+                  url: article.url });
+              })
+            )
+          )
+        )
       );
     }
   }]);
@@ -449,21 +462,24 @@ var ArticleList = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     news: state.news,
-    language: state.language
+    language: state.language,
+    loading: state.loading
   };
 };
+
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   dispatch((0, _actions.fetchNews)());
   return {};
 };
+
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleList);
 
 /***/ }),
 
-/***/ "./client/components/Bookmarklet.jsx":
-/*!*******************************************!*\
-  !*** ./client/components/Bookmarklet.jsx ***!
-  \*******************************************/
+/***/ "./client/components/ChromeExt.jsx":
+/*!*****************************************!*\
+  !*** ./client/components/ChromeExt.jsx ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -480,51 +496,32 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Bookmarklet = function Bookmarklet() {
+var ChromeExt = function ChromeExt() {
   return _react2.default.createElement(
-    "div",
-    { className: "navbar navbar-expand-lg " },
+    'div',
+    { className: 'overlay-content' },
     _react2.default.createElement(
-      "a",
-      { href: "javascript:(function () { var script = document.createElement('script'); script.src = 'https://raw.githubusercontent.com/marie-phu-qui/Lord-of-the-News/master/server/lib/gollum.js'; console.log(script.src) document.body.appendChild(script);\n})();\n" },
-      "Bookmarklet"
+      'p',
+      { style: { color: 'white' } },
+      'This is a CRX file - Your can install it as a Chrome developer through \'Load Unpacked\'.'
+    ),
+    _react2.default.createElement(
+      'a',
+      { href: '/chrome_ext.crx', download: 'Gollumify' },
+      _react2.default.createElement(
+        'button',
+        null,
+        'Bless us and splash us, precious'
+      )
     )
   );
 };
 
-exports.default = Bookmarklet;
+// const downloadExt = () => {
 
-/***/ }),
+// }
 
-/***/ "./client/components/Contact.jsx":
-/*!***************************************!*\
-  !*** ./client/components/Contact.jsx ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Contact = function Contact() {
-  return _react2.default.createElement(
-    "div",
-    null,
-    "Contact"
-  );
-};
-
-exports.default = Contact;
+exports.default = ChromeExt;
 
 /***/ }),
 
@@ -550,17 +547,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Footer = function Footer(props) {
   return _react2.default.createElement(
-    'div',
-    { id: 'footer' },
+    "div",
+    { className: "container-footer" },
     _react2.default.createElement(
-      'a',
-      { href: 'https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md' },
-      'Our github'
-    ),
-    _react2.default.createElement(
-      'p',
-      null,
-      'The news API is provided by Google News. Thank you Google News'
+      "div",
+      { id: "footer" },
+      _react2.default.createElement(
+        "a",
+        { className: "text-success", href: "https://github.com/marie-phu-qui/Lord-of-the-News/blob/master/README.md" },
+        "Our github"
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "font-italic" },
+        "The news API is provided by Google News. Thank you Google News"
+      )
     )
   );
 };
@@ -582,28 +583,208 @@ exports.default = Footer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Header = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Animation = __webpack_require__(/*! ./Animation */ "./client/components/Animation.jsx");
+var _Meet = __webpack_require__(/*! ./Meet */ "./client/components/Meet.jsx");
 
-var _Animation2 = _interopRequireDefault(_Animation);
+var _Meet2 = _interopRequireDefault(_Meet);
+
+var _About = __webpack_require__(/*! ./About */ "./client/components/About.jsx");
+
+var _About2 = _interopRequireDefault(_About);
+
+var _ChromeExt = __webpack_require__(/*! ./ChromeExt */ "./client/components/ChromeExt.jsx");
+
+var _ChromeExt2 = _interopRequireDefault(_ChromeExt);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
-  return _react2.default.createElement(
-    'div',
-    { id: 'Header' },
-    _react2.default.createElement(
-      'h1',
-      null,
-      'Lord of the News'
-    )
-  );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import Contact from './Contact';
+
+
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+window.onscroll = function () {
+  scrollFunction();
 };
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+function topFunction() {
+  document.documentElement.scrollTop = 0;
+}
+
+// Must keep export here also for testing purposes 
+
+var Header = exports.Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = {
+      showContact: false,
+      showTeam: false,
+      showAbout: false,
+      showExt: false
+      // this.showContact = this.showContact.bind(this)
+    };_this.showAbout = _this.showAbout.bind(_this);
+    _this.showTeam = _this.showTeam.bind(_this);
+    _this.showExt = _this.showExt.bind(_this);
+    return _this;
+  }
+
+  _createClass(Header, [{
+    key: 'showTeam',
+    value: function showTeam() {
+      this.setState({
+        showContact: false,
+        showTeam: true,
+        showAbout: false,
+        showExt: false
+      });
+    }
+  }, {
+    key: 'showAbout',
+    value: function showAbout() {
+      this.setState({
+        showContact: false,
+        showTeam: false,
+        showAbout: true,
+        showExt: false
+      });
+    }
+    // showContact() {
+    //   this.setState({
+    //     showContact: true,
+    //     showTeam: false,
+    //     showAbout: false,
+    //     showExt: false
+    //   })
+    // }
+
+  }, {
+    key: 'showExt',
+    value: function showExt() {
+      this.setState({
+        showContact: false,
+        showTeam: false,
+        showAbout: false,
+        showExt: true
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { id: 'Header', className: 'container' },
+        _react2.default.createElement(
+          'h1',
+          { className: 'title font-weight-bold' },
+          'Lord of the News'
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'myNav', className: 'overlay' },
+          _react2.default.createElement(
+            'a',
+            { href: 'javascript:void(0)', className: 'closebtn', onClick: function onClick() {
+                return closeNav();
+              } },
+            '\xD7'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'overlay-content' },
+            _react2.default.createElement(
+              'a',
+              { href: '#', id: 'about-project', onClick: function onClick() {
+                  return _this2.showAbout();
+                } },
+              'About'
+            ),
+            this.state.showAbout && _react2.default.createElement(_About2.default, null),
+            _react2.default.createElement(
+              'a',
+              { href: '#', id: 'meet-team', onClick: function onClick() {
+                  return _this2.showTeam();
+                } },
+              'Meet the Team'
+            ),
+            this.state.showTeam && _react2.default.createElement(_Meet2.default, null),
+            _react2.default.createElement(
+              'a',
+              { href: '#', id: 'download-ext', onClick: function onClick() {
+                  return _this2.showExt();
+                } },
+              'Gollumify your Chrome'
+            ),
+            this.state.showExt && _react2.default.createElement(_ChromeExt2.default, null)
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'navpopup' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container' },
+            _react2.default.createElement(
+              'div',
+              { className: 'button-group' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return openNav();
+                  } },
+                ' More  '
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { id: 'myBtn' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                    return topFunction();
+                  } },
+                ' Top '
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Header;
+}(_react2.default.Component);
 
 exports.default = Header;
 
@@ -632,10 +813,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Meet = function Meet() {
   return _react2.default.createElement(
     "div",
-    { "class": "container" },
+    { className: "meet-container" },
     _react2.default.createElement(
       "div",
-      { "class": "row" },
+      { className: "row" },
       _react2.default.createElement(
         "h1",
         null,
@@ -644,87 +825,147 @@ var Meet = function Meet() {
     ),
     _react2.default.createElement(
       "div",
-      { "class": "row" },
+      { className: "row" },
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm-4 d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/gandalf.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
-            _react2.default.createElement("img", { src: "images/gandalf.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { "class": "content" },
+            { className: "card-body" },
             _react2.default.createElement(
-              "p",
-              null,
-              "Marie "
+              "h5",
+              { className: "card-title" },
+              "Marie"
             ),
             _react2.default.createElement(
-              "p",
-              null,
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
               "The wizard behind the project"
+            ),
+            _react2.default.createElement(
+              "p",
+              { className: "card-text" },
+              "For Machine Learning(TensorFlow.js), API + Testing, Natural Language Processing(Compromise.js), Chrome Extension queries"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseMarie", "aria-expanded": "false", "aria-controls": "collapseMarie" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseMarie" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: marie.nguyen.phu.qui at gmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 02108934396"
+              )
             )
           )
         )
       ),
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm-4 d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/frodo.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
-            _react2.default.createElement("img", { src: "images/frodo.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { "class": "content" },
+            { className: "card-body" },
             _react2.default.createElement(
-              "p",
-              null,
-              "Kyoko "
+              "h5",
+              { className: "card-title" },
+              "Kyoko"
             ),
             _react2.default.createElement(
-              "p",
-              null,
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
               "The courageous one"
+            ),
+            _react2.default.createElement(
+              "p",
+              { className: "card-text" },
+              "For React, Redux, Testing, CSS, Natural Language Processing, Basic Chrome Extension queries"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseKyoko", "aria-expanded": "false", "aria-controls": "collapseKyoko" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseKyoko" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: kmpohe at gmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 0211991056"
+              )
             )
           )
         )
       ),
       _react2.default.createElement(
         "div",
-        { "class": "col-sm-3" },
+        { className: "col-sm- d-flex align-items-stretch" },
         _react2.default.createElement(
           "div",
-          { "class": "card" },
-          _react2.default.createElement("canvas", { "class": "header-bg", width: "250", height: "70", id: "header-blur" }),
+          { className: "card", style: { width: '18rem' } },
+          _react2.default.createElement("img", { className: "card-img-top", src: "images/gollum.jpg", alt: "Card image cap" }),
           _react2.default.createElement(
             "div",
-            { "class": "avatar" },
-            _react2.default.createElement("img", { src: "images/gollum.jpeg", alt: "" })
-          ),
-          _react2.default.createElement(
-            "div",
-            { "class": "content" },
+            { className: "card-body" },
+            _react2.default.createElement(
+              "h5",
+              { className: "card-title" },
+              "Nat"
+            ),
+            _react2.default.createElement(
+              "h6",
+              { className: "card-subtitle mb-2 text-muted" },
+              "The ambitious one"
+            ),
             _react2.default.createElement(
               "p",
-              null,
-              "Nat "
+              { className: "card-text" },
+              "For React, CSS, User Interface, User Experience, GIF queries "
             ),
             _react2.default.createElement(
               "p",
               null,
-              "The ambitious one"
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-secondary", type: "button", "data-toggle": "collapse", "data-target": "#collapseNat", "aria-expanded": "false", "aria-controls": "collapseNat" },
+                "Contact"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "collapse", id: "collapseNat" },
+              _react2.default.createElement(
+                "div",
+                { className: "card card-body" },
+                "Email: nat_sirisamphan at hotmail.com",
+                _react2.default.createElement("br", null),
+                "Phone: 0220723077"
+              )
             )
           )
         )
@@ -732,199 +973,8 @@ var Meet = function Meet() {
     )
   );
 };
+
 exports.default = Meet;
-
-/***/ }),
-
-/***/ "./client/components/Overlay.jsx":
-/*!***************************************!*\
-  !*** ./client/components/Overlay.jsx ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Meet = __webpack_require__(/*! ./Meet */ "./client/components/Meet.jsx");
-
-var _Meet2 = _interopRequireDefault(_Meet);
-
-var _About = __webpack_require__(/*! ./About */ "./client/components/About.jsx");
-
-var _About2 = _interopRequireDefault(_About);
-
-var _Contact = __webpack_require__(/*! ./Contact */ "./client/components/Contact.jsx");
-
-var _Contact2 = _interopRequireDefault(_Contact);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-function topFunction() {
-  document.documentElement.scrollTop = 0;
-}
-
-var Overlay = function (_React$Component) {
-  _inherits(Overlay, _React$Component);
-
-  function Overlay(props) {
-    _classCallCheck(this, Overlay);
-
-    var _this = _possibleConstructorReturn(this, (Overlay.__proto__ || Object.getPrototypeOf(Overlay)).call(this, props));
-
-    _this.state = {
-      showContact: false,
-      showTeam: false,
-      showAbout: false
-    };
-    _this.showContact = _this.showContact.bind(_this);
-    _this.showAbout = _this.showAbout.bind(_this);
-    _this.showTeam = _this.showTeam.bind(_this);
-    return _this;
-  }
-
-  _createClass(Overlay, [{
-    key: 'showTeam',
-    value: function showTeam() {
-      console.log('show meeeeeeeeeeeeee TEAM');
-      this.setState({
-        showContact: false,
-        showTeam: true,
-        showAbout: false
-      });
-    }
-  }, {
-    key: 'showAbout',
-    value: function showAbout() {
-      console.log('show meeeeeeeeeeeeee ABOUT');
-      this.setState({
-        showContact: false,
-        showTeam: false,
-        showAbout: true
-      });
-    }
-  }, {
-    key: 'showContact',
-    value: function showContact() {
-      console.log('show meeeeeeeeeeeeee CONTACT');
-      this.setState({
-        showContact: true,
-        showTeam: false,
-        showAbout: false
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        'div',
-        { id: 'Header' },
-        _react2.default.createElement(
-          'div',
-          { id: 'myNav', className: 'overlay' },
-          _react2.default.createElement(
-            'a',
-            { href: 'javascript:void(0)', className: 'closebtn', onClick: function onClick() {
-                return closeNav();
-              } },
-            '\xD7'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'overlay-content' },
-            _react2.default.createElement(
-              'a',
-              { href: '#', id: 'about-project', onClick: function onClick() {
-                  return _this2.showAbout();
-                } },
-              'About'
-            ),
-            this.state.showAbout ? _react2.default.createElement(_About2.default, null) : console.log('nope'),
-            _react2.default.createElement(
-              'a',
-              { href: '#', id: 'meet-team', onClick: function onClick() {
-                  return _this2.showTeam();
-                } },
-              'Meet the Team'
-            ),
-            this.state.showTeam ? _react2.default.createElement(_Meet2.default, null) : console.log('nope'),
-            _react2.default.createElement(
-              'a',
-              { href: '#', id: 'contact-list', onClick: function onClick() {
-                  return _this2.showContact();
-                } },
-              'Contact'
-            ),
-            this.state.showContact ? _react2.default.createElement(_Contact2.default, null) : console.log('nope')
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { id: 'navpopup' },
-          _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                return openNav();
-              }, type: 'button', 'class': 'btn btn-light btn-lg' },
-            ' More  '
-          ),
-          _react2.default.createElement(
-            'div',
-            { id: 'myBtn' },
-            _react2.default.createElement(
-              'button',
-              { onClick: function onClick() {
-                  return topFunction();
-                } },
-              ' Top '
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Overlay;
-}(_react2.default.Component);
-
-exports.default = Overlay;
 
 /***/ }),
 
@@ -957,10 +1007,6 @@ var _nazgul = __webpack_require__(/*! ../../server/lib/nazgul */ "./server/lib/n
 
 var _actions = __webpack_require__(/*! ../actions */ "./client/actions/index.js");
 
-var _Bookmarklet = __webpack_require__(/*! ./Bookmarklet */ "./client/components/Bookmarklet.jsx");
-
-var _Bookmarklet2 = _interopRequireDefault(_Bookmarklet);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -968,6 +1014,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import Bookmarklet from './Bookmarklet'
+
+// Must keep export here also for testing purposes 
 
 var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
     _inherits(TranslateButtons, _React$Component);
@@ -994,51 +1044,39 @@ var TranslateButtons = exports.TranslateButtons = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            return _react2.default.createElement(
-                'nav',
-                { className: 'navbar navbar-expand-lg ' },
+            return (
+                // <nav className="navbar navbar-expand-lg ">
                 _react2.default.createElement(
                     'div',
-                    { className: 'collapse navbar-collapse', id: 'navbarNav' },
+                    { className: 'container' },
                     _react2.default.createElement(
-                        'ul',
-                        { className: 'navbar-nav' },
+                        'div',
+                        { className: 'button-group' },
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(null);
-                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
-                                'English'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(null);
+                                } },
+                            'English'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_gollum.gollumify);
-                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
-                                'Gollumify'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_gollum.gollumify);
+                                } },
+                            'Gollumify'
                         ),
                         _react2.default.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            _react2.default.createElement(
-                                'button',
-                                { className: 'nav-link', onClick: function onClick() {
-                                        return _this2.handleLanguageChange(_nazgul.nazgulify);
-                                    }, type: 'button', 'class': 'btn btn-light btn-lg' },
-                                'Nazgul'
-                            )
+                            'button',
+                            { type: 'button', className: 'btn btn-success btn-md mr-1', onClick: function onClick() {
+                                    return _this2.handleLanguageChange(_nazgul.nazgulify);
+                                } },
+                            'Nazgul'
                         )
-                    ),
-                    _react2.default.createElement(_Bookmarklet2.default, null)
+                    )
                 )
+                //  </nav>
+
             );
         }
     }]);
@@ -1145,6 +1183,23 @@ function news() {
   }
 }
 
+var LOADING = false;
+function loading() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : LOADING;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "REQUEST_DATA":
+      return true;
+    case "RECEIVE_NEWS":
+      return false;
+    case "SHOW_ERROR":
+      return false;
+    default:
+      return state;
+  }
+}
+
 var INITIAL_LANGUAGE_STATE = null;
 function language() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_LANGUAGE_STATE;
@@ -1160,7 +1215,8 @@ function language() {
 
 exports.default = (0, _redux.combineReducers)({
   news: news,
-  language: language
+  language: language,
+  loading: loading
 });
 
 /***/ }),
@@ -41070,10 +41126,10 @@ var dictionary = {
 	"she": "it",
 	"they": "its",
 	"Jacinda": "Gandalf",
-	"Donald": "Grrr President",
-	"Trump": "we hate it...we hate this man",
-	"trump": "we hate it...we hate this man",
-	"Trump's": "we hate it...we hate this man, he is orange,",
+	"Donald": "Smeagol",
+	"Trump": "we hate it...we hate this",
+	"trump": "we hate it...we hate this",
+	"Trump's": "Smeagol's",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",

@@ -13555,10 +13555,10 @@ var dictionary = {
 	"they": "its",
   "Jacinda": "Gandalf",
   "jacinda": "Gandalf",
-	"Donald": "Grrr President",
-	"Trump": "we hate it...we hate this man",
-	"trump": "we hate it...we hate this man",
-	"Trump's": "we hate it...we hate this man, he is orange,",
+	"Donald": "Smeagol",
+	"Trump": "we hate it...we hate this",
+	"trump": "we hate it...we hate this",
+	"Trump's": "Smeagol's",
 	"Firefighters": "Splash us with water, Smeagol",
 	"food": "alive fish",
 	",": "Gollum, Gollum, GOLLUM",
@@ -13690,7 +13690,6 @@ const runScript = () => {
   // console.log(typeof htmltext)
 
 Object.keys(htmltext).forEach(function(key) {
-  console.log(gollumify(htmltext[key].innerText));
   return (htmltext[key].innerText) = gollumify((htmltext[key].innerText));
 });
 

@@ -5,7 +5,7 @@ const Article = props => {
   return (
     <div>
       <a href={props.url}>
-        <h4>{props.title}</h4>
+        <h4 className="text-success">{props.title}</h4>
       </a>
       <p>
         {props.content}
@@ -13,5 +13,7 @@ const Article = props => {
     </div>
   );
 };
+
+
 
 export default Article;
