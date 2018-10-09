@@ -1,18 +1,30 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Article = props => {
+
+class Article extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
+  render() {
+  console.log(this.state.language && this.state.language)
   return (
     <div> 
-      <a href={props.url}>
-        <h4 className="text-success">{props.title}</h4>
+      <a href={this.props.url}>
+        <h4 className="text-success">{this.props.title}</h4>
       </a>
       <p>
-        {props.content}
+        {this.props.content}
       </p>
     </div>
-  );
-};
+  )};
+}
+
+const mapStateToProps = state => ({
+  language: state.language,
+})
 
 
-
-export default Article;
+export default connect(mapStateToProps)(Article);
