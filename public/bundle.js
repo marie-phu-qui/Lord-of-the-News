@@ -41213,7 +41213,6 @@ var nlp = __webpack_require__(/*! compromise */ "./node_modules/compromise/build
 var dictionary = (_dictionary = {
   "and": "agh",
   "one": "ash",
-  "dark": "burz",
   "darkness": "burzum",
   "rule": "durb",
   "fire": "ghâsh",
@@ -41232,6 +41231,66 @@ var dictionary = (_dictionary = {
   "old": "sharku"
 }, _defineProperty(_dictionary, "old", "sharku"), _defineProperty(_dictionary, "slave", "snaga"), _defineProperty(_dictionary, "bring", "thrak"), _defineProperty(_dictionary, "to find", "gimbatul"), _defineProperty(_dictionary, "to rule", "durbatulûk"), _defineProperty(_dictionary, "to bring", "thrakatulûk"), _defineProperty(_dictionary, "to", "u"), _defineProperty(_dictionary, "all", "ûk"), _defineProperty(_dictionary, "them all", "tuluk"), _defineProperty(_dictionary, "them", "atul"), _defineProperty(_dictionary, "ness", "um"), _defineProperty(_dictionary, "orc", "uruk"), _defineProperty(_dictionary, "son of", "una"), _dictionary);
 
+function translateWord(word) {
+  var nazgulWord = dictionary[word];
+  if (nazgulWord === undefined) return word;else return applyCase(word, nazgulWord);
+}
+
+// Take the case from wordA and apply it to wordB
+function applyCase(wordA, wordB) {
+  // Exception to avoid words like "I" being converted to "ME"
+  if (wordA.length === 1 && wordB.length !== 1) return wordB;
+  // Uppercase
+  if (wordA === wordA.toUpperCase()) return wordB.toUpperCase();
+  // Lowercase
+  if (wordA === wordA.toLowerCase()) return wordB.toLowerCase();
+  // Capitialized
+  var firstChar = wordA.slice(0, 1);
+  var otherChars = wordA.slice(1);
+  if (firstChar === firstChar.toUpperCase() && otherChars === otherChars.toLowerCase()) {
+    return wordB.slice(0, 1).toUpperCase() + wordB.slice(1).toLowerCase();
+  }
+  // Other cases
+  return wordB;
+};
+
+function isLetter(character) {
+  if (character.search(/[a-zA-Z'-]/) === -1) return false;
+  return true;
+}
+
+function translate(text) {
+  var translatedText = "";
+
+  // Loop through the text, one character at a time.
+  var word = "";
+  for (var i = 0; i < text.length; i += 1) {
+    var character = text[i];
+    // If the char is a letter, then we are in the middle of a word, so we
+    // should accumulate the letter into the word variable
+    if (isLetter(character)) {
+      word += character;
+    }
+    // If the char is not a letter, then we hit the end of a word, so we
+    // should translate the current word and add it to the translation
+    else {
+        if (word != "") {
+          // If we've just finished a word, translate it
+          var gollumWord = translateWord(word);
+          translatedText += gollumWord;
+          word = "";
+        }
+        translatedText += character; // Add the non-letter character
+      }
+  }
+
+  // If we ended the loop before translating a word, then translate the final
+  // word and add it to the translation.
+  if (word !== "") translatedText += translateWord(word);
+
+  return translatedText;
+};
+
 // Compromise functions
 var processNazPlaces = function processNazPlaces(text) {
   var originalText = nlp(text);
@@ -41241,7 +41300,9 @@ var processNazPlaces = function processNazPlaces(text) {
 
 var processNazAdj = function processNazAdj(text) {
   var originalText = nlp(text);
-  var adj = originalText.replace('#Adjective', 'dark').out('text');
+  var adjPossibilities = ['burz', 'dark', 'sinister'];
+  var chosenAdj = adjPossibilities[Math.floor(Math.random() * adjPossibilities.length)];
+  var adj = originalText.replace('#Adjective', chosenAdj).out('text');
   return adj;
 };
 
@@ -41271,7 +41332,8 @@ var compromiseNazgul = function compromiseNazgul(text) {
   var nazAdj = processNazAdj(nazNouns);
   var nazFirst = processNazFirstName(nazAdj);
   var nazLast = processNazLastName(nazFirst);
-  return nazLast;
+  var nazDic = translate(nazLast);
+  return nazDic;
 };
 
 var nazgulify = function nazgulify(text) {

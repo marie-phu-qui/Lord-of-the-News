@@ -1,6 +1,5 @@
 var nlp = require('compromise');
 
-
 var dictionary = {
 	"ring": "precious",
 	"me": "we",
@@ -54,7 +53,6 @@ function translateWord(word) {
 	if (gollumWord === undefined) return word;
 	else return applyCase(word, gollumWord);
 }
-
 
 // Take the case from wordA and apply it to wordB
 function applyCase(wordA, wordB) {
