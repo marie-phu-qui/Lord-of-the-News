@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/marie-phu-qui/Lord-of-the-News.git",
-  "author": "marie.nguyen.phu.aui@gmail.com <marie-phu-qui>",
+  "author": "marie.nguyen.phu.qui@gmail.com <marie-phu-qui>",
   "license": "ISC",
   "private": false,
   "scripts": {
@@ -25,9 +25,6 @@
     ]
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^0.13.1",
-    "@tensorflow/tfjs-node": "^0.1.17",
-    "@tensorflow/tfjs-node-gpu": "^0.1.17",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.0",
     "babel-preset-env": "^1.7.0",

@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-// import news from './news'
 
 const INITIAL_NEWS_STATE = ""
 function news(state = INITIAL_NEWS_STATE, action) {
