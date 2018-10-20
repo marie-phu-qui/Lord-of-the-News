@@ -14,8 +14,4 @@ const ChromeExt = () => {
   )
 }
 
-// const downloadExt = () => {
-
-// }
-
 export default ChromeExt

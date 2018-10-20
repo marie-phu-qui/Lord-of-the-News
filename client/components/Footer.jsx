@@ -8,7 +8,7 @@ const Footer = props => {
           Our github
         </a>
         <p className="font-italic">
-          The news API is provided by Google News. Thank you Google News
+          The news API is provided by Google News. Thank you Google News.
         </p>
       </div>
     </div>
