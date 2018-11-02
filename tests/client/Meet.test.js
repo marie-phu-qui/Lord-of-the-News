@@ -2,12 +2,12 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import '../setup-env.js'; // Setup Enzyme & Adapter
 
-import {App} from '../../client/components/App'
+import Meet from '../../client/components/Meet'
 
 
-describe('<App />', () => {
+describe('<Meet />', () => {
 
     test('renders without crashing', () => {
-        shallow(<App />);
+        shallow(<Meet />);
     });
 })

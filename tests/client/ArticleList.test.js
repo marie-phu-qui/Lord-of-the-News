@@ -2,12 +2,11 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import '../setup-env.js'; // Setup Enzyme & Adapter
 
-import {App} from '../../client/components/App'
+import ArticleList from './../../client/components/ArticleList'
+// Issue with connect element
 
-
-describe('<App />', () => {
-
+describe('<ArticleList />', () => {
     test('renders without crashing', () => {
-        shallow(<App />);
+        shallow(<ArticleList />);
     });
 })

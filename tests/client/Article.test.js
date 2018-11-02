@@ -2,12 +2,12 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import '../setup-env.js'; // Setup Enzyme & Adapter
 
-import {App} from '../../client/components/App'
+import Article from '../../client/components/Article'
 
 
-describe('<App />', () => {
+describe('<Article />', () => {
 
     test('renders without crashing', () => {
-        shallow(<App />);
+        shallow(<Article />);
     });
 })
