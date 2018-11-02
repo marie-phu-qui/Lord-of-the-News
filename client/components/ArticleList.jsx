@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { fetchNews } from '../actions'
 import Article from "./Article";
 
-class ArticleList extends React.Component {
+// use export here for unconnected testing
+export class ArticleList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -40,9 +41,9 @@ class ArticleList extends React.Component {
 
           })
         }
-        </li>
+          </li>
         </ul>
-      </div >
+        </div >
       </div >
     );
   };
