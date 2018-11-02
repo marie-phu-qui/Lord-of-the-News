@@ -1,17 +1,30 @@
 import React from "react";
-// import { translate } from '../../server/lib/gollum'
+import { connect } from "react-redux";
 
-const Article = props => {
+
+class Article extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
+  render() {
+  console.log(this.state.language && this.state.language)
   return (
-    <div>
-      <a href={props.url}>
-        <h4>{props.title}</h4>
+    <div> 
+      <a href={this.props.url}>
+        <h4 className="text-success">{this.props.title}</h4>
       </a>
       <p>
-        {props.content}
+        {this.props.content}
       </p>
     </div>
-  );
-};
+  )};
+}
 
-export default Article;
+const mapStateToProps = state => ({
+  language: state.language,
+})
+
+
+export default connect(mapStateToProps)(Article);

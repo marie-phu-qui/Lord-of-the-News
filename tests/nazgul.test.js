@@ -1,11 +1,8 @@
 let { nazgulify } = require('../server/lib/nazgul')
-// import { nazgulify } from '../server/lib/nazgul'
-
-
 
 test('test nazgulify changing a parsed sentence to something else ?', function () {
-  let string = 'Once in a blue moon'
-  let expected = 'Once in a dark moon'
+  let string = 'Once in Paris'
+  let expected = 'Once ishi Minas Morgul'
 
   // Act
   let actual = nazgulify(string)

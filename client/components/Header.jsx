@@ -2,7 +2,6 @@ import React from "react";
 
 import Meet from './Meet';
 import About from './About';
-import Contact from './Contact';
 import ChromeExt from './ChromeExt';
 
 
@@ -27,6 +26,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+
 // Must keep export here also for testing purposes 
 export class Header extends React.Component {
   constructor(props) {
@@ -37,7 +37,6 @@ export class Header extends React.Component {
       showAbout: false,
       showExt: false
     }
-    this.showContact = this.showContact.bind(this)
     this.showAbout = this.showAbout.bind(this)
     this.showTeam = this.showTeam.bind(this)
     this.showExt = this.showExt.bind(this)
@@ -59,14 +58,6 @@ export class Header extends React.Component {
       showExt: false
     })
   }
-  showContact() {
-    this.setState({
-      showContact: true,
-      showTeam: false,
-      showAbout: false,
-      showExt: false
-    })
-  }
 
   showExt() {
     this.setState({
@@ -76,10 +67,11 @@ export class Header extends React.Component {
       showExt: true
     })
   }
+
   render() {
     return (
-      <div id='Header'>
-        <h1>Lord of the News</h1>
+      <div id='Header' className="container">
+        <h1 className="title font-weight-bold">Lord of the News</h1>
 
         <div id="myNav" className="overlay">
           <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>
@@ -90,19 +82,20 @@ export class Header extends React.Component {
             <a href="#" id='meet-team' onClick={() => this.showTeam()}>
               Meet the Team</a>
             {this.state.showTeam &&  <Meet />}
-            <a href="#" id='contact-list' onClick={() => this.showContact()}>
-              Contact</a>
-            {this.state.showContact && <Contact />}
             <a href="#" id='download-ext' onClick={() => this.showExt()}>
               Gollumify your Chrome</a>
             {this.state.showExt && <ChromeExt />}
           </div>
         </div>
         <div id='navpopup'>
-          <button onClick={() => openNav()}> More  </button>
+                <div className="container" >
+          <div className="button-group">  
+            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => openNav()}> More  </button>
+            </div>
           <div id='myBtn'>
-            <button onClick={() => topFunction()}> Top </button>
+            <button type="button" className="btn btn-success btn-md mr-1" onClick={() => topFunction()}> Top </button>
           </div>
+        </div>
         </div>
       </div>
     )

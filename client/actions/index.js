@@ -29,7 +29,7 @@ export function fetchNews() {
     return request
       .get('/api/v1/news')
       .then(res => {
-        dispatch(receiveNews(res.text))
+        setTimeout(() => dispatch(receiveNews(res.text)), 4000)
       })
       .catch(err => {
         dispatch(showError(err.message))

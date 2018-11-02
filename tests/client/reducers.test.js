@@ -8,6 +8,7 @@ test('should return the initial news state', () => {
   //Arrange
   const expected = {
       news: "",
+      loading: false, 
       language: null
   }
   //Act
@@ -22,7 +23,7 @@ describe('select_reducer', () => {
     describe('RECEIVE_NEWS', () => {
         test('returns the correct state', () => {
           const action = { type: RECEIVE_NEWS };
-          const expectedState = { news: "", language: null };
+          const expectedState = { news: "", loading: false, language: null };
       
           expect(selectReducer(undefined, action)).toEqual(expectedState);
         });
@@ -31,7 +32,7 @@ describe('select_reducer', () => {
     describe('CHANGE_LANGUAGE', () => {
         test('returns the correct state', () => {
             const action = { type: CHANGE_LANGUAGE };
-            const expectedState = { news: "", language: null };
+            const expectedState = { news: "", loading: false, language: null };
         
             expect(selectReducer(undefined, action)).toEqual(expectedState);
         });

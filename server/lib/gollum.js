@@ -1,9 +1,4 @@
-// var fs  = require('fs');
-// var pos = require('pos');
 var nlp = require('compromise');
-// var ent = require('html-entities').AllHtmlEntities;
-
-// const googleNews = require('.../routes/googleNews')
 
 var dictionary = {
 	"ring": "precious",
@@ -25,15 +20,10 @@ var dictionary = {
 	"accuser": "thieff...ring thieff...oh my precious",
 	"Tourism": "Pie eating",
 	"tourism": "stupid",
-	"NZ": "Middle Earth",
 	"kiwis": "creatures",
 	"Kiwis": "hobbitses",
-	"New": "Middle",
-	"Zealand": "Earth",
 	"Police": "Orc",
 	"police": "orc horde",
-	"Kaikōura": "Rivendell",
-	"Kaikoura": "Rivendell",
 	"Government": "Fellowship of the Ring",
 	"Government's": "Fellowship of the Ring's",
 	"Govt": "The Fellowship of the Ring",
@@ -42,14 +32,23 @@ var dictionary = {
 	"Teens": "Hobbitses",
 	"teens": "hobbitses",
 	"local": "nasty hobbitses",
-	"Canterbury": "Gondor",
-	"Auckland": "the Shire",
-	"Ngauruhoe": "Mount Doom",
-	"Tongariro": "Mount Doom",
 	"cycling": "Eagle riding",
-	"Rotorua": "Helm's Deep",
 	"Rugby": "Catering Event for Hobbits",
-	"All Blacks": "Dragons"
+	"All Blacks": "Dragons",
+	"Kaikōura": "Rivendell",
+	"Kaikoura": "Rivendell",
+	"Canterbury": "Gondor",
+	"NZ": "Middle Earth",
+	"Auckland": " Minas Tirith",
+	"Ngauruhoe": "Mount Doom",
+	"Tongariro": "Moria",
+	"Rotorua": "Helm's Deep",
+	"New": "Middle",
+	"Zealand": "Earth",
+	"Napier": "The Mouths of Anduin",
+	"Christchurch":"Pelargir",
+	"Wellington" : "the Shire",
+	"Otago": "Bree"
 
 };
 
@@ -58,7 +57,6 @@ function translateWord(word) {
 	if (gollumWord === undefined) return word;
 	else return applyCase(word, gollumWord);
 }
-
 
 // Take the case from wordA and apply it to wordB
 function applyCase(wordA, wordB) {
@@ -82,9 +80,6 @@ function isLetter(character) {
 	if (character.search(/[a-zA-Z'-]/) === -1) return false;
 	return true;
 }
-
-// module.exports.dictionary = dictionary;
-
 
 function translate(text) {
 	var translatedText = "";
