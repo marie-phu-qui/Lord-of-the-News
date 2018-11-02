@@ -2,12 +2,12 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import '../setup-env.js'; // Setup Enzyme & Adapter
 
-import {App} from '../../client/components/App'
+import Footer from '../../client/components/Footer'
 
 
-describe('<App />', () => {
+describe('<Footer />', () => {
 
     test('renders without crashing', () => {
-        shallow(<App />);
+        shallow(<Footer />);
     });
 })
